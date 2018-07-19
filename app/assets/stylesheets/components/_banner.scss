@@ -1,0 +1,21 @@
+.banner {
+  height: 50vh;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.3)), asset-url('cedar-lodge.jpg');
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-text {
+  color: white;
+  h1 {
+    text-transform: uppercase;
+    color: white;
+  }
+  p {
+    font-size: 24px;
+    font-style: italic;
+  }
+}
