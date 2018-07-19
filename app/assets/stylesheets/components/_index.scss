@@ -1,6 +1,11 @@
 // Import your components CSS files here.
+#main-content {
+  min-height: calc(100vh - 100px);
+}
 @import "alert";
 @import "navbar";
 @import "banner";
 @import "cards";
 @import "footer";
+@import "container";
+@import "search";

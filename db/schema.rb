@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180719133044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "properties", force: :cascade do |t|
+    t.integer "code"
+    t.boolean "enabled"
+    t.string "name"
+    t.integer "sleeps"
+    t.string "headline"
+    t.text "description"
+    t.decimal "min_daily_price", precision: 6, scale: 2
+    t.integer "bedrooms"
+    t.integer "bathrooms"
+    t.boolean "wood_stove"
+    t.boolean "hot_tub"
+    t.boolean "pet_friendly"
+    t.boolean "sauna"
+    t.text "features"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

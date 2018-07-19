@@ -6,6 +6,17 @@
           <h1>Handpicked Lodges</h1>
           <h4>Your Highland Holiday Home</h4>
           <p>A collection of luxury and unique self catering dog friendly holiday lodges some with hot tubs in and around Aviemore and the Cairngorms</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <div class="availability-checker">
+                <%= simple_form_for :search, url: properties_path, method: :get do |t| %>
+                  <%= t.input :start_date, placeholder: "Check-in", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
+                  <%= t.input :end_date, placeholder: "Check-out", label: false, as: :string, input_html: { class: "end-date-picker" } %>
+                  <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
