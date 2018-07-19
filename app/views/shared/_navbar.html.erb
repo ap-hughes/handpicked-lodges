@@ -9,7 +9,7 @@
         <%= image_tag "handpicked-logo.png" %>
       <% end %>
       <div class="handpicked-navbar-right hidden-xs hidden-sm">
-        <div class="handpicked-navbar-item">The Lodges</div>
+        <div class="handpicked-navbar-item"><%= link_to 'The Lodges', properties_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'Go Catered?', pages_go_catered_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'About Us', pages_about_us_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'Contact', pages_contact_path, { :class=>"handpicked-navbar-link" } %></div>
@@ -41,7 +41,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right handpicked-navbar-dropdown-menu">
-        <li>The Lodges</li>
+        <li><%= link_to 'The Lodges', properties_path %></li>
         <li><%= link_to 'Go Catered?', pages_go_catered_path%></li>
         <li><%= link_to 'About Us', pages_about_us_path%></li>
         <li><%= link_to 'Contact', pages_contact_path%></li>

@@ -1,0 +1,21 @@
+.tab-spacing {
+  padding: 10px 0 0 0;
+}
+.nav-red .active a,
+.nav-red .active a:hover {
+    background-color: white !important;
+    color: $black !important;
+    border-radius: 0 !important;
+}
+.nav-red {
+  text-transform: uppercase;
+  background-color: $green;
+  a {
+  color: white;
+  }
+  a:hover {
+    color: $black !important;
+    background-color: white !important;
+    border-radius: 0 !important;
+  }
+}

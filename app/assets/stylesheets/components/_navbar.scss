@@ -78,7 +78,7 @@
   transition: color 0.3s ease;
 }
 .handpicked-navbar-link:hover {
-  color: $red;
+  color: $green;
   text-decoration: none;
 }
 .info-hover {
@@ -90,7 +90,7 @@
     transition: color 0.3s ease;
   }
   p:hover {
-    color: $red
+    color: $green
   }
 }
 /* Dropdown menu */
@@ -108,7 +108,7 @@
   }
   li > a:hover {
     background: transparent !important;
-    color: $red !important;
+    color: $green !important;
   }
 }
 .handpicked-navbar-dropdown-menu:before {
