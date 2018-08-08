@@ -1,9 +1,9 @@
-<div class="banner">
+<div class="banner home">
   <div class="header-text">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8">
-          <h1>Handpicked Lodges</h1>
+          <h1 class="big-text">Handpicked Lodges</h1>
           <h4>Your Highland Holiday Home</h4>
           <p>A collection of luxury and unique self catering dog friendly holiday lodges some with hot tubs in and around Aviemore and the Cairngorms</p>
           <div class="row">
@@ -21,60 +21,74 @@
       </div>
     </div>
   </div>
+  <section id="section05" class="demo">
+    <a href="#scroll-content"><span></span></a>
+  </section>
+</div>
+<section id="scroll-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Child friendly homes</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Cottages in the country</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Accommodation in Aviemore</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Pet friendly</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Lodges with wood burners</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card">
+          <div class="link-card-content">
+            <h4>Lodges with hot tub / sauna</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grey-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>The Lodges</h2>
+        <p>From adventurous family summer holidays in the Cairngorms to luxurious ski accommodation in the winter season, these lodges offer something very special ​all year round.</p>
+        <p>All of the lodges are dog friendly and child friendly and have wood-burning stoves. Some offer period features, others are airy and modern. Some are equipped with hot tub, sauna – or both – for a little luxury.</p>
+        <p>All our self-catering holiday homes are very different – which will become your favourite? Whether it is a cosy little retreat near the centre of Aviemore, or a large country lodge with views down to the river, we have a holiday home that you are sure to fall in love with. However, don't take our word for this please visit our Reviews Page!</p>
+        <%= link_to properties_path do %>
+          <div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Child friendly homes</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Cottages in the country</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Accommodation in Aviemore</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Pet friendly</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Lodges with wood burners</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="link-card">
-        <div class="link-card-content">
-          <h4>Lodges with hot tub / sauna</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>The Lodges</h2>
-      <p>From adventurous family summer holidays in the Cairngorms to luxurious ski accommodation in the winter season, these lodges offer something very special ​all year round.</p>
-      <p>All of the lodges are dog friendly and child friendly and have wood-burning stoves. Some offer period features, others are airy and modern. Some are equipped with hot tub, sauna – or both – for a little luxury.</p>
-      <p>All our self-catering holiday homes are very different – which will become your favourite? Whether it is a cosy little retreat near the centre of Aviemore, or a large country lodge with views down to the river, we have a holiday home that you are sure to fall in love with. However, don't take our word for this please visit our Reviews Page!</p>
-    </div>
-  </div>
   <div class="row">
     <div class="col-xs-12">
       <h2>Handpicked Lodges</h2>
@@ -90,14 +104,35 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>The Cairngorms National Park</h2>
-      <p>The Cairngorms National Park and the Cairngorm Mountain Range is an area of outstanding natural beauty.</p>
-      <p>The lodges are fantastically located within the Cairngorms National Park and close to all of the amenities of Aviemore, Grantown and the Strathspey area, including Cairngorm Mountain for the best skiing in Scotland.</p>
-      <p>It doesn't matter if you are a hiker, a biker or a family or whether it is nature and relaxation, adrenaline-filled fun or fine dining on Scotland's finest produce you can find it all on the doorstep of your Handpicked Lodge.</p>
+</div>
+<div class="grey-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Latest Reviews</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= link_to properties_path do %>
+          <div class="btn btn-success" style="margin: 0 0 15px 0px">REVIEWS</div>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h2>Live News</h2>
