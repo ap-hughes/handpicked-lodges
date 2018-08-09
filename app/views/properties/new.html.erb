@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Create a new lodge</h1>
+  <%= simple_form_for(@property) do |f| %>
+    <%= f.input :code %>
+    <%= f.input :enabled %>
+    <%= f.input :name %>
+    <%= f.input :sleeps %>
+    <%= f.input :headline %>
+    <%= f.input :min_daily_price %>
+    <%= f.input :bedrooms %>
+    <%= f.input :bathrooms %>
+    <%= f.input :wood_stove %>
+    <%= f.input :hot_tub %>
+    <%= f.input :pet_friendly %>
+    <%= f.input :sauna %>
+    <%= f.input :features %>
+    <%= f.input :hero_image %>
+    <%= f.submit %>
+  <% end %>
+</div>
