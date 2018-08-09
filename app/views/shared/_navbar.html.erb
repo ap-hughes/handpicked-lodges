@@ -9,6 +9,7 @@
         <%= image_tag "handpicked-logo.png" %>
       <% end %>
       <div class="handpicked-navbar-right hidden-xs hidden-sm">
+        <div class="handpicked-navbar-item"><%= link_to 'Book Now', properties_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'The Lodges', properties_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'Go Catered?', pages_go_catered_path, { :class=>"handpicked-navbar-link" } %></div>
         <div class="handpicked-navbar-item"><%= link_to 'About Us', pages_about_us_path, { :class=>"handpicked-navbar-link" } %></div>

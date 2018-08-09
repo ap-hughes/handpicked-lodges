@@ -1,7 +1,7 @@
 .handpicked-footer {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: $gray;
-  // padding: 10px 30px;
+  padding: 10px 50px 20px 50px;
   // display: flex;
   // align-items: center;
   // justify-content: space-between;
@@ -15,8 +15,38 @@
     color: $green;
     text-decoration: none;
   }
+  h5 {
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  h5:after {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    border-top: 1px solid white;
+  }
 }
-.fa-icons {
+@media only screen and (min-width: 720px) {
+  .handpicked-footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .handpicked-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.handpicked-footer-image img {
+  max-width: 200px;
+}
+.footer-icons {
   a {
     font-size: 1.5em;
     padding-left: 5px;
@@ -25,4 +55,7 @@
 .handpicked-footer-links {
   background: $gray;
   padding-top: 10px;
+}
+.footer-space {
+  margin-top: 20px;
 }

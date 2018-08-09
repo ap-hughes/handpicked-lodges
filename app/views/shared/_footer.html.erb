@@ -1,37 +1,42 @@
 <div class="handpicked-footer">
+  <h5><span>Navigation</span></h5>
   <div class="handpicked-footer-links">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 text-center">
+    <div class="handpicked-footer-top">
+      <div class="handpicked-footer-text text-center">
         <p><%= link_to 'The Lodges', properties_path %></p>
         <p><%= link_to 'Go Catered?', pages_go_catered_path%></p>
         <p><%= link_to 'About Us', pages_about_us_path%></p>
         <p><%= link_to 'Contact', pages_contact_path%></p>
       </div>
-      <div class="col-xs-12 col-sm-4 text-center">
+      <div class="handpicked-footer-text text-center">
         <p><%= link_to 'About the Area', pages_about_the_area_path %></p>
         <p><%= link_to 'Getting here', pages_getting_here_path %></p>
         <p><%= link_to 'Pet Friendly', pages_pet_friendly_path %></p>
         <p><%= link_to 'Families', pages_families_path %></p>
       </div>
-      <div class="col-xs-12 col-sm-4 text-center">
+      <div class="handpicked-footer-text text-center">
         <p><%= link_to 'Own a Property?', pages_own_a_property_path %></p>
         <p><%= link_to 'Terms and Conditions', pages_terms_and_conditions_path %></p>
         <p><%= link_to 'Frequently Asked Questions', pages_frequently_asked_questions_path %></p>
       </div>
     </div>
   </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
+  <h5>Connect with Us</h5>
+  <div class="handpicked-footer-bottom">
+    <div class="handpicked-footer-text">
       <p>Judith: 07984 791 623</p>
       <p>Tanja: 07545 990 633</p>
       <p><a href="mailto:info@handpickedlodges.com">info@handpickedlodges.com</a></p>
     </div>
-    <div class="col-xs-12 col-sm-6 text-right">
-      <div class="fa-icons">
-        <a href="https://www.facebook.com/HandpickedLodges/?ref=bookmarks" target="blank"><%= fa_icon "facebook" %></a>
-        <a href="https://www.instagram.com/handpickedlodges/?hl=en" target="blank"><%= fa_icon "instagram" %></a>
-      </div>
+    <div class="handpicked-footer-image footer-space">
+      <%= image_tag("cairngorm-national-park.jpg") %>
+      <%= image_tag("SecuredBy.png") %>
     </div>
+    <div class="footer-icons">
+      <a href="https://www.facebook.com/HandpickedLodges/?ref=bookmarks" target="blank"><%= fa_icon "facebook" %></a>
+      <a href="https://www.instagram.com/handpickedlodges/?hl=en" target="blank"><%= fa_icon "instagram" %></a>
+    </div>
+  </div>
+  <div class="handpicked-footer-top">
   </div>
 </div>
