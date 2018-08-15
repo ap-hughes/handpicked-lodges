@@ -1,6 +1,21 @@
 class PropertiesController < ApplicationController
-
   require 'open-uri'
+  before_action :find_property, except: [:new, :create, :index]
+
+  def new
+    @property = Property.new
+    @property.photos.build
+  end
+
+  def create
+    @property = Property.new(property_params)
+    if @property.save
+      flash[:notice] = "Successfully created property!"
+      redirect_to properties_path
+    else
+      render :new
+    end
+  end
 
   def index
     if params[:search].present?
@@ -59,7 +74,31 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def edit
+    @property.photos.build
+  end
+
+  def update
+    if @property.update(property_params)
+      redirect_to property_path(@property)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
+
+  def find_property
+    @property = Property.find(params[:id])
+  end
+
+  def property_params
+    params.require(:property).permit(:code, :enabled, :name, :sleeps, :headline, :description, :min_daily_price, :bedrooms, :bathrooms,
+      :wood_stove, :hot_tub, :pet_friendly, :sauna, :features, :hero_image, photos_attributes: [:id, :image])
+  end
 
   def get_availability(start_date, end_date)
     super_control = ENV["SUPER_CONTROL"]

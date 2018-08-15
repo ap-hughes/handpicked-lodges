@@ -9,6 +9,49 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+.show-banner {
+  height: 50vh;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.3)), asset-url('cedar-lodge.jpg');
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show-banner-cloudinary {
+  height: 50vh;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// .test-container {
+//   width: 500px;
+//   display: block;
+//   margin: 0 auto;
+// }
+.carousel{
+  width:90%;
+  margin:0px auto;
+}
+.slick-slide{
+  margin:10px;
+}
+.slick-slide img{
+  width:100%;
+  border: 2px solid #fff;
+}
+.slick-track {
+  width: 500px !important;
+}
+.nav-container {
+  width: 500px;
+  // display: inline;
+  // margin: 0 auto;
+}
 .home {
   height: 88vh;
 }
@@ -17,6 +60,14 @@
   h1 {
     text-transform: uppercase;
     color: white;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+.grey-header-text {
+  h1 {
+    text-transform: uppercase;
   }
   p {
     font-size: 20px;

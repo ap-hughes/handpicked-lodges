@@ -1,9 +1,41 @@
-<div class="banner">
-  <div class="header-text">
-    <h1><%= @property.name %></h1>
-    <h4><%= @property.headline %></h4>
-  </div>
+<!-- <div class="white-wrapper"> -->
+  <!-- <div class="test-container"> -->
+    <div class="slider">
+      <div>
+        <%= image_tag("cairngorm-national-park.jpg") %>
+      </div>
+      <div>
+        <%= image_tag("handpicked-logo.png") %>
+      </div>
+    </div>
+    <div class="slider-nav">
+      <div>
+        <%= image_tag("cairngorm-national-park.jpg") %>
+      </div>
+      <div>
+        <%= image_tag("handpicked-logo.png") %>
+      </div>
+    </div>
+ <!--  </div>
+</div> -->
+
+
+  <!-- <div class="container"> -->
+    <div class="grey-header-text">
+      <h1><%= @property.name %></h1>
+      <h4><%= @property.headline %></h4>
+    </div>
+    <% if @property.hero_image? %>
+      <div class="show-banner-cloudinary" style="background-image: url('<%= cl_image_path @property.hero_image, crop: :fill %>');">
+      </div>
+    <% else %>
+
+    <% end %>
+    </div>
+  <!-- </div> -->
 </div>
+
+
 <div class="container">
   <div class="main-container">
     <div class="row">

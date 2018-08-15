@@ -1,31 +1,6 @@
-//= require rails-ujs
-//= require_tree .
-//= require jquery
-//= require jquery-ui
-//= require jquery.slick
+// import slick from 'slick-carousel';
+// import 'slick-carousel/slick/slick-theme.css';
 
-// $(document).ready(function() {
-//   $("#accordion").accordion({
-//     collapsible: true
-//   });
-// });
-$(".header").click(function () {
-
-    $header = $(this).parents(".description-text");
-    //getting the next element
-    $content = $(".description-text");
-
-    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-    $content.slideToggle(500, function () {
-        //execute this after slideToggle is done
-        //change text of header based on visibility of content div
-        $header.text(function () {
-            //change text based on condition
-            return $content.is(":visible") ? "Collapse" : "More Detail";
-        });
-    });
-
-});
 // $(document).ready(function(){
 //   $('.slider').slick({
 //       slidesToShow: 1,
@@ -35,7 +10,7 @@ $(".header").click(function () {
 //       asNavFor: '.slider-nav'
 //   });
 //   $('.slider-nav').slick({
-//       slidesToShow: 3,
+//       slidesToShow: 4,
 //       slidesToScroll: 1,
 //       asNavFor: '.slider',
 //       dots: true,
@@ -63,4 +38,3 @@ $(".header").click(function () {
 //   //   focusOnSelect: true
 //   // });
 // });
-

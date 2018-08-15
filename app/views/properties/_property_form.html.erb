@@ -1,0 +1,23 @@
+<%= simple_form_for @property do |f| %>
+  <%= f.input :code %>
+  <%= f.input :enabled %>
+  <%= f.input :name %>
+  <%= f.input :sleeps %>
+  <%= f.input :headline %>
+  <%= f.input :description %>
+  <%= f.input :min_daily_price %>
+  <%= f.input :bedrooms %>
+  <%= f.input :bathrooms %>
+  <%= f.input :wood_stove %>
+  <%= f.input :hot_tub %>
+  <%= f.input :pet_friendly %>
+  <%= f.input :sauna %>
+  <%= f.input_field :features, multiple: true %>
+  <%= f.input :hero_image %>
+  <%= f.input :hero_image_cache, as: :hidden %>
+  <%= f.simple_fields_for :photos do |p| %>
+    <%= p.input :image %>
+    <%= p.input :image_cache, as: :hidden %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

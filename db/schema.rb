@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180719133044) do
+ActiveRecord::Schema.define(version: 20180809161647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "photos", force: :cascade do |t|
+    t.string "image"
+    t.bigint "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_photos_on_property_id"
+  end
 
   create_table "properties", force: :cascade do |t|
     t.integer "code"
@@ -32,6 +40,8 @@ ActiveRecord::Schema.define(version: 20180719133044) do
     t.text "features"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hero_image"
   end
 
+  add_foreign_key "photos", "properties"
 end

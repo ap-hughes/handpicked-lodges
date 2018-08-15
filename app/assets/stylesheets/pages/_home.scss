@@ -2,7 +2,11 @@
 .big-text {
   font-size: 3.5em;
 }
-.grey-banner {
+.grey-wrapper {
   background-color: $gray;
   color: white;
+}
+.white-wrapper {
+  background-color: white;
+  color: $gray;
 }

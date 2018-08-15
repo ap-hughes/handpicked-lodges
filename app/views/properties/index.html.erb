@@ -37,7 +37,7 @@
               <% @startdate = params[:search][:start_date] %>
               <% @enddate = params[:search][:end_date] %>
               <% @properties.where(code: @available_properties.keys).each do |property| %>
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-md-6">
                   <% @price = @available_properties[property.code][:price] %>
                   <% @book_link = @available_properties[property.code][:book_link] %>
                   <% @message = @available_properties[property.code][:price_message] %>
@@ -94,7 +94,7 @@
             <div class="row">
               <h4>Unfortunately these lodges are no longer available on your dates</h4>
               <% @properties.where.not(code: @available_properties.keys).each do |property| %>
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-md-6">
                   <div class="index-card">
                     <div class="index-card-img">
                     </div>
@@ -139,12 +139,13 @@
                 </div>
               <% end %>
             <% else %>
+              <% i = 1 %>
               <% @properties.each do |property| %>
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-md-6">
                   <div class="index-card">
                     <div class="index-card-img">
                     </div>
-                    <div class="index-card-content">
+                    <div class="index-card-content" data-position="<%= i %>">
                       <h4><%= property.name %></h4>
                       <h6>From £<%= property.min_daily_price.round.to_i %> per night</h6>
                       <div class="index-card-attributes">
@@ -169,17 +170,22 @@
                             <% end %>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-xs-6">
-                            <div class="btn btn-success">More detail</div>
-                          </div>
-                          <div class="col-xs-6">
-                            <%= link_to property_path(property), target: :_blank do %>
-                              <div class="btn btn-success">View Lodge</div>
-                            <% end %>
-                          </div>
-                        </div>
                       </div>
+                      <% i += 1 %>
+                      <div class="description-text" data-position="<%= i %>">
+                        <h5><%= property.headline %></h5>
+                        <p><%= property.description.truncate(500) %></p>
+                      </div>
+                    </div>
+                    <div class="index-card-btn-container" data-position="<%= i %>">
+                      <div class="index-card-btn red-back header">
+                        <p><span>More Detail</span></p>
+                      </div>
+                      <%= link_to property_path(property), target: :_blank do %>
+                        <div class="index-card-btn green-back">
+                          <p>View Lodge</p>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
