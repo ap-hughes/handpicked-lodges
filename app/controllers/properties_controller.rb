@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @property.photos.build
   end
 
   def create
@@ -12,7 +13,6 @@ class PropertiesController < ApplicationController
       flash[:notice] = "Successfully created property!"
       redirect_to properties_path
     else
-      flash[:alert] = "Error adding property!"
       render :new
     end
   end
@@ -75,6 +75,7 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @property.photos.build
   end
 
   def update
@@ -96,7 +97,7 @@ class PropertiesController < ApplicationController
 
   def property_params
     params.require(:property).permit(:code, :enabled, :name, :sleeps, :headline, :description, :min_daily_price, :bedrooms, :bathrooms,
-      :wood_stove, :hot_tub, :pet_friendly, :sauna, :features, :hero_image)
+      :wood_stove, :hot_tub, :pet_friendly, :sauna, :features, :hero_image, photos_attributes: [:id, :image])
   end
 
   def get_availability(start_date, end_date)
