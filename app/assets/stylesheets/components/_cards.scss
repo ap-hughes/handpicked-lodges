@@ -45,6 +45,22 @@
   max-width: 360px;
   justify-content: center;
 }
+.index-card-img-carousel {
+  background-size: cover !important;
+  background-position: center;
+  height: 300px;
+  max-width: 360px;
+  justify-content: center;
+}
+.carousel {
+  width: 100%;
+}
+.carousel .item{
+  min-height: 300px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+.carousel .item img{
+  margin: 0 auto; /* Align slide image horizontally center */
+}
 .index-card-content {
   width: 100%;
   background-color: $gray;
@@ -97,9 +113,9 @@
 .description-text {
   display: none;
 }
-// .description-text.active {
-//   height: 100%;
-// }
+.description-text.active {
+  height: 100%;
+}
 
 .red-back {
   background-color: $red;
