@@ -1,0 +1,13 @@
+<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @post.photo %>');">
+  <div class="header-text">
+    <h1><%= @post.title %></h1>
+    <h6><%= @post.created_at.strftime('%d %b, %Y') %></h6>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="post-body"><%= raw @post.body %></div>
+    </div>
+  </div>
+</div>

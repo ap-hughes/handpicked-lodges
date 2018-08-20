@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root to: 'pages#home'
   resources :properties do
     resources :photos, only: [ :new, :create, :destroy ]
   end
+  resources :posts
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'pages/about_the_area'

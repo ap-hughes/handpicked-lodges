@@ -3,6 +3,10 @@ ruby '2.4.3'
 
 gem "font-awesome-rails"
 
+# For posts
+gem 'ckeditor'
+gem 'mini_magick'
+
 gem 'jquery-ui-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "jquery-slick-rails"
