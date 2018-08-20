@@ -18,3 +18,80 @@
     border-radius: 0 !important;
   }
 }
+#map-overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3); /* Black background with opacity */
+  z-index: 21; /* Specify a stack order in case you're using a different order for other elements */
+}
+.map-button {
+  cursor: pointer;
+  height: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+  background-image: asset-url('aviemore-map.png');
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+}
+.map-button-text {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50px;
+  padding: 10px 15px 0px 15px;
+  line-height: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  p {
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+  }
+}
+.map-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-close {
+  a {
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;
+  }
+  a:hover {
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 250px) {
+  #index-map {
+    width: 200px;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 400px) {
+  #index-map {
+    width: 300px;
+    height: 400px;
+  }
+}
+@media screen and (min-width: 800px) {
+  #index-map {
+    width: 600px;
+    height: 400px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #index-map {
+    width: 1000px;
+    height: 600px;
+  }
+}
