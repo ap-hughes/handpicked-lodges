@@ -13,11 +13,14 @@
   <%= f.input :pet_friendly %>
   <%= f.input :sauna %>
   <%= f.input_field :features, multiple: true %>
+  <p>For latitude and longitudes of your property, please visit <a href="https://www.latlong.net/" target="blank">https://www.latlong.net/</a></p>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
   <%= f.input :hero_image %>
   <%= f.input :hero_image_cache, as: :hidden %>
   <%= f.simple_fields_for :photos do |p| %>
     <%= p.input :image %>
     <%= p.input :image_cache, as: :hidden %>
   <% end %>
-  <%= f.submit %>
+  <%= f.button :submit, class: "btn-success" %>
 <% end %>
