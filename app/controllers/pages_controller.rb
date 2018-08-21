@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @posts = Post.order(created_at: :desc).limit(2)
+    @reviews = Review.order(created_at: :desc).limit(3)
   end
   def about_the_area
   end
@@ -20,5 +22,8 @@ class PagesController < ApplicationController
   def terms_and_conditions
   end
   def frequently_asked_questions
+  end
+  def reviews
+    @reviews = Review.all
   end
 end
