@@ -63,7 +63,9 @@
                 <p><%= simple_format(@property.description) %></p>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="reviews">
-                <p>Reviews to be added to database and here</p>
+                <% @property.reviews.each do |review| %>
+                  <p>"<%= review.content %>"</p>
+                <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
                 <div id='show-map'></div>

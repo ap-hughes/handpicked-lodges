@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :properties do
     resources :photos, only: [ :new, :create, :destroy ]
+    resources :reviews, only: [ :new, :create, :destroy ]
   end
   resources :posts
 
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
   get 'pages/about_us'
   get 'pages/terms_and_conditions'
   get 'pages/frequently_asked_questions'
+  get 'pages/reviews'
 end

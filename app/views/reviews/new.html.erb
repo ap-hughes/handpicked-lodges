@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add a new review for <%= @property.name %></h1>
+  <%= simple_form_for [@property, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Add a review", class: "btn btn-success" %>
+  <% end %>
+</div>

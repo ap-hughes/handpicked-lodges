@@ -3,5 +3,6 @@ class Property < ApplicationRecord
   validates :code, uniqueness: true, numericality: { only_integer: true }
   serialize :features, Array
   has_many :photos, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   accepts_nested_attributes_for :photos
 end

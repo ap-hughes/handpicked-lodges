@@ -113,19 +113,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <p class="text-center"><em>"To be created, latest 3 reviews added are entered here..."</em></p>
-      </div>
+      <% @reviews.each do |review| %>
+        <div class="col-xs-12 col-sm-4">
+          <p class="text-center"><em>"<%= review.content %>"</em></p>
+          <p class="text-center"><%= review.property.name %></p>
+        </div>
+      <% end %>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <%= link_to properties_path do %>
+        <%= link_to pages_reviews_path do %>
           <div class="btn btn-success" style="margin: 0 0 15px 0px">REVIEWS</div>
         <% end %>
       </div>
@@ -138,15 +135,27 @@
       <h2>Live News</h2>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <p>to do</p>
+      <div class="fb-page" data-height="300" data-href="https://www.facebook.com/HandpickedLodges/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/HandpickedLodges/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/HandpickedLodges/">HandpickedLodges</a></blockquote></div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="link-card">
+    <% @posts.each do |post| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to post_path(post) do %>
+          <div class="link-card-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path post.photo %>');">
+            <div class="link-card-content">
+              <h4><%= post.title %></h4>
+              <p><%= post.created_at.strftime('%d %b, %Y') %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="link-card">
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
