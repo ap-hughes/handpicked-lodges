@@ -352,6 +352,7 @@
 <script>
   $( ".map-button" ).click(function() {
     $( "#map-overlay" ).fadeIn( "slow", function() {
+      map.resize();
       // Animation complete
     });
   });
