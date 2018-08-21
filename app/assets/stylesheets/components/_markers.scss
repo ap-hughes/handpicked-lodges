@@ -1,0 +1,16 @@
+.marker {
+  width: 30px;
+  height: 30px;
+  border: solid white;
+  border-radius: 50% 50% 50% 0;
+  background-color: $green;
+  // position: absolute;
+  // display: inline-block;
+  // transform: rotate(-45deg) !important;
+  // -ms-transform: rotate(-45deg) !important; /* IE 9 */
+  // -webkit-transform: rotate(-45deg) !important; /* Safari 3-8 */
+  // -moz-transform: rotate(-45deg) !important;
+  // left: 50%;
+  // top: 50%;
+  // margin: -20px 0 0 -20px;
+}

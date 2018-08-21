@@ -11,6 +11,10 @@ require 'open-uri'
 super_control = ENV["SUPER_CONTROL"]
 url = "http://api.supercontrol.co.uk/xml/filter3.asp?siteID=#{super_control}"
 
+puts "Deleting properties"
+
+Property.destroy_all
+
 puts "Creating properties"
 
 doc = Nokogiri::XML(open(url))
@@ -47,5 +51,84 @@ doc.root.xpath('property').each do |property|
       "Storage for sports equipment", "Parking for 4 cars", "​Large garden"]
     )
 end
+
+puts "Updating properties"
+
+#Alltnacriche
+Property.where(code: 489553).update(
+  name: "Alltnacriche",
+  latitude: 57.19437,
+  longitude: -3.82883
+  )
+
+#Burnbrae Lodge
+Property.where(code: 492277).update(
+  name: "Burnbrae Lodge",
+  latitude: 57.285271,
+  longitude: -3.810156
+  )
+
+#Cairn Eilrig
+Property.where(code: 529819).update(
+  name: "Cairn Eilrig",
+  latitude: 57.385271,
+  longitude: -3.92883
+  )
+
+#Foresters Lodge
+Property.where(code: 488258).update(
+  name: "Foresters Lodge",
+  latitude: 57.260641,
+  longitude: -3.640854,
+  )
+
+#Riverside Lodge
+Property.where(code: 490651).update(
+  name: "Riverside Lodge",
+  latitude: 57.325271,
+  longitude: -3.92483
+  )
+
+#Ryvoan Lodge
+Property.where(code: 539467).update(
+  name: "Ryvoan Lodge",
+  latitude: 57.395271,
+  longitude: -3.22883
+  )
+
+#Smithy & Riverside Lodge
+Property.where(code: 490734).update(
+  name: "Smithy & Riverside Lodge",
+  latitude: 57.185271,
+  longitude: -3.12883
+  )
+
+#The Bothy
+Property.where(code: 493259).update(
+  name: "The Bothy",
+  latitude: 57.202713,
+  longitude: -3.825383,
+  )
+
+#The Old Smithy
+Property.where(code: 490650).update(
+  name: "The Old Smithy",
+  latitude: 57.185271,
+  longitude: -2.92883
+  )
+
+#Trails End Lodge
+Property.where(code: 523669).update(
+  name: "Trails End Lodge",
+  latitude: 57.325271,
+  longitude: -3.12883
+  )
+
+#Westcott
+Property.where(code: 536256).update(
+  name: "Westcott",
+  latitude: 57.381234,
+  longitude: -3.21583
+  )
 
 puts "Finished creating properties"

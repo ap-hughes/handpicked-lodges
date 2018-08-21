@@ -42,7 +42,7 @@
       <div class="col-xs-12 col-sm-8">
         <div class="content-container">
         <!-- Nav tabs -->
-          <ul class="nav nav-pills nav-red nav-justified" role="tablist">
+          <ul class="nav nav-pills nav-green nav-justified" role="tablist">
             <li role="presentation" class="active"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">Features</a></li>
             <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
             <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
@@ -66,7 +66,57 @@
                 <p>Reviews to be added to database and here</p>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
-                <p>Map to be added</p>
+                <div id='show-map'></div>
+                <script>
+                  var token = "<%= ENV["MAPBOX"] %>";
+                  var longitude = "<%= @property.longitude %>";
+                  var latitude = "<%= @property.latitude %>";
+                  var markerImage = "<%= image_url("marker-15.svg") %>";
+                  console.log(markerImage);
+                  var geojson = {
+                      "type": "FeatureCollection",
+                      "features": [
+                          {
+                              "type": "Feature",
+                              "properties": {
+                                  "iconSize": [30, 30]
+                              },
+                              "geometry": {
+                                  "type": "Point",
+                                  "coordinates": [
+                                      longitude,
+                                      latitude
+                                  ]
+                              }
+                          }
+                      ]
+                  };
+                  mapboxgl.accessToken = token;
+                  var map = new mapboxgl.Map({
+                    container: 'show-map',
+                    style: 'mapbox://styles/mapbox/streets-v10',
+                    center: [longitude, latitude], // starting position
+                    zoom: 14 // starting zoom
+                  });
+
+                  // add markers to map
+                  geojson.features.forEach(function(marker) {
+                      // create a DOM element for the marker
+                      var el = document.createElement('div');
+                      el.className = 'marker';
+                      el.style.width = marker.properties.iconSize[0] + 'px';
+                      el.style.height = marker.properties.iconSize[1] + 'px';
+                      // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
+                      // add marker to map
+                      new mapboxgl.Marker(el)
+                          .setLngLat(marker.geometry.coordinates)
+                          .addTo(map);
+                  });
+
+                  // Add zoom and rotation controls to the map.
+                  map.addControl(new mapboxgl.NavigationControl());
+                </script>
+
               </div>
             </div>
           </div>

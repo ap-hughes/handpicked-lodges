@@ -6,7 +6,7 @@
       <p>Our lodges are all unique and characterful, but also wonderfully comfortable and welcoming. We want these handpicked holiday homes to truly be your home from home so we've made sure that they are fully kitted out with everything you may need during your stay. They are all perfect for families and for dogs and are in convenient but peaceful locations. They are all close to shops for everyday needs - but the Handpicked Lodges team are also at the end of the phone and only 15 minutes away should you ever need any further help or advice.</p>
     </div>
     <div class="col-xs-12 col-md-6">
-      <h3>What makes a Handpicked Lodge?</h3>
+      <h3>What is included in our Lodges?</h3>
       <p>​They all include kitchen linen and washing up materials, hand wash, towels and hairdryers, dishwashers and washing machines. There are no extra charges for heating and lighting and most provide free logs for the wood burning stoves during the winter months. Cots and high chairs are available on request. Many offer short breaks (2 nights or more) and they all offer weekend breaks as well as week long holidays.</p>
       <p style="font-size: 14px">Please note: all our lodges are no smoking</p>
     </div>
@@ -355,6 +355,7 @@
       // Animation complete
     });
   });
+
   // function on() {
   //     document.getElementById("map-overlay").style.display = "block";
   // }
@@ -363,13 +364,144 @@
   }
   var token = "<%= ENV["MAPBOX"] %>";
   mapboxgl.accessToken = token;
+  // Set max bounds of map to the whole of UK
+  var bounds = [
+      [-11.023648, 48.675969], // Southwest coordinates
+      [2.599399, 61.280440]  // Northeast coordinates
+  ];
+
   var map = new mapboxgl.Map({
     container: 'index-map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    center: [-74.50, 40], // starting position
-    zoom: 9 // starting zoom
+    center: [-3.440854, 57.260641], // starting position
+    zoom: 9, // starting zoom
+    maxBounds: bounds // Sets bounds as max
   });
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
+
+  var indexGeojson = {
+    "type": 'FeatureCollection',
+    "features": []
+  };
+
+  // helper function to create geoJson "feature"
+  const createGeoJsonFeature = (longitude, latitude, title, description, sleeps, bedrooms, bathrooms, url) => {
+    return {
+      "type": 'Feature',
+      "geometry": {
+        "type": 'Point',
+        "coordinates": [longitude, latitude]
+      },
+      "properties": {
+        "title": title,
+        "description": description,
+        "sleeps": sleeps,
+        "bedrooms": bedrooms,
+        "bathrooms": bathrooms,
+        "url": url
+      }
+    }
+  };
+
+  // helper function to add feature to indexGeoJson
+  const addToGeoJson = (geoJsonFeature) => {
+    indexGeojson.features.push(geoJsonFeature)
+  };
+
+  // add the data to the indexGeojson
+  let longitude = 1.0;
+  let latitude = 1.0;
+  let title = "";
+  let description = "";
+  let sleeps = 1.0;
+  let bedrooms = 1.0;
+  let bathrooms = 1.0;
+  let url = "";
+
+  <% @properties.each do |property| %>
+    longitude = <%= property.longitude %>
+    latitude = <%= property.latitude %>
+    title = "<%= property.name %>"
+    description = "<%= property.description.truncate(90, separator: /\s/) %>"
+    sleeps = <%= property.sleeps %>
+    bedrooms = <%= property.bedrooms %>
+    bathrooms = <%= property.bathrooms %>
+    url = "<%= properties_path(property) %>"
+    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, description, sleeps, bedrooms, bathrooms));
+  <% end %>
+
+  map.on('load', function(e) {
+    map.addSource('properties', {
+      type: 'geojson',
+      data: indexGeojson
+    });
+  });
+
+  function flyToProperty(currentFeature) {
+    map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 12
+    });
+  }
+
+  function createPopUp(currentFeature) {
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    // Check if there is already a popup on the map and if so, remove it
+    if (popUps[0]) popUps[0].remove();
+
+    var popup = new mapboxgl.Popup({ offset: 25 })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML('<h5>' + currentFeature.properties.title + '</h5><p>' + currentFeature.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p<a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>')
+      .addTo(map);
+  }
+
+  // this is so it is possible to use .remove() function in older browsers
+  if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+      if (this.parentNode) {
+        this.parentNode.removeChild(this);
+      }
+    };
+  }
+
+  const pointLinks = document.querySelectorAll('.point-link');
+  pointLinks.forEach((element) => {
+    // Add an event listener for the links in the sidebar listing
+    element.addEventListener('click', function(e) {
+      // Update the currentFeature to the store associated with the clicked link
+      var clickedListing = indexGeojson.features[this.dataset.position];
+      // 1. Fly to the point associated with the clicked link
+      flyToProperty(clickedListing);
+      // 2. Close all other popups and display popup for clicked property
+      createPopUp(clickedListing);
+    });
+  })
+
+  // Add markers to map
+  indexGeojson.features.forEach(function(marker) {
+    // create a HTML element for each feature
+    var el = document.createElement('i');
+    el.className = 'marker';
+    // make a marker for each poi feature and add to the map
+    new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 })
+    .setHTML('<h5>' + marker.properties.title + '</h5><p>' + marker.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>'))
+    .addTo(map);
+
+    el.addEventListener('click', (e) => {
+      flyToProperty(marker);
+      createPopUp(marker);
+      e.stopPropagation();
+      // if (activeItem[0]) {
+      //   activeItem[0].classList.remove('active');
+      // }
+      // var listing = document.getElementById('listing-' + i);
+      // console.log(listing);
+      // listing.classList.add('active');
+    })
+  });
+
 </script>
