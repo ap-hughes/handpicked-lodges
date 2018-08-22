@@ -126,18 +126,22 @@
                             <% end %>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-xs-6">
-                            <div class="btn btn-success">More detail</div>
-                          </div>
-                          <div class="col-xs-6">
-                            <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
-                            :end_date => @enddate), target: :_blank do %>
-                              <div class="btn btn-success">View Lodge</div>
-                            <% end %>
-                          </div>
-                        </div>
                       </div>
+                      <div class="description-text" id="description<%= i %>">
+                        <h5><%= property.headline %></h5>
+                        <p><%= property.description.truncate(500) %></p>
+                      </div>
+                    </div>
+                    <div class="index-card-btn-container">
+                      <div class="index-card-btn red-back header<%= i %>">
+                        <p><span>More Detail</span></p>
+                      </div>
+                      <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
+                            :end_date => @enddate), target: :_blank do %>
+                        <div class="index-card-btn green-back">
+                          <p>View Lodge</p>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -212,19 +216,23 @@
                             <% end %>
                           </div>
                         </div>
-                        <% i += 1 %>
-                        <div class="row">
-                          <div class="col-xs-6">
-                            <div class="btn btn-success">More detail</div>
-                          </div>
-                          <div class="col-xs-6">
-                            <%= link_to property_path(property), target: :_blank do %>
-                              <div class="btn btn-success">View Lodge</div>
-                            <% end %>
-                          </div>
-                        </div>
+                      </div>
+                      <div class="description-text" id="description<%= i %>">
+                        <h5><%= property.headline %></h5>
+                        <p><%= property.description.truncate(500) %></p>
                       </div>
                     </div>
+                    <div class="index-card-btn-container">
+                      <div class="index-card-btn red-back header<%= i %>">
+                        <p><span>More Detail</span></p>
+                      </div>
+                      <%= link_to property_path(property), target: :_blank do %>
+                        <div class="index-card-btn green-back">
+                          <p>View Lodge</p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <% i += 1 %>
                   </div>
                 </div>
               <% end %>
