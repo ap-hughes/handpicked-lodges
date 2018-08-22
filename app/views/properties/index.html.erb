@@ -257,16 +257,15 @@
                               <%= image_tag(cl_image_path property.hero_image, height: 300, width: 350, crop: :fill) %>
                             <% end %>
                           </div>
-                          <div class="item">
-                            <% unless property.photos[0].blank? %>
-                              <%= image_tag(cl_image_path property.photos[0].image, height: 300, width: 350, crop: :fill) %>
+                          <% unless property.photos.blank? %>
+                            <% property.photos.take(2).each do |photo| %>
+                              <% unless photo.image.blank? %>
+                                <div class="item">
+                                  <%= image_tag(cl_image_path photo.image, height: 300, width: 350, crop: :fill) %>
+                                </div>
+                              <% end %>
                             <% end %>
-                          </div>
-                          <div class="item">
-                            <% unless property.photos[1].blank? %>
-                              <%= image_tag(cl_image_path property.photos[1].image, height: 300, width: 350, crop: :fill) %>
-                            <% end %>
-                          </div>
+                          <% end %>
                         </div>
 
                         <!-- Left and right controls -->
