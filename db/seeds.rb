@@ -55,11 +55,26 @@ end
 puts "Updating properties"
 
 #Alltnacriche
-Property.where(code: 489553).update(
+alltnacriche = Property.where(code: 489553).update(
   name: "Alltnacriche",
   latitude: 57.19437,
   longitude: -3.82883
   )
+
+# puts "doing alltnacriche's photos"
+
+# [File.expand_path("~/Desktop/PBC/images/All Cabins 2018/Braeriach compressed/Braeriach/1Q7A4095-1-2.jpg"),
+#   File.expand_path("~/Desktop/PBC/images/All Cabins 2018/Braeriach compressed/Braeriach/1Q7A4122-1.jpg")].each do |link|
+#     alltnacriche.photo.create(remote_image_url: link)
+# end
+# alltnacriche.photos = [
+#   Pathname.new(File.expand_path("~/Desktop/PBC/images/All Cabins 2018/Braeriach compressed/Braeriach/1Q7A4095-1-2.jpg")).open,
+#   Pathname.new(File.expand_path("~/Desktop/PBC/images/All Cabins 2018/Braeriach compressed/Braeriach/1Q7A4122-1.jpg")).open
+# ]
+
+# alltnacriche.save!
+
+# puts "done alltnacriche's photos"
 
 #Burnbrae Lodge
 Property.where(code: 492277).update(
