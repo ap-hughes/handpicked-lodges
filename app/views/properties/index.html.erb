@@ -15,7 +15,7 @@
 <div class="container">
   <div class="main-container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-4 tall">
         <div class="sidebar-container-left">
           <!-- <a onclick="on()"> -->
             <div class="map-button">
@@ -32,6 +32,13 @@
               <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
             <% end %>
           </div>
+          <%= simple_form_for :query, url: properties_path, method: :get do |f| %>
+            <%= f.input :wood_stove, as: :boolean, checked_value: true, unchecked_value: false %>
+            <%= f.input :hot_tub, as: :boolean, checked_value: true, unchecked_value: false %>
+            <%= f.input :pet_friendly, as: :boolean, checked_value: true, unchecked_value: false %>
+            <%= f.input :sauna, as: :boolean, checked_value: true, unchecked_value: false %>
+            <%= f.button :submit, "Filter results", name: nil, class: "btn btn-success" %>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-8">

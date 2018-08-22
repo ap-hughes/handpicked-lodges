@@ -13,6 +13,7 @@ url = "http://api.supercontrol.co.uk/xml/filter3.asp?siteID=#{super_control}"
 
 puts "Deleting properties"
 
+Photo.destroy_all
 Property.destroy_all
 
 puts "Creating properties"

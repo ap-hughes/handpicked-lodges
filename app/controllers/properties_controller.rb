@@ -18,6 +18,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
+    @properties = Property.where(nil)
     if params[:search].present?
       start_date = params[:search][:start_date]
       end_date = params[:search][:end_date]
@@ -41,8 +42,25 @@ class PropertiesController < ApplicationController
       # hash
       # raise
     elsif params[:query].present?
-      @sleeps = params[:query]["sleeps"].present? ? params[:query]["sleeps"] : nil
-      @properties = Property.where(sleeps: @sleeps.to_i).order(:name)
+      filtering_params(params[:query]).each do |key, value|
+        @properties = @properties.public_send(key, value).order(:name) if value.present? && value == "true"
+      end
+      # @properties = @properties.wood_stove(params[:query][:wood_stove]).order(:name) if params[:query][:wood_stove].present?
+      # @properties = @properties.hot_tub(params[:query][:hot_tub]).order(:name) if params[:query][:hot_tub].present?
+      # @properties = @properties.pet_friendly(params[:query][:pet_friendly]).order(:name) if params[:query][:pet_friendly].present?
+      # @properties = @properties.sauna(params[:query][:sauna]).order(:name) if params[:query][:sauna].present?
+      # @wood_stove = params[:query]["wood_stove"].present? ? params[:query]["wood_stove"] : nil
+      # @hot_tub = params[:query]["hot_tub"].present? ? params[:query]["hot_tub"] : nil
+      # @pet_friendly = params[:query]["pet_friendly"].present? ? params[:query]["pet_friendly"] : nil
+      # @sauna = params[:query]["sauna"].present? ? params[:query]["sauna"] : nil
+      # sql_query = " \
+      #   properties.wood_stove ILIKE :query \
+      #   OR properties.hot_tub ILIKE :query \
+      #   OR properties.pet_friendly ILIKE :query \
+      #   OR properties.sauna ILIKE :query \
+      # "
+      # # @properties = Property.where(hot_tub: true).order(:name)
+      # @properties = Property.where(sql_query, query: "%#{params[:query]}%").order(:name)
     else
       @properties = Property.order(:name)
     end
@@ -90,6 +108,10 @@ class PropertiesController < ApplicationController
   end
 
   private
+
+  def filtering_params(params)
+    params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna)
+  end
 
   def find_property
     @property = Property.find(params[:id])
