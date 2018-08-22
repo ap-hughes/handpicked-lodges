@@ -21,54 +21,68 @@
       </div>
     </div>
   </div>
-  <section id="section05" class="demo">
-    <a href="#scroll-content"><span></span></a>
-  </section>
+  <% unless mobile_device? %>
+    <section id="section05" class="demo">
+      <a href="#scroll-content"><span></span></a>
+    </section>
+  <% end %>
 </div>
 <section id="scroll-content">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Child friendly homes</h4>
+        <%= link_to properties_path do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Child friendly homes</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Cottages in the country</h4>
+        <%= link_to properties_path do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Cottages in the country</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Accommodation in Aviemore</h4>
+        <%= link_to properties_path do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Accommodation in Aviemore</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Pet friendly</h4>
+        <%= link_to properties_path(query: {pet_friendly: "true"}) do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Pet friendly</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Lodges with wood burners</h4>
+        <%= link_to properties_path(query: {wood_stove: "true"}) do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Lodges with wood burners</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card">
-          <div class="link-card-content">
-            <h4>Lodges with hot tub / sauna</h4>
+        <%= link_to properties_path(query: {hot_tub: "true", sauna: "true"}) do %>
+          <div class="link-card">
+            <div class="link-card-content">
+              <h4>Lodges with hot tub / sauna</h4>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
