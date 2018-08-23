@@ -10,14 +10,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
-    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
   </head>
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div id="main-content">
+    <!-- <div id="main-content"> -->
       <%= yield %>
-    </div>
+    <!-- </div> -->
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
