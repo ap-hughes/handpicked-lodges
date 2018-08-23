@@ -1,3 +1,5 @@
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+
 <div class="container">
   <div class="grey-header-text">
     <h1><%= @property.name %></h1>
@@ -16,25 +18,15 @@
       <% end %>
     </div>
 
-    <div class="mySlides">
-      <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-    </div>
-
-    <div class="mySlides">
-      <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-    </div>
-
-    <div class="mySlides">
-      <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-    </div>
-
-    <div class="mySlides">
-      <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-    </div>
-
-    <div class="mySlides">
-      <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-    </div>
+    <% unless @property.photos.blank? %>
+      <% @property.photos.each do |photo| %>
+        <% unless photo.image.blank? %>
+          <div class="mySlides">
+            <%= cl_image_tag(photo.image, style:"width: 100%") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -46,24 +38,20 @@
         <% if @property.hero_image? %>
           <%= cl_image_tag(@property.hero_image, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
         <% else %>
-          <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
+          <%= image_tag(("cedar-lodge.jpg"), crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
         <% end %>
       </div>
-      <div class="gallery-column">
-        <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(2)") %>
-      </div>
-      <div class="gallery-column">
-        <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(3)") %>
-      </div>
-      <div class="gallery-column">
-        <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(4)") %>
-      </div>
-      <div class="gallery-column">
-        <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(5)") %>
-      </div>
-      <div class="gallery-column">
-        <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%", class: "demo cursor", onclick:"currentSlide(6)") %>
-      </div>
+      <% unless @property.photos.blank? %>
+        <% i = 2 %>
+        <% @property.photos.each do |photo| %>
+          <% unless photo.image.blank? %>
+            <div class="gallery-column">
+              <%= cl_image_tag(photo.image, style:"width: 100%", crop: :fill, class: "demo cursor", onclick:"currentSlide(#{i})") %>
+            </div>
+          <% i += 1 %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -102,56 +90,6 @@
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
                 <div id='show-map'></div>
-                <script>
-                  var token = "<%= ENV["MAPBOX"] %>";
-                  var longitude = "<%= @property.longitude %>";
-                  var latitude = "<%= @property.latitude %>";
-                  var markerImage = "<%= image_url("marker-15.svg") %>";
-                  console.log(markerImage);
-                  var geojson = {
-                      "type": "FeatureCollection",
-                      "features": [
-                          {
-                              "type": "Feature",
-                              "properties": {
-                                  "iconSize": [30, 30]
-                              },
-                              "geometry": {
-                                  "type": "Point",
-                                  "coordinates": [
-                                      longitude,
-                                      latitude
-                                  ]
-                              }
-                          }
-                      ]
-                  };
-                  mapboxgl.accessToken = token;
-                  var map = new mapboxgl.Map({
-                    container: 'show-map',
-                    style: 'mapbox://styles/mapbox/streets-v10',
-                    center: [longitude, latitude], // starting position
-                    zoom: 14 // starting zoom
-                  });
-
-                  // add markers to map
-                  geojson.features.forEach(function(marker) {
-                      // create a DOM element for the marker
-                      var el = document.createElement('div');
-                      el.className = 'marker';
-                      el.style.width = marker.properties.iconSize[0] + 'px';
-                      el.style.height = marker.properties.iconSize[1] + 'px';
-                      // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
-                      // add marker to map
-                      new mapboxgl.Marker(el)
-                          .setLngLat(marker.geometry.coordinates)
-                          .addTo(map);
-                  });
-
-                  // Add zoom and rotation controls to the map.
-                  map.addControl(new mapboxgl.NavigationControl());
-                </script>
-
               </div>
             </div>
           </div>
@@ -222,4 +160,67 @@
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
   }
+</script>
+<script>
+  // $( "#map" ).click(function() {
+  //   $( "#show-map" ).delay(200)(function() {
+  //     map.resize();
+  //     // Animation complete
+  //   })
+  // });
+  // $( "#map" ).click(function() {
+  //   map.resize();
+  // });
+  // $('.nav-tabs a:last').click(function(){
+  //   $(this).tab('show')(function() {
+  //     map.resize();
+  //   });
+  // });
+  var token = "<%= ENV["MAPBOX"] %>";
+  var longitude = "<%= @property.longitude %>";
+  var latitude = "<%= @property.latitude %>";
+  var markerImage = "<%= image_url("marker-15.svg") %>";
+  console.log(markerImage);
+  var geojson = {
+      "type": "FeatureCollection",
+      "features": [
+          {
+              "type": "Feature",
+              "properties": {
+                  "iconSize": [30, 30]
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                      longitude,
+                      latitude
+                  ]
+              }
+          }
+      ]
+  };
+  mapboxgl.accessToken = token;
+  var map = new mapboxgl.Map({
+    container: 'show-map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [longitude, latitude], // starting position
+    zoom: 14 // starting zoom
+  });
+
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+      // create a DOM element for the marker
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.style.width = marker.properties.iconSize[0] + 'px';
+      el.style.height = marker.properties.iconSize[1] + 'px';
+      // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
+      // add marker to map
+      new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+  });
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
 </script>
