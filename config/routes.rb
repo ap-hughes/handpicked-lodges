@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :properties, only: [ :new, :index, :create, :edit, :update, :destroy ]
       # resources :photos, only: [ :new, :create, :destroy ]
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
-    # resources :reviews, only: [ :new, :create, :destroy ]
+    resources :reviews, only: [ :new, :create, :index, :destroy ]
   end
 
   get 'admin' => 'admin/properties#index'

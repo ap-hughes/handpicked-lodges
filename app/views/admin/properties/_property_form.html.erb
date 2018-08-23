@@ -46,9 +46,6 @@
     <%= p.input :image %>
     <%= p.input :image_cache, as: :hidden %>
   <% end %>
-  <%= f.simple_fields_for :reviews, @reviews do |r| %>
-    <%= r.input :content, label: "Review Content", placeholder: "Enter your review for the property here, as applicable" %>
-  <% end %>
   <%= f.button :submit, class: "btn-success" %>
 <% end %>
 <br>
