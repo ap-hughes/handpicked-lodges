@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   resources :posts, only: [ :index, :show ]
 
   namespace :admin do
-    resources :properties, only: [ :new, :index, :create, :edit, :update, :destroy ] do
-      resources :photos, only: [ :new, :create, :destroy ]
-    end
+    resources :properties, only: [ :new, :index, :create, :edit, :update, :destroy ]
+      # resources :photos, only: [ :new, :create, :destroy ]
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
-    resources :reviews, only: [ :new, :create, :destroy ]
+    # resources :reviews, only: [ :new, :create, :destroy ]
   end
 
   get 'admin' => 'admin/properties#index'

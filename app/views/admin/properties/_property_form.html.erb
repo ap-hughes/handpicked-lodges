@@ -1,4 +1,4 @@
-<%= simple_form_for @property do |f| %>
+<%= simple_form_for ([:admin, @property]) do |f| %>
   <%= f.input :code %>
   <%= f.input :enabled %>
   <%= f.input :name %>
@@ -42,9 +42,13 @@
       <% end %>
     </div>
   <% end %>
-  <%= f.simple_fields_for :photos do |p| %>
+  <%= f.simple_fields_for :photos, @photos do |p| %>
     <%= p.input :image %>
     <%= p.input :image_cache, as: :hidden %>
   <% end %>
+  <%= f.simple_fields_for :reviews, @reviews do |r| %>
+    <%= r.input :content, label: "Review Content", placeholder: "Enter your review for the property here, as applicable" %>
+  <% end %>
   <%= f.button :submit, class: "btn-success" %>
 <% end %>
+<br>
