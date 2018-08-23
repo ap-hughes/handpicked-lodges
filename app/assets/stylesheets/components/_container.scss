@@ -12,11 +12,23 @@
   top: 120px !important;
   overflow: hidden;
 }
-.sidebar-container-left {
-  flex: 1;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 120px;
+#properties-sidebar {
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 800px) {
+  #properties-sidebar {
+    position: sticky;
+    top: 110px;
+  }
+}
+.properties-sidebar-content {
+  background-color: $gray;
+  padding: 10px 20px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  color: white;
+}
+.form-spacing {
+  padding: 0px;
 }
 .tall {
   // height: 250vh;

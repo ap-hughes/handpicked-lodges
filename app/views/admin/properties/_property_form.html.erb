@@ -1,0 +1,51 @@
+<%= simple_form_for ([:admin, @property]) do |f| %>
+  <%= f.input :code %>
+  <%= f.input :enabled %>
+  <%= f.input :name %>
+  <%= f.input :sleeps %>
+  <%= f.input :headline %>
+  <%= f.input :description %>
+  <%= f.input :min_daily_price %>
+  <%= f.input :bedrooms %>
+  <%= f.input :bathrooms %>
+  <%= f.input :wood_stove %>
+  <%= f.input :hot_tub %>
+  <%= f.input :pet_friendly %>
+  <%= f.input :sauna %>
+  <%= f.input_field :features, multiple: true %>
+  <br>
+  <br>
+  <p><strong>For the latitude and longitude of your property, please visit <a href="https://www.latlong.net/" target="blank">https://www.latlong.net/</a></strong></p>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <% if @property.hero_image? %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <p><strong>Current hero image...</strong></p>
+        <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @property.hero_image %>');">
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= f.input :hero_image %>
+  <%= f.input :hero_image_cache, as: :hidden %>
+  <% if @property.photos.present? %>
+    <div class="row">
+      <% @property.photos.each do |photo| %>
+        <% unless photo.image.blank? %>
+          <div class="col-xs-12 col-sm-4">
+            <p><strong>Photo filename:</strong> <%= photo.image.filename %></p>
+            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path photo.image %>');">
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.simple_fields_for :photos, @photos do |p| %>
+    <%= p.input :image %>
+    <%= p.input :image_cache, as: :hidden %>
+  <% end %>
+  <%= f.button :submit, class: "btn-success" %>
+<% end %>
+<br>

@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  devise_for :admins, path: 'admin', skip: :registrations
   mount Ckeditor::Engine => '/ckeditor'
   root to: 'pages#home'
-  resources :properties do
-    resources :photos, only: [ :new, :create, :destroy ]
-    resources :reviews, only: [ :new, :create, :destroy ]
+  resources :properties, only: [ :index, :show ]
+  resources :posts, only: [ :index, :show ]
+
+  namespace :admin do
+    resources :properties, only: [ :new, :index, :create, :edit, :update, :destroy ]
+      # resources :photos, only: [ :new, :create, :destroy ]
+    resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
+    resources :reviews, only: [ :new, :create, :index, :destroy ]
   end
-  resources :posts
+
+  get 'admin' => 'admin/properties#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'pages/about_the_area'

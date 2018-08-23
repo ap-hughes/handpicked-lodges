@@ -9,5 +9,10 @@ class Property < ApplicationRecord
   serialize :features, Array
   has_many :photos, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos,
+    allow_destroy: true,
+    :reject_if => proc { |att| att[:image].blank? }
+  accepts_nested_attributes_for :reviews,
+    allow_destroy: true,
+    :reject_if => proc { |att| att[:content].blank? }
 end

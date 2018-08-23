@@ -1,0 +1,30 @@
+<h1>Blog Posts</h1>
+
+<div class="form-group">
+  <%= link_to 'New Blog Post', new_admin_post_path, class: 'btn btn-default' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Blog Post</th>
+      <th>Date Published</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= link_to post.title, [post] %></td>
+        <td><%= post.created_at.strftime('%d %b, %Y') %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_post_path(post), class: 'btn btn-default' %>
+          <%= link_to 'Delete', [:admin, post], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
