@@ -1,0 +1,30 @@
+<h1>Properties</h1>
+
+<div class="form-group">
+  <%= link_to 'New Property', new_admin_property_path, class: 'btn btn-default' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Property</th>
+      <th>Tagline</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.id %></td>
+        <td><%= link_to property.name, [property] %></td>
+        <td><%= property.headline %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_property_path(property), class: 'btn btn-default' %>
+          <%= link_to 'Delete', [:admin, property], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

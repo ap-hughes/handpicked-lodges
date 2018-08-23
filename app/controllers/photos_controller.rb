@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_admin!
   before_action :find_photo, only: [:destroy]
 
   def new

@@ -3,6 +3,9 @@ ruby '2.4.3'
 
 gem "font-awesome-rails"
 
+#admins
+gem 'devise'
+
 # For posts
 gem 'ckeditor'
 gem 'mini_magick'
