@@ -28,6 +28,6 @@ class Admin::ReviewsController < Admin::AdminController
   private
 
   def review_params
-    params.require(:review).permit(:content, :property_id)
+    params.require(:review).permit(:content, :date, :property_id)
   end
 end

@@ -10,7 +10,7 @@
     <% @reviews.each_with_index do |review, index| %>
       <h3><%= review.property.name unless index == 1 %></h3>
       <div class="col-xs-12">
-        <p>"<%= review.content %>"</p>
+        <p><em>"<%= review.content %>"</em> <%= review.date %></p>
       </div>
     <% end %>
   </div>

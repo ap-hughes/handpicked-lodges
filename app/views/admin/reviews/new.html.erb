@@ -3,6 +3,7 @@
   <%= simple_form_for ([:admin, @review]) do |f| %>
     <%= f.association :property %>
     <%= f.input :content %>
+    <%= f.input :date, placeholder: "e.g. June 2018" %>
     <%= f.submit "Add a review", class: "btn btn-success" %>
   <% end %>
 </div>
