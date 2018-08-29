@@ -95,16 +95,17 @@
 }
 .index-card-content {
   width: 100%;
-  background-color: $gray;
+  background-color: white;
   padding: 10px;
   // position: absolute;
   // bottom: 10%;
-  color: $light-gray;
+  color: $black;
   h4 {
     margin: 0;
   }
   h6 {
     color: $green;
+    font-weight: bold;
   }
   p {
     margin: 0;
