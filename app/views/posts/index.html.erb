@@ -8,14 +8,17 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col">
       <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
-          <div class="link-card-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path post.photo %>');">
+        <div class="link-card-container">
+          <%= link_to post_path(post) do %>
+            <div class="link-card-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path post.photo %>');">
+            </div>
             <div class="link-card-content">
               <h4><%= post.title %></h4>
               <p><%= post.created_at.strftime('%d %b, %Y') %></p>
+              <p><%= raw post.body.truncate(400) %></p>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <% unless mobile_device? %>

@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @previous_post = @post.next
+    @next_post = @post.previous
   end
 
   def new

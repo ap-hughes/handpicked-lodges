@@ -10,4 +10,41 @@
       <div class="post-body"><%= raw @post.body %></div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-2">
+      <% if @previous_post %>
+        <h4>Previous Blog</h4>
+        <div class="link-card-container">
+          <%= link_to post_path(@previous_post) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @previous_post.photo %>');">
+            </div>
+            <div class="link-card-content">
+              <h4><%= @previous_post.title %></h4>
+              <p><%= @previous_post.created_at.strftime('%d %b, %Y') %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <% if @next_post %>
+        <h4>Next Blog</h4>
+        <div class="link-card-container">
+          <%= link_to post_path(@next_post) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @next_post.photo %>');">
+            </div>
+            <div class="link-card-content">
+              <h4><%= @next_post.title %></h4>
+              <p><%= @next_post.created_at.strftime('%d %b, %Y') %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<!--   <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h4>Read our other blog posts here</h4>
+    </div>
+  </div> -->
 </div>
