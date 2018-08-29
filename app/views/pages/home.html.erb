@@ -40,7 +40,7 @@
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= link_to properties_path do %>
+        <%= link_to properties_path(query: {in_country: "true"}) do %>
           <div class="link-card">
             <div class="link-card-content">
               <h4>Cottages in the country</h4>
@@ -49,7 +49,7 @@
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= link_to properties_path do %>
+        <%= link_to properties_path(query: {in_aviemore: "true"}) do %>
           <div class="link-card">
             <div class="link-card-content">
               <h4>Accommodation in Aviemore</h4>
@@ -142,7 +142,7 @@
       <% @reviews.each do |review| %>
         <div class="col-xs-12 col-sm-4">
           <p class="text-center"><em>"<%= review.content %>"</em></p>
-          <p class="text-center"><%= review.property.name %></p>
+          <p class="text-center"><%= review.date %>, <%= review.property.name %></p>
         </div>
       <% end %>
     </div>

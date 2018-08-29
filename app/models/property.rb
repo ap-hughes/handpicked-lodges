@@ -3,6 +3,8 @@ class Property < ApplicationRecord
   scope :hot_tub, -> (hot_tub) { where hot_tub: hot_tub }
   scope :pet_friendly, -> (pet_friendly) { where pet_friendly: pet_friendly }
   scope :sauna, -> (sauna) { where sauna: sauna }
+  scope :in_aviemore, -> (in_aviemore) { where in_aviemore: in_aviemore }
+  scope :in_country, -> (in_country) { where in_country: in_country }
 
   mount_uploader :hero_image, PhotoUploader
   validates :code, uniqueness: true, numericality: { only_integer: true }

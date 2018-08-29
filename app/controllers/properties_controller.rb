@@ -84,7 +84,7 @@ class PropertiesController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna)
+    params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country)
   end
 
   def get_availability(start_date, end_date)
