@@ -33,13 +33,13 @@
               <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
             <% end %>
           </div>
-          <%= simple_form_for :query, url: properties_path, method: :get, :defaults => { :input_html => { :class => "form-spacing" } } do |f| %>
+<!--           <%= simple_form_for :query, url: properties_path, method: :get, :defaults => { :input_html => { :class => "form-spacing" } } do |f| %>
             <%= f.input :wood_stove, as: :boolean, checked_value: true, unchecked_value: false %>
             <%= f.input :hot_tub, as: :boolean, checked_value: true, unchecked_value: false %>
             <%= f.input :pet_friendly, as: :boolean, checked_value: true, unchecked_value: false %>
             <%= f.input :sauna, as: :boolean, checked_value: true, unchecked_value: false %>
             <%= f.button :submit, "FILTER RESULTS", name: nil, class: "btn btn-success" %>
-          <% end %>
+          <% end %> -->
         </div>
       </div>
       <div class="col-xs-12 col-sm-8">
@@ -406,7 +406,7 @@
   };
 
   // helper function to create geoJson "feature"
-  const createGeoJsonFeature = (longitude, latitude, title, description, sleeps, bedrooms, bathrooms, url) => {
+  const createGeoJsonFeature = (longitude, latitude, title, description, photo, sleeps, bedrooms, bathrooms, url) => {
     return {
       "type": 'Feature',
       "geometry": {
@@ -416,6 +416,7 @@
       "properties": {
         "title": title,
         "description": description,
+        "photo": photo,
         "sleeps": sleeps,
         "bedrooms": bedrooms,
         "bathrooms": bathrooms,
@@ -434,6 +435,7 @@
   let latitude = 1.0;
   let title = "";
   let description = "";
+  let photo = "";
   let sleeps = 1.0;
   let bedrooms = 1.0;
   let bathrooms = 1.0;
@@ -444,11 +446,16 @@
     latitude = <%= property.latitude %>
     title = "<%= property.name %>"
     description = "<%= property.description.truncate(90, separator: /\s/) %>"
+    <% if property.hero_image.blank? %>
+      photo = "<%= image_path("cedar-lodge.jpg") %>"
+    <% else %>
+      photo = "<%= cl_image_path(property.hero_image) %>"
+    <% end %>
     sleeps = <%= property.sleeps %>
     bedrooms = <%= property.bedrooms %>
     bathrooms = <%= property.bathrooms %>
     url = "<%= properties_path(property) %>"
-    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, description, sleeps, bedrooms, bathrooms));
+    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, description, photo, sleeps, bedrooms, bathrooms));
   <% end %>
 
   map.on('load', function(e) {
@@ -472,7 +479,7 @@
 
     var popup = new mapboxgl.Popup({ offset: 25 })
       .setLngLat(currentFeature.geometry.coordinates)
-      .setHTML('<h5>' + currentFeature.properties.title + '</h5><p>' + currentFeature.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p<a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>')
+      .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="150">' + '<p>' + currentFeature.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p<a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>')
       .addTo(map);
   }
 
@@ -507,7 +514,7 @@
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
     .setPopup(new mapboxgl.Popup({ offset: 25 })
-    .setHTML('<h5>' + marker.properties.title + '</h5><p>' + marker.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>'))
+    .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p>' + marker.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>'))
     .addTo(map);
 
     el.addEventListener('click', (e) => {

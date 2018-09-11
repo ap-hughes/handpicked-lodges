@@ -1,9 +1,9 @@
-.marker {
-  width: 30px;
-  height: 30px;
-  border: solid white;
-  border-radius: 50% 50% 50% 0;
-  background-color: $green;
+// .marker {
+//   width: 30px;
+//   height: 30px;
+//   border: solid white;
+//   border-radius: 50% 50% 50% 0;
+//   background-color: $green;
   // position: absolute;
   // display: inline-block;
   // transform: rotate(-45deg) !important;
@@ -13,4 +13,53 @@
   // left: 50%;
   // top: 50%;
   // margin: -20px 0 0 -20px;
+// }
+
+.marker {
+  border: none;
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  background-image: asset-url('home-marker-48.png');
+  background-color: rgba(0, 0, 0, 0);
+}
+.mapboxgl-popup-close-button {
+  display: none;
+}
+.mapboxgl-popup-content {
+  padding: 0px !important;
+  width: 200px;
+}
+.mapboxgl-popup-content-wrapper {
+  padding: 1%;
+}
+.mapboxgl-popup-content h5 {
+  background: $green;
+  color: #fff;
+  margin: 0;
+  display: block;
+  padding: 10px;
+  // border-radius: 3px 3px 0 0;
+  // margin-top: -15px;
+}
+.mapboxgl-popup-content p {
+  color: $black;
+  margin: 0;
+  // display: block;
+  padding: 0px 10px 0px 10px;
+}
+.mapboxgl-popup-content a {
+  color: $green;
+  margin: 0;
+  // display: block;
+  padding: 0px 10px 10px 10px;
+}
+// .mapboxgl-popup-content div {
+//   padding: 10px;
+// }
+// .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+//   margin-top: 15px;
+// }
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+  border-bottom-color: #91c949;
 }
