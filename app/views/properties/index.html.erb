@@ -406,7 +406,7 @@
   };
 
   // helper function to create geoJson "feature"
-  const createGeoJsonFeature = (longitude, latitude, title, description, photo, sleeps, bedrooms, bathrooms, url) => {
+  const createGeoJsonFeature = (longitude, latitude, title, photo, sleeps, bedrooms, bathrooms, url) => {
     return {
       "type": 'Feature',
       "geometry": {
@@ -415,7 +415,6 @@
       },
       "properties": {
         "title": title,
-        "description": description,
         "photo": photo,
         "sleeps": sleeps,
         "bedrooms": bedrooms,
@@ -434,7 +433,6 @@
   let longitude = 1.0;
   let latitude = 1.0;
   let title = "";
-  let description = "";
   let photo = "";
   let sleeps = 1.0;
   let bedrooms = 1.0;
@@ -445,7 +443,6 @@
     longitude = <%= property.longitude %>
     latitude = <%= property.latitude %>
     title = "<%= property.name %>"
-    description = "<%= property.description.truncate(90, separator: /\s/) %>"
     <% if property.hero_image.blank? %>
       photo = "<%= image_path("cedar-lodge.jpg") %>"
     <% else %>
@@ -454,8 +451,9 @@
     sleeps = <%= property.sleeps %>
     bedrooms = <%= property.bedrooms %>
     bathrooms = <%= property.bathrooms %>
-    url = "<%= properties_path(property) %>"
-    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, description, photo, sleeps, bedrooms, bathrooms));
+    url = "properties/" + <%= "#{property.id}" %>
+    console.log(url)
+    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, photo, sleeps, bedrooms, bathrooms, url));
   <% end %>
 
   map.on('load', function(e) {
@@ -467,8 +465,9 @@
 
   function flyToProperty(currentFeature) {
     map.flyTo({
-      center: currentFeature.geometry.coordinates,
-      zoom: 12
+      center: [(currentFeature.geometry.coordinates[0]), currentFeature.geometry.coordinates[1] - 0.05],
+      zoom: 10,
+      speed: 0.5
     });
   }
 
@@ -479,7 +478,7 @@
 
     var popup = new mapboxgl.Popup({ offset: 25 })
       .setLngLat(currentFeature.geometry.coordinates)
-      .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="150">' + '<p>' + currentFeature.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p<a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>')
+      .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong>' + currentFeature.properties.sleeps + '</p><p><strong>Bedrooms:</strong>' + currentFeature.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + currentFeature.properties.bathrooms + '</p><a href=' + currentFeature.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>')
       .addTo(map);
   }
 
@@ -514,8 +513,9 @@
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
     .setPopup(new mapboxgl.Popup({ offset: 25 })
-    .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p>' + marker.properties.description + '</p><p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href="http://localhost:3000' + marker.properties.url + '">' + 'See Lodge</a>'))
+    .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href=' + marker.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>'))
     .addTo(map);
+    // console.log(marker.geometry.coordinates[0] - )
 
     el.addEventListener('click', (e) => {
       flyToProperty(marker);
