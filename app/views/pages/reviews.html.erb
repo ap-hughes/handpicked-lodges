@@ -8,12 +8,14 @@
 <div class="container">
   <div class="row">
     <% @reviews.each_with_index do |review, index| %>
-      <div class="col-xs-12">
-        <% unless index == 1 %>
+      <% unless index == 1 %>
+        <div class="col-xs-12">
           <div class="text-line grey">
             <h3><%= review.property.name %></h3>
           </div>
-        <% end %>
+        </div>
+      <% end %>
+      <div class="col-xs-12">
         <p><em>"<%= review.content %>"</em> <%= review.date %></p>
       </div>
     <% end %>

@@ -10,6 +10,7 @@
       <th>ID</th>
       <th>Property</th>
       <th>Review content</th>
+      <th>Date</th>
       <th></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= review.id %></td>
         <td><%= review.property.name %></td>
         <td><%= review.content %></td>
+        <td><%= review.date %></td>
         <td>
 
           <%= link_to 'Delete', [:admin, review], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
