@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @properties = Property.order(created_at: :asc).limit(3)
+    @properties = Property.order(created_at: :asc).limit(1)
     @posts = Post.order(created_at: :desc).limit(2)
     @reviews = Review.order(created_at: :desc).limit(3)
   end
