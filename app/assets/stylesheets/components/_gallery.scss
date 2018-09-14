@@ -3,6 +3,17 @@
 }
 
 /* Position the image container (needed to position the left and right arrows) */
+.gallery-reviews {
+  width: 90%;
+//   height: 60vh;
+//   position: relative;
+//   h4, p {
+//     margin: 0;
+//     position: absolute;               /* 2 */
+//     top: 50%;                         /* 3 */
+//     transform: translate(0, -50%);
+//   }
+}
 .gallery-container {
   position: relative;
   width: auto;
@@ -13,9 +24,9 @@
 /* Hide the images by default */
 .mySlides {
   display: none;
-  max-height: 60vh;
+  height: 60vh;
   img {
-    max-height: 60vh;
+    height: 60vh;
   }
 }
 
