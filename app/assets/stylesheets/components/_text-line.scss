@@ -1,0 +1,37 @@
+.text-line {
+  h3 {
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  h3:after {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    border-top: 1px solid white;
+  }
+}
+.text-line.before {
+    h3:before {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 100%;
+    margin-left: -100%;
+    margin-right: 10px;
+    border-top: 1px solid white;
+  }
+}
+.text-line.grey {
+  h3 {
+    color: $black;
+  }
+  h3:after {
+    border-top: 1px solid $black;
+  }
+}
