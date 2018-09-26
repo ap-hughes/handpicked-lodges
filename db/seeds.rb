@@ -258,7 +258,7 @@ Nethy Bridge has some lovely local amenities and is close to some award-winning 
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Pet friendly", ​"1x king bedroom with ensuite", "1x double bedroom", "​1x twin bedroom", "Space for infant cot",
+  features: ["Pet friendly", "1x king bedroom with ensuite", "1x double bedroom", "​1x twin bedroom", "Space for infant cot",
     "​Large family shower room", "​Wood-burning stove", "TV in master bedroom", "Netflix* and playstation", "Bluetooth speakers",
     "Under-floor heating", "Air source heat pump", "​​Dishwasher", "​Range cooker", "Coffee Machine", "Utility room", "​Washing machine​",
     "​Free WIFI", "Off-street parking", "​BBQ", "​Fire Pit", "​Patio and garden", "​River views throughout", "Storage for sports equipment​​"],
