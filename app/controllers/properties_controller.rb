@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
   require 'open-uri'
-  before_action :find_property, except: [:index]
 
   def index
     @properties = Property.where(nil)
@@ -8,7 +7,7 @@ class PropertiesController < ApplicationController
       start_date = params[:search][:start_date]
       end_date = params[:search][:end_date]
       @available_properties = get_availability(start_date, end_date)
-      @properties = Property.order(:name)
+      @properties = Property.where(enabled: true).order(:name)
       start_date = Date.parse params[:search][:start_date]
       end_date = Date.parse params[:search][:end_date]
       @days = (end_date - start_date).to_i
@@ -28,7 +27,7 @@ class PropertiesController < ApplicationController
       # raise
     elsif params[:query].present?
       filtering_params(params[:query]).each do |key, value|
-        @properties = @properties.public_send(key, value).order(:name) if value.present? && value == "true"
+        @properties = @properties.public_send(key, value).where(enabled: true).order(:name) if value.present? && value == "true"
       end
       # @properties = @properties.wood_stove(params[:query][:wood_stove]).order(:name) if params[:query][:wood_stove].present?
       # @properties = @properties.hot_tub(params[:query][:hot_tub]).order(:name) if params[:query][:hot_tub].present?
@@ -47,13 +46,13 @@ class PropertiesController < ApplicationController
       # # @properties = Property.where(hot_tub: true).order(:name)
       # @properties = Property.where(sql_query, query: "%#{params[:query]}%").order(:name)
     else
-      @properties = Property.order(:name)
+      @properties = Property.where(enabled: true).order(:name)
     end
   end
 
   def show
     if params[:book_link].present?
-      @property = Property.find(params[:id])
+      @property = Property.where(enabled: true).find(params[:id])
       @price = params[:price]
       @book_link = params[:book_link]
       @start_date = Date.parse params[:start_date]
@@ -73,15 +72,11 @@ class PropertiesController < ApplicationController
     #   @book_link = document.root.xpath('booklink').text
     #   @message = document.root.xpath('message').text
     else
-      @property = Property.find(params[:id])
+      @property = Property.where(enabled: true).find(params[:id])
     end
   end
 
   private
-
-  def find_property
-    @property = Property.find(params[:id])
-  end
 
   def filtering_params(params)
     params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country)

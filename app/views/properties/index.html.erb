@@ -47,7 +47,7 @@
           <div class="row">
             <% if @available_properties.present? %>
               <div class="col-xs-12">
-              <h4>There are <%= @available_properties.count %> lodges available on your dates</h4>
+              <h4>The following lodges are available on your dates</h4>
               </div>
             <% end %>
             <% if params[:search].present? %>
@@ -139,7 +139,7 @@
                         <p><span>More Detail</span></p>
                       </div>
                       <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
-                            :end_date => @enddate), target: :_blank do %>
+                            :end_date => @enddate) do %>
                         <div class="index-card-btn green-back">
                           <p>View Lodge</p>
                         </div>
@@ -230,7 +230,7 @@
                       <div class="index-card-btn red-back header<%= i %>">
                         <p><span>More Detail</span></p>
                       </div>
-                      <%= link_to property_path(property), target: :_blank do %>
+                      <%= link_to property_path(property) do %>
                         <div class="index-card-btn green-back">
                           <p>View Lodge</p>
                         </div>
@@ -318,7 +318,7 @@
                       <div class="index-card-btn red-back header<%= i %>">
                         <p><span>More Detail</span></p>
                       </div>
-                      <%= link_to property_path(property), target: :_blank do %>
+                      <%= link_to property_path(property) do %>
                         <div class="index-card-btn green-back">
                           <p>View Lodge</p>
                         </div>
@@ -453,6 +453,8 @@
     bathrooms = <%= property.bathrooms %>
     url = "properties/" + <%= "#{property.id}" %>
     console.log(url)
+    console.log(longitude)
+    console.log(latitude)
     addToGeoJson(createGeoJsonFeature(longitude, latitude, title, photo, sleeps, bedrooms, bathrooms, url));
   <% end %>
 
@@ -465,8 +467,8 @@
 
   function flyToProperty(currentFeature) {
     map.flyTo({
-      center: [(currentFeature.geometry.coordinates[0]), currentFeature.geometry.coordinates[1] - 0.05],
-      zoom: 10,
+      center: [(currentFeature.geometry.coordinates[0]), currentFeature.geometry.coordinates[1] - 0.015],
+      zoom: 12,
       speed: 0.5
     });
   }
