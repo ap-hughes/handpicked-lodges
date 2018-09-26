@@ -60,6 +60,7 @@ puts "Updating alltnacriche"
 
 #Alltnacriche
 alltnacriche = Property.where(code: 489553).update(
+  enabled: true,
   name: "Alltnacriche",
   headline: "Spacious and luxurious self-catered pet friendly country lodge with large outdoor hot tub",
   description: "Alltnacriche is one of our largest lodges, comfortably sleeping 10 and with a vast kitchen-dining area as well as two sitting rooms. Beautifully furnished and finished, but with a relaxed country feel, it is ideal for large groups of family or friends who want a private but convenient location. It has recently undergone extensive renovation, with luxury touches added - including its large outdoor hot tub, and cosy underfloor heating throughout. The interior has been designed to be elegant but contemporary; with Farrow and Ball colours and some striking, bespoke pieces of furniture, the whole house has a timeless feel.
@@ -121,6 +122,7 @@ puts "Updating Burnbrae lodge"
 
 #Alltnacriche
 Property.where(code: 492277).update(
+  enabled: true,
   name: "Burnbrae Lodge",
   headline: "A spacious self-catered lodge with panoramic views of the Cairngorms and River Dulnain",
   description: "Contemporary, light and spacious with stunning panoramic views, Burnbrae is a great family-friendly detached house situated in the attractive and historic village of Carrbridge, in the heart of the Cairngorms National Park.
@@ -153,6 +155,7 @@ puts "Updating Cairn Eilrig"
 
 #Cairn Eilrig
 Property.where(code: 529819).update(
+  enabled: true,
   name: "Cairn Eilrig",
   headline: "A pet friendly lodge perfect for outdoor enthusiasts, with the most breathtaking mountain views.",
   description: "All our Handpicked lodges have pretty special views, but those from Cairn Eilrig are in a class of their own. Only a tiny handful of holiday properties lie at the mountain end of the ski road and even fewer enjoy quite such a spectacular Cairngorms panorama. Particularly beautiful covered in winter white or late summer’s heathery purple, the mountains look almost close enough to touch. From CairnGorm itself and the northern corries, the panoramic view sweeps across to the forests above Loch Morlich, and to the distinctively-shaped hill from which the house takes its name.
@@ -189,6 +192,7 @@ puts "Updating Foresters Lodge"
 
 #Foresters Lodge
 Property.where(code: 488258).update(
+  enabled: true,
   name: "Foresters Lodge",
   headline: "Stylish and atmospheric pet friendly highland lodge, with hot tub and sauna cabin in the Cairngorms National Park.",
   description: "Foresters Lodge offers a luxurious retreat in a simply stunning riverside setting in the heart of the Cairngorms National Park.
@@ -231,6 +235,7 @@ puts "Updating Riverside Lodge"
 
 #Riverside Lodge
 Property.where(code: 490651).update(
+  enabled: true,
   name: "Riverside Lodge",
   headline: "Light, bright and modern, architecturally designed, pet and family friendly with breathtaking views.",
   description: "This architecturally designed luxury lodge was recently built on an elevated site on the banks of the River Nethy, just a short walk from the picturesque village of Nethy Bridge. All on one level, it was designed to take full advantage of its position, with views along the river and across to the mature pines beyond.
@@ -278,6 +283,7 @@ puts "Updating Smithy & Riverside Lodge"
 
 #Smithy & Riverside Lodge
 Property.where(code: 490734).update(
+  enabled: true,
   name: "Smithy & Riverside Lodge",
   headline: "For larger gatherings why not book these two stunning neighbouring properties together?",
   description: "For larger gatherings the Old Smithy and Riverside Lodge can be booked together, making them ideal for extended families or two families holidaying together. They are located next door to each other with a small gate leading between the two gardens. The large open plan living area in Riverside Lodge is the perfect space for all guests from both properties to enjoy with a large table which comfortably seats 12 people. There is also a lovely patio area with barbecue which is great fun for large gatherings.
@@ -304,6 +310,7 @@ puts "Updating The Bothy"
 
 #The Bothy
 Property.where(code: 493259).update(
+  enabled: true,
   name: "The Bothy",
   headline: "Cool Scandi-style interiors filled with cosy home comforts perfect for families and dogs in the centre of Aviemore",
   description: "The Bothy was beautifully redesigned and refurbished during 2017 to create an elegant and peaceful haven from all the activity of Aviemore. It is located on a quiet cul-de-sac surrounded by family homes in the residential part of the town, only a short walk to the centre.
@@ -341,6 +348,7 @@ puts "Updating The Old Smithy"
 
 #The Old Smithy
 Property.where(code: 490650).update(
+  enabled: true,
   name: "The Old Smithy",
   headline: "Cosy self-catered cottage full of character and history.",
   description: "When you spend a holiday in this beautiful cosy cottage, you’re staying in a little piece of history. Whilst some parts date back to 1806, the house was totally renovated in 2012 to provide a charming balance of modern living with uniquely beautiful period features. The Old Smithy is the old blacksmith’s cottage and you can still see the old ford across the river where the horses crossed from the farms beyond, and even the large stones in the lawned garden where the smith did his work.
@@ -374,6 +382,7 @@ puts "Updating Trails End Lodge"
 
 #Trails End Lodge
 Property.where(code: 523669).update(
+  enabled: true,
   name: "Trails End Lodge",
   headline: "Spacious, modern and luxurious self-catered lodge right on the fringes of the forest above Aviemore.",
   description: "A contemporary, smart and spacious lodge in Aviemore, perfect for outdoor enthusiasts and active families.
@@ -409,6 +418,7 @@ puts "Updating Westcott"
 
 #Westcott
 Property.where(code: 536256).update(
+  enabled: true,
   name: "Westcott",
   headline: "A Room (or a few) With A View – relaxed Edwardian grandeur at Westcott",
   description: "Westcott was built in an elegant age when people really knew how to enjoy their leisure time and when holidays to the Highlands first became fashionable, thanks to Queen Victoria. This elegant Edwardian villa is set on a quiet street above the lovely Highland village of Kingussie. Although only 15 minutes by car from Aviemore, Kingussie is a busy village in its own right and is convenient for outdoor activities at Loch Insh and Laggan Forest.
