@@ -1,4 +1,9 @@
 <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<% content_for :meta_title, @property.meta_title %>
+<% content_for :meta_description, @property.meta_description %>
+<% if @property.hero_image? %>
+  <% content_for :meta_image, cl_image_path(@property.hero_image, height: 630, width: 1200, crop: :fill) %>
+<% end %>
 
 <div class="container">
   <div class="grey-header-text">

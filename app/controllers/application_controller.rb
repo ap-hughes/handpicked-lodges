@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
       request.user_agent =~ /Mobile|webOS|Android/
     end
   end
+
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 end

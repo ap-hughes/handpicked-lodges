@@ -8,6 +8,8 @@ class Property < ApplicationRecord
 
   mount_uploader :hero_image, PhotoUploader
   validates :code, uniqueness: true, numericality: { only_integer: true }
+  validates :meta_title, length: { maximum: 80 }
+  validates :meta_description, length: { maximum: 300 }
   serialize :features, Array
   has_many :photos, dependent: :destroy
   has_many :reviews, dependent: :destroy

@@ -1,6 +1,8 @@
 <%= simple_form_for ([:admin, @property]) do |f| %>
   <%= f.input :code %>
   <%= f.input :enabled %>
+  <%= f.input :meta_title %> <p>Limit of 80 characters, Google will likely truncate around 70</p>
+  <%= f.input :meta_description %> <p>Limit of 300 characters</p>
   <%= f.input :name %>
   <%= f.input :in_aviemore %>
   <%= f.input :in_country %>
