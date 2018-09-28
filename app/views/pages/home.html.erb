@@ -1,4 +1,10 @@
-<div class="banner home">
+<div id="wrap">
+  <% @properties.each do |property| %>
+    <% unless property.hero_image.blank? %>
+      <%= image_tag(cl_image_path property.hero_image, :transformation =>
+    { :dpr => "auto", :responsive => true, :width => "auto", :crop => "fill" }) %>
+    <% end %>
+  <% end %>
   <div class="header-text">
     <div class="container">
       <div class="row">
@@ -27,6 +33,35 @@
     </section>
   <% end %>
 </div>
+<!-- <div class="banner home"> -->
+ <!--  <div class="header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <h1 class="big-text">Handpicked Lodges</h1>
+          <h4>Your Highland Holiday Home</h4>
+          <p>A collection of luxury and unique self catering dog friendly holiday lodges some with hot tubs in and around Aviemore and the Cairngorms</p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <div class="availability-checker">
+                <%= simple_form_for :search, url: properties_path, method: :get do |t| %>
+                  <%= t.input :start_date, placeholder: "Check-in", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
+                  <%= t.input :end_date, placeholder: "Check-out", label: false, as: :string, input_html: { class: "end-date-picker" } %>
+                  <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% unless mobile_device? %>
+    <section id="section05" class="demo">
+      <a href="#scroll-content"><span></span></a>
+    </section>
+  <% end %>
+</div> -->
 <section id="scroll-content">
   <div class="container">
     <div class="row">
@@ -105,15 +140,13 @@
       <div class="col-xs-12">
         <h2>The Lodges</h2>
       </div>
-      <% @properties.each do |property| %>
-        <% unless property.hero_image.blank? %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= link_to property_path(property), target: :_blank  do %>
-              <div class="link-card-cloudinary image-margin" style="background-image: url('<%= cl_image_path property.hero_image %>');">
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+      <% unless @properties.first.hero_image.blank? %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= link_to property_path(@properties.first), target: :_blank  do %>
+            <div class="link-card-cloudinary image-margin" style="background-image: url('<%= cl_image_path @properties.first.hero_image %>');">
+            </div>
+          <% end %>
+        </div>
       <% end %>
       <div class="col-xs-12 col-sm-6 col-md-8">
         <p>From adventurous family summer holidays in the Cairngorms to luxurious ski accommodation in the winter season, these lodges offer something very special ​all year round.</p>
