@@ -94,12 +94,14 @@
                 <div class="index-card-btn red-back header<%= i %>">
                   <p><span>More Detail</span></p>
                 </div>
-                <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
+                <div class="green-back">
+                  <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
                       :end_date => @enddate) do %>
-                  <div class="index-card-btn green-back">
-                    <p>View Lodge</p>
-                  </div>
-                <% end %>
+                    <div class="index-card-btn">
+                      <p>View Lodge</p>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -186,11 +188,13 @@
                 <div class="index-card-btn red-back header<%= i %>">
                   <p><span>More Detail</span></p>
                 </div>
-                <%= link_to property_path(property) do %>
-                  <div class="index-card-btn green-back">
-                    <p>View Lodge</p>
-                  </div>
-                <% end %>
+                <div class="green-back">
+                  <%= link_to property_path(property) do %>
+                    <div class="index-card-btn">
+                      <p>View Lodge</p>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -214,14 +218,14 @@
                   <div class="carousel-inner">
                     <div class="item active">
                       <% unless property.hero_image.blank? %>
-                        <%= cl_image_tag(property.hero_image, height: 300, width: 350, crop: :fill) %>
+                        <%= cl_image_tag(property.hero_image, height: 250, width: 350, crop: :fill) %>
                       <% end %>
                     </div>
                     <% unless property.photos.blank? %>
                       <% property.photos.order(created_at: :desc).take(2).each do |photo| %>
                         <% unless photo.image.blank? %>
                           <div class="item">
-                            <%= cl_image_tag(photo.image, height: 300, width: 350, crop: :fill) %>
+                            <%= cl_image_tag(photo.image, height: 250, width: 350, crop: :fill) %>
                           </div>
                         <% end %>
                       <% end %>
@@ -274,11 +278,13 @@
                 <div class="index-card-btn red-back header<%= i %>">
                   <p><span>More Detail</span></p>
                 </div>
-                <%= link_to property_path(property) do %>
-                  <div class="index-card-btn green-back">
-                    <p>View Lodge</p>
-                  </div>
-                <% end %>
+                <div class="green-back">
+                  <%= link_to property_path(property) do %>
+                    <div class="index-card-btn">
+                      <p>View Lodge</p>
+                    </div>
+                  <% end %>
+                </div>
               </div>
               <% i += 1 %>
             </div>
