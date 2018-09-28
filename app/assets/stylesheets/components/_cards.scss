@@ -106,6 +106,12 @@
 .carousel {
   width: 100%;
 }
+.carousel-inner > .next,
+.carousel-inner > .prev {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
 .carousel-inner .item {
   height: 250px; /* Prevent carousel from being distorted if for some reason image doesn't load */
 }
@@ -119,7 +125,7 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 300px;
+  height: 250px;
   width: auto;
 }
 .index-card-content {
