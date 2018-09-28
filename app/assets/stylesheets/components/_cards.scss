@@ -92,8 +92,8 @@
 .index-card-img-carousel {
   background-size: cover !important;
   background-position: center;
-  height: 300px;
-  // max-width: 350px;
+  height: 250px;
+  min-width: 300px;
   justify-content: center;
 }
 .index-card-img-carousel-desk {
@@ -190,7 +190,7 @@
 .index-card-btn {
   margin: auto;
   height: 45px;
-  min-width: 180px;
+  // min-width: 180px;
   color: white;
   font-size: 18px;
   font-weight: bolder;
@@ -210,12 +210,12 @@
 .red-back {
   background-color: $red;
   background-size: cover;
-  width: 100%;
+  width: 50%;
 }
 .green-back {
   background-color: $green;
   background-size: cover;
-  width: 100%;
+  width: 50%;
 }
 .green-back:hover {
   background-color: #639A9D;

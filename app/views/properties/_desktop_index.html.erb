@@ -279,11 +279,13 @@
                   <div class="index-card-btn red-back header<%= i %>">
                     <p><span>More Detail</span></p>
                   </div>
-                  <%= link_to property_path(property) do %>
-                    <div class="index-card-btn green-back">
-                      <p>View Lodge</p>
-                    </div>
-                  <% end %>
+                  <div class="green-back">
+                    <%= link_to property_path(property) do %>
+                      <div class="index-card-btn">
+                        <p>View Lodge</p>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
                 <% i += 1 %>
               </div>
