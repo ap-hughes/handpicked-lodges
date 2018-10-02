@@ -1,8 +1,68 @@
 <% content_for :meta_title, "Pet friendly accommodation" %>
 <% content_for :meta_description, "Things to do with your dog in Aviemore and the Cairngorms" %>
-<div class="banner">
+<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('pet-friendly.jpg') %>');">
   <div class="header-text">
-    <h1>Pet friendly</h1>
+    <h1>Pet friendly self catering lodges</h1>
+    <h4>Things to do in Aviemore and the Cairngorms with a dog</h4>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <h3>All of our handpicked lodges are pet friendly</h3>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <p>We don't believe that your four-legged friends should miss out on your holiday especially in an area that was made for dogs! There are endless walks right from your doorstep, lochs to swim in and some lovely, dog-friendly eateries to refresh after a long walk or quick dip.</p>
+      <p>Most of the lodges have enclosed verandas or gardens and provide dog bowls.</p>
+      <p>Find out more about our <%= link_to "Dog Friendly Accommodation", posts_path %> in our <%= link_to "Blog", posts_path %></p>
+    </div>
+    <div class="col-xs-12 col-md-6 text-center">
+      <%= image_tag('portraits.jpg', class: "avatar") %>
+    </div>
+  </div>
+  <div class="row">
+    <hr class="gray-hr">
+    <div class="col-xs-12">
+      <h3>Our favourite walks</h3>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Loch an Eilein</h4>
+      <p>If you are not lucky enough to be staying at Loch an Eilein Cottage, you can still enjoy a lovely stroll around this stunning loch (voted Britain's favourite picnic spot). It takes about 1.5 hours to walk the whole way round and is a great, safe place for your hounds to take a dip. This loch is within walking distance of many of the lodges.</p>
+      <h4>Loch Morlich</h4>
+      <p>On the way up towards Cairngorm Mountain, Loch Morlich is hidden amongst the pine forest with the simply stunning back drop of the Cairngorms. It is extremely popular during the summer months where people swim, sunbathe on the beach and partake in a huge range of water sports. This is a perfect place to take a doggy walk around the loch or start a walk into the wilderness of the Cairngorm National Park.</p>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Green Lochan</h4>
+      <p>Follow the path from Glenmore Lodge and you'll soon discover this beautiful loch that glows a magical emerald green when the sun shines. There are a few routes home from here or you can simply keep going and follow the path all the way to Abernethy (about 15km).</p>
+      <h4>​Craigellachie Hill</h4>
+      <p>Perfect for a quick walk as it's right next-door to Aviemore. You start from the Aviemore Youth Hostel and can get to the top within about 60 minutes. Located at the other side of the valley from Cairngorm Mountain, it offers the most stunning views of the mountain range and the Lairig Ghru. As a designated nature reserve, it is also great for bird and animal watching too. ​</p>
+    </div>
+  </div>
+  <div class="row">
+    <hr class="gray-hr">
+    <div class="col-xs-12">
+      <h3>Dog Friendly Eateries</h3>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Old Bridge Inn</h4>
+      <p>Located to the South side of Aviemore this traditional Inn offers a huge selection of whisky, real ales and a delicious menu comprising locally sourced food. During the summer your dog can run around and swim in the River Spey right from the beer garden, and in the winter they can curl up by the wood burner in the cosy bar.</p>
+      <h4>Mambos</h4>
+      <p>​Located in the centre of Aviemore and selling one of the best hot chocolates around.</p>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Ben Macdui's Inn</h4>
+      <p>A fun bar/restaurant day and night. Serving real local ales and a delicious range of meals and snacks.</p>
+      <h4>​Doo Below</h4>
+      <p>Dogs are allowed downstairs in the bar area of this fun apres ski bar. Great all year round but especially good after a good day out in the snow.</p>
+      <h4>​Nethy House</h4>
+      <p>A delightful little cafe with home cooked food and fantastic coffee in the heart of Nethy Bridge, welcoming dogs and their humans.</p>
+    </div>
+  </div>
+  <br>
 </div>
 <%= render 'shared/page-search' %>
