@@ -61,6 +61,13 @@
     font-size: 20px;
   }
 }
+@media only screen and (max-width: 720px) {
+  .header-text {
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
 .grey-header-text {
   background-color: $mid-gray;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
