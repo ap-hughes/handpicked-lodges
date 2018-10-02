@@ -25,16 +25,24 @@
   </div>
   <h5>Connect with Us</h5>
   <div class="handpicked-footer-bottom">
-    <div class="handpicked-footer-text">
-      <p>Judith: 07984 791 623</p>
-      <p>Tanja: 07545 990 633</p>
-      <p><a href="mailto:info@handpickedlodges.com">info@handpickedlodges.com</a></p>
-    </div>
-    <div class="handpicked-footer-image footer-space">
+    <% if mobile_device? %>
+      <div class="handpicked-footer-text text-center">
+        <p>Judith: 07984 791 623</p>
+        <p>Tanja: 07545 990 633</p>
+        <p><a href="mailto:info@handpickedlodges.com">info@handpickedlodges.com</a></p>
+      </div>
+    <% else %>
+      <div class="handpicked-footer-text">
+        <p>Judith: 07984 791 623</p>
+        <p>Tanja: 07545 990 633</p>
+        <p><a href="mailto:info@handpickedlodges.com">info@handpickedlodges.com</a></p>
+      </div>
+    <% end %>
+    <div class="handpicked-footer-image footer-space text-center">
       <%= image_tag("cairngorm-national-park.jpg") %>
       <%= image_tag("SecuredBy.png") %>
     </div>
-    <div class="footer-icons">
+    <div class="footer-icons text-center">
       <a href="https://www.facebook.com/HandpickedLodges/?ref=bookmarks" target="blank"><%= fa_icon "facebook" %></a>
       <a href="https://www.instagram.com/handpickedlodges/?hl=en" target="blank"><%= fa_icon "instagram" %></a>
     </div>
