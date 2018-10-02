@@ -2,7 +2,96 @@
 <% content_for :meta_description, "Looking for a holiday home in or around Aviemore? Contact Handpicked Lodges" %>
 <div class="banner">
   <div class="header-text">
-    <h1>Contact</h1>
+    <h1>Contact us</h1>
+    <h3>About your highland holiday accommodation</h3>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h4>If you cannot find what you are a looking for on our website, or on our Frequently Asked Questions page, or perhaps you would simply like a little more information or advice, then please feel free to send us this form and either Tanja or Judith will get back to you right away.</h4>
+    </div>
+  </div>
+  <div class="row">
+    <hr class="gray-hr">
+    <div class="col-xs-12 col-md-6">
+      <p>Handpicked Lodges</p>
+      <p><a href="info@handpickedlodges.com">info@handpickedlodges.com</a></p>
+      <p>Tanja 07545 990 633 or Judith 07984 791 623</p>
+      <a href="https://www.facebook.com/HandpickedLodges/?ref=bookmarks" target="blank"><%= fa_icon "facebook" %></a>
+      <a href="https://www.instagram.com/handpickedlodges/?hl=en" target="blank"><%= fa_icon "instagram" %></a>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div id='show-map'></div>
+    </div>
+  </div>
+  <br>
+</div>
 <%= render 'shared/page-search' %>
+<script>
+
+  $( "#map-tab" ).click(function() {
+    setTimeout(resizeMap, 200);
+  });
+  function resizeMap() {
+      console.log("hello")
+      map.resize();
+      // Animation complete
+  }
+  // $('.nav-tabs a:last').click(function(){
+  //   $(this).tab('show')(function() {
+  //     map.resize();
+  //   });
+  // });
+  var token = "<%= ENV["MAPBOX"] %>";
+  var longitude = -3.8259;
+  var latitude = 57.19553;
+  // var markerImage = "<%= image_url("marker-15.svg") %>";
+  // console.log(markerImage);
+  var geojson = {
+      "type": "FeatureCollection",
+      "features": [
+          {
+              "type": "Feature",
+              "properties": {
+                  "iconSize": [45, 45]
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                      longitude,
+                      latitude
+                  ]
+              }
+          }
+      ]
+  };
+  mapboxgl.accessToken = token;
+  var map = new mapboxgl.Map({
+    container: 'show-map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [longitude, latitude], // starting position
+    zoom: 12 // starting zoom
+  });
+
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+      // create a DOM element for the marker
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.style.width = marker.properties.iconSize[0] + 'px';
+      el.style.height = marker.properties.iconSize[1] + 'px';
+      // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
+      // add marker to map
+      new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+  });
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+  map.on('load', function() {
+      // Animation complete
+    map.resize();
+  });
+</script>
