@@ -7,3 +7,14 @@
 .pen-picture-headings {
   padding-left: 20px;
 }
+.avatar {
+  width: 200px;
+  height: 200px;
+  // border-radius: 50%;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  border: white 3px solid;
+  object-fit: cover;
+}
+.margin-bottom {
+  margin-bottom: 20px;
+}
