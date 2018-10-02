@@ -103,14 +103,14 @@
 .index-card-img-carousel {
   background-size: cover !important;
   background-position: center;
-  height: 250px;
+  height: 275px;
   min-width: 300px;
   justify-content: center;
 }
 .index-card-img-carousel-desk {
   background-size: cover !important;
   background-position: center;
-  height: 250px;
+  height: 275px;
   min-width: 300px;
   justify-content: center;
 }
@@ -124,7 +124,7 @@
     width: 100%;
 }
 .carousel-inner .item {
-  height: 250px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+  height: 275px; /* Prevent carousel from being distorted if for some reason image doesn't load */
 }
 .carousel-inner .item img {
   // margin: 0 auto; /* Align slide image horizontally center */
@@ -136,7 +136,7 @@
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 250px;
+  height: 275px;
   width: auto;
 }
 .index-card-content {

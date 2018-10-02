@@ -27,7 +27,7 @@ class PropertiesController < ApplicationController
       # raise
     elsif params[:query].present?
       filtering_params(params[:query]).each do |key, value|
-        @properties = @properties.public_send(key, value).where(enabled: true).order(:name) if value.present? && value == "true"
+        @properties = Property.public_send(key, value).where(enabled: true).order(:name) if value.present? && value == "true"
       end
       # @properties = @properties.wood_stove(params[:query][:wood_stove]).order(:name) if params[:query][:wood_stove].present?
       # @properties = @properties.hot_tub(params[:query][:hot_tub]).order(:name) if params[:query][:hot_tub].present?
@@ -79,7 +79,7 @@ class PropertiesController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country)
+    params.slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country, :sauna_or_hot_tub)
   end
 
   def get_availability(start_date, end_date)

@@ -9,6 +9,9 @@
   <div class="grey-header-text">
     <h1><%= @property.name %></h1>
     <p><%= @property.headline %></p>
+    <% if mobile_device? %>
+      <a href="#properties-sidebar"><div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div></a>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-8">

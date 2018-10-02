@@ -11,7 +11,9 @@
           <%= simple_form_for :search, url: properties_path, method: :get do |t| %>
             <%= t.input :start_date, placeholder: "Check-in", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
             <%= t.input :end_date, placeholder: "Check-out", label: false, as: :string, input_html: { class: "end-date-picker" } %>
-            <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
+            <div class="text-center">
+              <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
+            </div>
           <% end %>
         </div>
       </div>
