@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :reviews, only: [ :new, :create, :index, :destroy ]
   end
+  resources :contact_emails, only: [:new, :create]
 
   get 'admin' => 'admin/properties#index'
 

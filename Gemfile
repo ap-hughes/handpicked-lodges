@@ -10,6 +10,9 @@ gem 'devise'
 gem 'ckeditor'
 gem 'mini_magick'
 
+# For contact email form
+gem 'mailgun-ruby', '~>1.1.6'
+
 gem 'jquery-ui-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "jquery-slick-rails"

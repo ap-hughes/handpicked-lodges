@@ -1,0 +1,15 @@
+.white-link {
+  color: white;
+  a {
+  }
+  a:hover {
+    color: white;
+  }
+}
+.green-link {
+  color: $green;
+  transition: color 0.3s ease;
+}
+.green-link:hover {
+  color: #639A9D;
+}
