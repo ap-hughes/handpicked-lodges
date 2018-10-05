@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :reviews, only: [ :new, :create, :index, :destroy ]
   end
+  resources :contact_emails, only: [:new, :create]
 
   get 'admin' => 'admin/properties#index'
 
@@ -26,4 +27,5 @@ Rails.application.routes.draw do
   get 'pages/terms_and_conditions'
   get 'pages/frequently_asked_questions'
   get 'pages/reviews'
+  get 'pages/privacy_policy'
 end

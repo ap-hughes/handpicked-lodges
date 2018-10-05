@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
       start_date = params[:search][:start_date]
       end_date = params[:search][:end_date]
       @available_properties = get_availability(start_date, end_date)
-      @properties = Property.where(enabled: true).order(:name)
+      @properties = Property.where(enabled: true).order("random()")
       start_date = Date.parse params[:search][:start_date]
       end_date = Date.parse params[:search][:end_date]
       @days = (end_date - start_date).to_i
@@ -27,7 +27,7 @@ class PropertiesController < ApplicationController
       # raise
     elsif params[:query].present?
       filtering_params(params[:query]).each do |key, value|
-        @properties = Property.public_send(key, value).where(enabled: true).order(:name) if value.present? && value == "true"
+        @properties = Property.public_send(key, value).where(enabled: true).order("random()") if value.present? && value == "true"
       end
       # @properties = @properties.wood_stove(params[:query][:wood_stove]).order(:name) if params[:query][:wood_stove].present?
       # @properties = @properties.hot_tub(params[:query][:hot_tub]).order(:name) if params[:query][:hot_tub].present?
@@ -46,7 +46,7 @@ class PropertiesController < ApplicationController
       # # @properties = Property.where(hot_tub: true).order(:name)
       # @properties = Property.where(sql_query, query: "%#{params[:query]}%").order(:name)
     else
-      @properties = Property.where(enabled: true).order(:name)
+      @properties = Property.where(enabled: true).order("random()")
     end
   end
 

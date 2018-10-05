@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def about_the_area
   end
   def contact
+    @contact_email = ContactEmail.new
   end
   def own_a_property
   end
@@ -26,5 +27,7 @@ class PagesController < ApplicationController
   end
   def reviews
     @reviews = Review.all
+  end
+  def privacy_policy
   end
 end

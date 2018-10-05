@@ -19,13 +19,13 @@
 @media (max-width: 1000px) {
   #handpicked-navbar {
     height: 70px;
-    padding: 0px 30px;
+    padding: 0px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     top: 0;
     position: sticky;
-    z-index: 100;
+    z-index: 20;
   }
   #handpicked-navbar-brand-small img {
     max-height: 50px;

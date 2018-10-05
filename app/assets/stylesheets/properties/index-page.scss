@@ -35,6 +35,8 @@
   }
 }
 .map-container {
+  height: 95%;
+  width: 95%;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -42,36 +44,15 @@
   transform: translate(-50%, -50%);
 }
 .map-close {
-  a {
-    color: white;
-    font-size: 1.8em;
-    text-decoration: none;
-  }
-  a:hover {
-    cursor: pointer;
-  }
+  position: fixed;
+  z-index: 22;
+  top: 2%;
+  left: 2%;
+  font-weight: bold;
 }
-@media screen and (min-width: 250px) {
-  #index-map {
-    width: 200px;
-    height: 300px;
-  }
-}
-@media screen and (min-width: 400px) {
-  #index-map {
-    width: 300px;
-    height: 400px;
-  }
-}
-@media screen and (min-width: 800px) {
-  #index-map {
-    width: 600px;
-    height: 400px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #index-map {
-    width: 1000px;
-    height: 600px;
-  }
+#index-map {
+  width: 100%;
+  height: 100%;
+  border: white 5px solid;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
