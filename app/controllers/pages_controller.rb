@@ -27,4 +27,6 @@ class PagesController < ApplicationController
   def reviews
     @reviews = Review.all
   end
+  def privacy_policy
+  end
 end
