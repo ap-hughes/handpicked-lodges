@@ -13,65 +13,67 @@
       <a href="#properties-sidebar"><div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div></a>
     <% end %>
   </div>
-  <div class="row vertical-align">
-    <div class="col-xs-12 col-md-8">
-      <!-- Container for the image gallery -->
-      <div class="gallery-container">
+  <div class="color-background">
+    <div class="row vertical-align">
+      <div class="col-xs-12 col-md-8">
+        <!-- Container for the image gallery -->
+        <div class="gallery-container">
 
-        <!-- Full-width images with number text -->
-        <div class="mySlides">
-          <% if @property.hero_image? %>
-            <%= cl_image_tag(@property.hero_image, style:"width: 100%")%>
-
-          <% else %>
-            <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-          <% end %>
-        </div>
-
-        <% unless @property.photos.blank? %>
-          <% @property.photos.each do |photo| %>
-            <% unless photo.image.blank? %>
-              <div class="mySlides">
-                <%= cl_image_tag(photo.image, style:"width: 100%") %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <!-- Thumbnail images -->
-        <div class="gallery-row">
-          <div class="gallery-column">
+          <!-- Full-width images with number text -->
+          <div class="mySlides">
             <% if @property.hero_image? %>
-              <%= cl_image_tag(@property.hero_image, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
+              <%= cl_image_tag(@property.hero_image, style:"width: 100%")%>
+
             <% else %>
-              <%= image_tag(("cedar-lodge.jpg"), crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
+              <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
             <% end %>
           </div>
+
           <% unless @property.photos.blank? %>
-            <% i = 2 %>
             <% @property.photos.each do |photo| %>
               <% unless photo.image.blank? %>
-                <div class="gallery-column">
-                  <%= cl_image_tag(photo.image, style:"width: 100%", crop: :fill, class: "demo cursor", onclick:"currentSlide(#{i})") %>
+                <div class="mySlides">
+                  <%= cl_image_tag(photo.image, style:"width: 100%") %>
                 </div>
-              <% i += 1 %>
               <% end %>
             <% end %>
           <% end %>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+          <!-- Thumbnail images -->
+          <div class="gallery-row">
+            <div class="gallery-column">
+              <% if @property.hero_image? %>
+                <%= cl_image_tag(@property.hero_image, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
+              <% else %>
+                <%= image_tag(("cedar-lodge.jpg"), crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
+              <% end %>
+            </div>
+            <% unless @property.photos.blank? %>
+              <% i = 2 %>
+              <% @property.photos.each do |photo| %>
+                <% unless photo.image.blank? %>
+                  <div class="gallery-column">
+                    <%= cl_image_tag(photo.image, style:"width: 100%", crop: :fill, class: "demo cursor", onclick:"currentSlide(#{i})") %>
+                  </div>
+                <% i += 1 %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <div class="gallery-reviews">
-        <h4 class="text-center">What we love about <%= @property.name %></h4>
-        <p class="text-center"><em>"<%= @property.we_love %>"</em></p>
-        <br>
-        <h4 class="text-center">What our guests love about <%= @property.name %></h4>
-        <p class="text-center"><em>"<%= @property.guests_love %>"</em></p>
+      <div class="col-xs-12 col-md-4">
+        <div class="gallery-reviews">
+          <h4 class="text-center">What we love about <%= @property.name %></h4>
+          <p class="text-center"><em>"<%= @property.we_love %>"</em></p>
+          <br>
+          <h4 class="text-center">What our guests love about <%= @property.name %></h4>
+          <p class="text-center"><em>"<%= @property.guests_love %>"</em></p>
+        </div>
       </div>
     </div>
   </div>
@@ -149,8 +151,8 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-        <div class="sidebar-container-right">
+      <div class="col-xs-12 col-sm-4">
+        <div class="sidebar-container-right" id="properties-sidebar">
           <% if @price.present? %>
             <h4>Book your stay</h4>
             <div class="sidebar-content">
