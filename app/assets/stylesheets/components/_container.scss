@@ -19,7 +19,7 @@
 }
 .sidebar-container-right {
   background-color: white;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   flex: 0 0 450px;
   position: sticky;
   top: 120px !important;
@@ -27,6 +27,8 @@
 }
 #properties-sidebar {
   margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
 @media screen and (min-width: 1200px) {
   #properties-sidebar {
@@ -35,9 +37,7 @@
   }
 }
 .properties-sidebar-content {
-  background-color: white;
   padding: 10px 20px;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   color: $black;
 }
 .form-spacing {
@@ -45,4 +45,9 @@
 }
 .tall {
   // height: 250vh;
+}
+.color-background {
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
