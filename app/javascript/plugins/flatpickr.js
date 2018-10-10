@@ -7,16 +7,24 @@ flatpickr(".start-date-picker", {
   // "plugins": [new rangePlugin({ input: "#end_date"})],
   dateFormat: "Y-m-d",
   minDate: "today",
+  disableMobile: "true",
+  "enable": [
+      function(date) {
+          // return true to disable
+          return ( date.getDay() === 1 || date.getDay() === 5 );
+
+      }
+  ],
   "locale": {
-      "firstDayOfWeek": 7 // start week on Monday
+      "firstDayOfWeek": 5 // start week on Friday
   },
 });
-flatpickr(".end-date-picker", {
-  altInput: true,
-  // "plugins": [new rangePlugin({ input: "#end_date"})],
-  dateFormat: "Y-m-d",
-  minDate: "today",
-  "locale": {
-      "firstDayOfWeek": 7 // start week on Monday
-  },
-});
+// flatpickr(".end-date-picker", {
+//   altInput: true,
+//   // "plugins": [new rangePlugin({ input: "#end_date"})],
+//   dateFormat: "Y-m-d",
+//   minDate: "today",
+//   "locale": {
+//       "firstDayOfWeek": 5 // start week on Friday
+//   },
+// });

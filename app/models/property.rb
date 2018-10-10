@@ -1,4 +1,5 @@
 class Property < ApplicationRecord
+  include Filterable
   scope :wood_stove, -> (wood_stove) { where wood_stove: wood_stove }
   scope :hot_tub, -> (hot_tub) { where hot_tub: hot_tub }
   scope :pet_friendly, -> (pet_friendly) { where pet_friendly: pet_friendly }

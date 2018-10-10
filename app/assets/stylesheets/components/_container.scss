@@ -19,6 +19,7 @@
 }
 .sidebar-container-right {
   background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   padding: 0 10px 10px 10px;
   flex: 0 0 450px;
   position: sticky;
@@ -27,8 +28,6 @@
 }
 #properties-sidebar {
   margin-bottom: 20px;
-  background-color: white;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
 @media screen and (min-width: 1200px) {
   #properties-sidebar {
@@ -39,6 +38,8 @@
 .properties-sidebar-content {
   padding: 10px 20px;
   color: $black;
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
 .form-spacing {
   padding: 0px;
@@ -50,4 +51,14 @@
   background-color: white;
   margin-bottom: 20px;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+}
+.green-header {
+  background-color: $green;
+  height: 42.85px;
+  color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  padding: 10px;
+  h4 {
+    margin: 0px;
+  }
 }

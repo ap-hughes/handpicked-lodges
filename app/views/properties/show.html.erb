@@ -151,10 +151,12 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="sidebar-container-right" id="properties-sidebar">
+      <div class="col-xs-12 col-sm-4" id="properties-sidebar">
+        <div class="green-header vertical-align">
+          <h4>Book your stay</h4>
+        </div>
+        <div class="sidebar-container-right">
           <% if @price.present? %>
-            <h4>Book your stay</h4>
             <div class="sidebar-content">
               <h5>Arrival date</h5>
               <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
@@ -169,14 +171,12 @@
               <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
             <% end %>
           <% elsif @message.present? %>
-            <h4>Check Availability & Book</h4>
             <p><%= @message %></p>
             <% code = @property.code %>
             <div id="supercontrol-availability">
               <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
             </div>
           <% else %>
-            <h4>Check Availability & Book</h4>
             <% code = @property.code %>
             <div id="supercontrol-availability">
               <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>

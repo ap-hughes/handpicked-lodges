@@ -10,14 +10,14 @@
       <% if params[:search].present? %>
         <% i = 1 %>
         <% @startdate = params[:search][:start_date] %>
-        <% @enddate = params[:search][:end_date] %>
+        <% @nights = params[:search][:nights] %>
         <% @properties.where(code: @available_properties.keys).each do |property| %>
           <div class="col-xs-12">
             <% @price = @available_properties[property.code][:price] %>
             <% @book_link = @available_properties[property.code][:book_link] %>
             <% @message = @available_properties[property.code][:price_message] %>
             <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
-                :end_date => @enddate) do %>
+                :nights => @nights) do %>
               <div class="index-card-desk">
                 <div class="index-card-img-carousel-desk">
                   <div id="myCarousel<%= i %>" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -58,7 +58,7 @@
                   </div>
                 </div>
                 <%= link_to property_path(property, :price => @price, :book_link => @book_link, :start_date => @startdate,
-                    :end_date => @enddate) do %>
+                    :nights => @nights) do %>
                   <div class="index-card-content-desk">
                     <h4><%= property.name %></h4>
                     <% unless @price == 0 %>
