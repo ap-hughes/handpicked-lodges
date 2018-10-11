@@ -5,4 +5,74 @@
     <h1>Own a property?</h1>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="text-center">We will look after your holiday home as if it was our own...</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h4><strong>Your Highland Holiday Home</strong></h4>
+      <p>Whether you already have an existing holiday home or you are considering buying one, we understand that your holiday home is more than just an investment and we are proud to be able to look after it as if it was our own.</p>
+      <h4><strong>Who we are</strong></h4>
+      <p><%= link_to 'Tanja Hughes and Judith Thurlow', pages_about_us_path, target: :_blank, class: "green-link" %> are the founding directors of Handpicked Lodges.</p>
+      <p>​"We are local experts who live locally, so we are always here for all of our customers; both our owners and our guests. Our hands on, proactive approach builds trust and peace of mind generating an outstanding customer experience."</p>
+      <h4><strong>What we offer</strong></h4>
+      <p>"We offer a tailor-made full management, marketing and consultancy service. We work in partnership with our owners to create a service to meet your individual needs; taking away your workload but not your control. We work with complete transparency and regular open communication, providing you with expert analysis and reporting on your property."</p>
+      <h4><strong>What we do</strong></h4>
+      <p>"Our unique approach produces higher weekly rates and occupancy, and increased returns for you. Are personal touches are what produces outstanding customer experiences and quality guests who love to stay in your holiday home time and again."</p>
+      <h4><strong>What you get</strong></h4>
+      <p>"Our service is designed to make your life easy. After an initial conversation and mutual agreement, we will be able to set up your holiday home as a Handpicked Lodge. We will then start managing and marketing your property across a range of effective channels. You will be featured on our mobile-friendly website with our online booking system. We manage all of your bookings and we are available for your guests before, during and after their stay at your holiday home."</p>
+      <p>"We are also able to manage the cleaning and changeover process to make your holiday home as hassle-free as possible for you. We provide our owners with monthly income and regular reports including an annual report on your property."</p>
+      <h4><strong>How to make your home a Handpicked Lodge</strong></h4>
+      <p>"Our handpicked lodges offer the very finest in self-catering accommodation in the Highlands and this is how we ensure that our lodges perform so well for all our customers; our owners and our guests. As one of our owners you can benefit from specific and tailored reports on how to make the most out of your beautiful home and projections on likely performance and pay back."</p>
+      <div class="text-line before grey text-center">
+        <h3>Testimonials from our owners</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="white-card">
+        <p>“Judith manages Loch an Eilein Cottage for me - this includes marketing, PR, taking bookings, being the point of contact for guests, managing trades people, dealing with any maintenance issues and gathering feedback. She is very capable of dealing with any issues that arise and keeps me informed where necessary, without me having to be involved. Judith is always a pleasure to deal with."</p>
+        <p>"The cottage has now been open to guests for 6 months and in that time we have had 92% occupancy and have received outstanding feedback from guests. I am delighted with what Judith has achieved so far and very pleased to have her deal with the ongoing management of my property.”</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="white-card">
+        <p>"Tanja has co-managed Pine Bank Chalets for me now for 6 years. I live overseas so don’t want to have an active role with the properties but likewise don’t want to have to worry about them either. Tanja has done a fantastic job in managing the properties, running the business; everything from marketing, managing refurbishments and the day to day running along with dealing with guests."</p>
+        <p>"The chalets have never been so profitable and most importantly our reputation has grown and grown with the many happy guests that enjoy coming to stay again and again."</p>
+        <p>"Tanja has an enthusiastic and professional but approachable manner with a great deal of knowledge of holiday properties and the market. I don’t hesitate in recommending her as a holiday property manager."</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>We would love to chat to you about how we can help</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <p class="text-center"><strong>For further information please either fill out the form below or give us a call</strong></p>
+      <p class="text-center"><strong>Tanja 07545 990 633 or Judith 07984 791 623</strong></p>
+      <%= simple_form_for @contact_email do |f| %>
+        <div class="form-group">
+          <%= f.input :name, label: "Your name", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :email, label: "Your email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :message, as: :text, class: "form-control" %>
+        </div>
+        <div class="form-group text-center">
+          <%= f.button :submit, "SEND MESSAGE", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= render 'shared/page-search' %>
