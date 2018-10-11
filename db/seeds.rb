@@ -283,15 +283,6 @@ Nethy Bridge has some lovely local amenities and is close to some award-winning 
   meta_description: "Stunning luxury holiday home in the Cairngorms National Park, pet friendly with amazing views"
   )
 
-puts "Ryvoan Lodge. NOTE: did not get the coordinates for this one... isn't on Handpicked website either?????"
-
-#Ryvoan Lodge
-Property.where(code: 539467).update(
-  name: "Ryvoan Lodge",
-  latitude: 57.395271,
-  longitude: -3.22883
-  )
-
 puts "Updating Smithy & Riverside Lodge"
 
 #Smithy & Riverside Lodge
@@ -472,6 +463,123 @@ Whether you’re looking for a base for your own grand tour of the Highlands, a 
   longitude: -4.063800,
   meta_title: "Westcott - Impressive and newly renovated self-catering lodge",
   meta_description: "Impressive and spacious self-catering detached country house with games room period features and breathtaking views"
+  )
+
+puts "Updating Douglas Cottage"
+
+#Douglas Cottage
+
+Property.where(code: 541233).update(
+  enabled: true,
+  name: "Douglas Cottage",
+  latitude: 57.248584,
+  longitude: -3.754041,
+  headline: "Cosy, pet friendly, period cottage oozing style and comfort in a central village location",
+  description: "Douglas Cottage is our first lodge in lovely Boat of Garten, one of the most charming and friendly villages in Strathspey. Locally known just as “Boat”, this little place is the final stop on the delightful Strathspey Steam Railway, running regularly from Aviemore. You’ll often hear the whistle and hiss of steam as the beautiful vintage engine pulls in.
+
+A welcoming village with a wonderful community spirit (they built their own contemporary village hall recently which hosts one-off events and regular film nights), Boat is a great central place to base your holiday. Only a few minutes drive from Aviemore, it’s also convenient for visiting the other towns and villages in the area - Grantown on Spey, Nethy Bridge and Carrbridge are all less than 15 minutes away. This really is a wonderful location whether you like your Cairngorms break quiet and restful or action packed!
+
+The cottage is in fact one of the old steam railway cottages built for workers on the line which originally linked Aviemore to Forres, and still retains many of its original features and old-world feel. However it has been cleverly and sympathetically restored to open it out to 21st century proportions. It provides plenty of light and enough space for a large family or group of six friends, and to ensure it’s warm and cosy enough for even the snowiest of Cairngorms winters.
+
+The renovation also includes some fabulous contemporary touches - such as a statement wooden open staircase - which sits alongside its gorgeous period features such as the original stone hearths. Opposite the comfy living room with its wood burning stove, there is a snug room which is perfect for reading and playing games. Towards the back of the cottage are two bedrooms - a double with a king size bed and a twin - and a large family shower room.
+
+The kitchen is large and welcoming, with a breakfast bar as well as a round dining table seating 6. In the warmer months you can throw open the French windows to the garden and enjoy drinks and dinner alfresco. It’s fully fenced so safe and secure for your children and pets. Off the kitchen is the utility room with washing machine and drying space for all your outdoor clothes. Up the stairs you’ll find the third bedroom - another double with king size bed - and another large bathroom with bath and shower.
+
+Walkers and bike lovers are in for a treat, with immediate access to the wooded paths into Kinveachy Forest which make up part of the Speyside Way and National Cycle Route 7. At Douglas Cottage you are literally steps away from a fantastic independent bike shop, Ride Cairngorm, who can provide hire bikes and equipment for your two-wheeled adventures. You’ll never go hungry either, as you’re just over the road from the lovely 1896 Gallery Cafe, almost next door to the Boat Hotel and restaurant, and only a minute’s walk from one of our area’s most popular restaurants, Anderson’s. Of course Loch Garten with its breeding pair of ospreys is close by, giving the village its nickname of “the osprey village”.
+
+Whatever you're looking for in your Cairngorms break - from an action and adventure packed week to simply some much needed rest and relaxation - you'll find that the best of Strathspey is on your doorstep at Douglas Cottage.",
+  wood_stove: true,
+  hot_tub: false,
+  pet_friendly: true,
+  sauna: false,
+  games_room: false,
+  features: ["Sleeps 6 with space for cots", "​Pet friendly", "1x king suite with bath", "​1x king room", "1x twin room",
+    "Smart TV", "Snug room", "Wood-burning stove", "Period features", "Fantastic location", "Ground floor shower room",
+    "​Utility room", "​Dishwasher", "​Washing machine", "​Bike Store", "​Free WIFI​", "​BBQ", "Enclosed garden", "Parking for 3 cars",
+    "Village centre location"],
+  in_aviemore: false,
+  in_country: true,
+  we_love: "That impressive stair case leading to the most luxurious master suite.",
+  meta_title: "Douglas Cottage - Cosy pet friendly cottage in a central village location",
+  meta_description: "Cosy, pet friendly, period cottage oozing style and comfort in a central village location."
+  )
+
+puts "Updating Tomdhu Lodge"
+
+#Tomdhu Lodge
+
+Property.where(code: 542599).update(
+  enabled: true,
+  name: "Tomdhu Lodge",
+  latitude: 57.261007,
+  longitude: -3.702375,
+  headline: "With a hot tub and double-sided wood burner - it's perfect for lovers of great interiors, as well as lovers of the great outdoors",
+  description: "Love contemporary interiors? Then expect serious house envy at Tomdhu Lodge! It’s been exquisitely designed to be a sleek but endlessly practical take on luxury contemporary Highland holiday living. Look past the gorgeous furnishings and elegant, minimalist fittings and you’ll see that this beautiful house has been very cleverly built, finished and equipped to provide all the features you’ll ever need on a self-catered holiday. But you’ll also discover some wonderfully thoughtful extras, which take your Cairngorms escape to the next level of stress-free relaxation and luxury.
+
+The hub of this house is the huge open-plan, double-height living, dining and kitchen area. With glass along two sides, you can really take in the wonderful views towards Boat of Garten, but the inside is pretty fantastic too. In the centre is the double-sided wood burning stove with its statement chimneypiece of granite, slate and lapped larch. On the other side to the living area is a large dining table, the ideal spot for a bit of after-dinner route-planning. Because next to it is the oversized OS map of the entire Cairngorms area – the first clue that this place has been designed by someone who really loves the adventurous outdoor life.
+
+The kitchen is a foodie’s dream; not only do you have a stylish and practical island to work and serve up on, but you also have a really well-stocked arsenal of cookware and tableware, a Nespresso machine and even your own spacious butler’s pantry! Rather brilliantly, it contains a bank of Tupperware and napkins - ideal for preparing a picnic or packed lunch for all eight of you to spend a day on the hills.
+
+Off the hallway from the kitchen is your sumptuous family shower room, and the wide entrance porch. This has been fitted out so that your departure and return each day is as smooth a process as possible, whatever the weather outside. Lots of space to sit and put on or remove boots and wet clothing – but to make your life even easier, a separate laundry and drying room to one side. Washer, tumble drier, heated clothes rail, clothes airer, boot rack and lots of hanging space – the perfect place to dry all your waterproofs, ski wear, even wetsuits, ready for the next day. There is even a large comfortable dog bed for those pets who like to curl up somewhere cosy and quiet after a day bounding about the mountains!
+
+Further along the hall is another luxurious family bathroom with both shower and very deep bathtub. There are two double bedrooms with king size beds on the ground floor, whilst the twin bedrooms sit at either side of the top of the staircase. All four bedrooms are decorated in a cool and contemporary style designed to provide you with a really relaxing retreat at the very end of your day.
+
+To seriously unwind though, you’ll want to spend some time in the evenings enjoying the large 8-person hot tub right outside the patio doors, where there’s also an outdoor dining area and firepit.
+
+You could not ask for a more beautifully designed and comprehensively equipped house than Tomdhu Lodge, whether your adventures involve high mountain walking, climbing, skiing or simply enjoying the fresh air and views of our stunning part of the Highlands. We’re sure that a stay here will inspire you to live the Cairngorms life in all its exciting possibilities!",
+  wood_stove: true,
+  hot_tub: true,
+  pet_friendly: true,
+  sauna: false,
+  games_room: false,
+  features: ["Sleeps 8 with space for cots", "2x king rooms", "2x twin rooms", "1x family bathroom", "Freestanding bath",
+    "Shower room", "Double sided ​woodburner", "​Pet friendly", "Large kitchen-diner", "​Butlers pantry", "​Coffee machine",
+    "Utility/drying room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Hot tub", "Outdoor dining", "​Panoramic views",
+    "​Storage for sports equipment", "​Off-street parking"],
+  in_aviemore: false,
+  in_country: true,
+  we_love: "The freestanding fireplace in the lounge and dining area is such a centrepiece – warming and welcoming but with a touch of glamorous luxury too!",
+  meta_title: "Tomdhu Lodge - With double sided wood burner and hot tub in the heart of the Cairngorms National Park.",
+  meta_description: "With a hot tub and double-sided wood burner in the Cairngorms National Park - it's perfect for lovers of great interiors, as well as lovers of the great outdoors"
+  )
+
+puts "Updating Rymore Wood Lodge"
+
+#Rymore Wood Lodge
+
+Property.where(code: 542702).update(
+  enabled: true,
+  name: "Rymore Wood Lodge",
+  latitude: 57.225450,
+  longitude: -3.625530,
+  headline: "Spacious and homely with a wood burner, this holiday lodge is a charming retreat in the forest and a wildlife lover’s paradise",
+  description: "Take a drive along the most enchanting forest road, winding between towering pines and the beautiful Loch Garten, and you will arrive at Rymore Wood Lodge, set in its own private 20 acres of woodland, surrounded by the RSPB nature reserve, in the heart of the Abernethy Forest. This lodge is a nature lover’s dream, with trees all around that bring birds, red squirrels, badgers, pine marten and deer to the garden, where you can sit and watch them from the warmth of the kitchen.
+
+The lodge has been designed in a traditional and homely style, and has a wonderfully cosy and welcoming Alpine feel throughout. There is a huge farmhouse kitchen with a sweet and very helpful little woodburning stove where you can boil water for your breakfast or afternoon pot of tea. This homely kitchen looks out down the garden and over the wildlife feeding area. Allowing you to observe all of the wildlife visitors right from the breakfast table! Your oven, fridge, dishwasher, microwave and Nespresso machine are here too, with the laundry machines and an extra fridge and freezer tucked away in the utility room.
+
+Through from the kitchen is the large and comfortable sitting room with its big open fire and French windows onto the garden to the side. A perfect place to relax and unwind with family and friends, particularly when the fire crackles away in the autumn and winter months.
+
+Also on the ground floor is a double bedroom with kingsize bed, which looks out through the French windows onto the bird feeding area – the perfect location for morning coffee whilst the wildlife enjoy their breakfast! Next door is a family bath and shower room.
+
+Upstairs is the master bedroom with its kingsize bed and an ensuite bathroom. There are two large twin bedrooms upstairs too, both of which have windows looking out over the forest to three sides. There is a family shower room that these two rooms share between them.
+
+All of the bedrooms have got large walk in cupboards; in fact throughout the house you will find all the storage you could possibly need for even the most comprehensively equipped bunch of adventurers! Even the large porch is a perfect size to house everyone’s coats, boots and other outdoor clothing.
+
+The big lawned garden is a fantastic space for kids to play – it’s often used for croquet in the summer, and for rolling snowballs to make snowmen in the winter! Don’t forget to look out for animal footprints in the fresh snow every morning – you may be surprised at who has come for a night-time visit – perhaps some reclusive pine martens or deer?
+
+This is a lodge which truly reflects its surroundings, and in which you will instantly feel at home. Spacious, welcoming and well-equipped, it’s the ideal base from which to explore our area. Make yourself comfortable in the forest!",
+  wood_stove: true,
+  hot_tub: false,
+  pet_friendly: true,
+  sauna: false,
+  games_room: false,
+  features: ["Sleeps 8 with space for cots", "1x king bed ground floor", "1x king bed with ensuite", "2x twin rooms",
+    "1x shower room", "​1x family bathroom", "Wood burner", "​Open fire", "​Pet friendly", "Large kitchen-diner", "Wildlife viewing area",
+    "​Coffee machine", "Utility room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Outdoor dining", "​Uniquely private location",
+    "​Large garden", "​Storage for sports equipment", "​Off-street parking"],
+  in_aviemore: false,
+  in_country: true,
+  we_love: "You’re right in the heart of the magnificent Abernethy Forest here – no neighbours other than the birds, squirrel and deer!"
   )
 
 puts "Finished creating properties"

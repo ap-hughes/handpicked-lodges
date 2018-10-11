@@ -70,9 +70,11 @@
         <div class="gallery-reviews">
           <h4 class="text-center">What we love about <%= @property.name %></h4>
           <p class="text-center"><em>"<%= @property.we_love %>"</em></p>
-          <br>
-          <h4 class="text-center">What our guests love about <%= @property.name %></h4>
-          <p class="text-center"><em>"<%= @property.guests_love %>"</em></p>
+          <% if @property.guests_love? %>
+            <br>
+            <h4 class="text-center">What our guests love about <%= @property.name %></h4>
+            <p class="text-center"><em>"<%= @property.guests_love %>"</em></p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -140,8 +142,13 @@
                 <p><%= simple_format(@property.description) %></p>
               </div>
               <div role="tabpanel" class="tab-pane tab-padding fade" id="reviews">
-                <% @property.reviews.each do |review| %>
-                  <p>"<%= review.content %>"</p>
+                <% unless @property.reviews.empty? %>
+                  <% @property.reviews.each do |review| %>
+                    <p>"<%= review.content %>"</p>
+                  <% end %>
+                <% else %>
+                  <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
+                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path %>.</p>
                 <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
