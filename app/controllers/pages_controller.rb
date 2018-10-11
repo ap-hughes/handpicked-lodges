@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @contact_email = ContactEmail.new
   end
   def own_a_property
+    @contact_email = ContactEmail.new
   end
   def go_catered
   end
