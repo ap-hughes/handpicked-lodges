@@ -235,3 +235,18 @@
 .red-back:hover {
   background-color: #FF2604;
 }
+.white-card {
+  background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  padding: 10px;
+  margin-bottom: 20px;
+  h5 {
+    margin-top: 0px;
+  }
+  p {
+    margin: 0px;
+  }
+}
+.white-card:last-child {
+  margin-bottom: 0px;
+}
