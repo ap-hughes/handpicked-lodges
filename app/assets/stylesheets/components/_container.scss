@@ -54,11 +54,16 @@
 }
 .green-header {
   background-color: $green;
-  height: 42.85px;
   color: white;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   padding: 10px;
   h4 {
     margin: 0px;
   }
+  h5 {
+    margin: 0px;
+  }
+}
+.sidebar-header-height {
+  height: 42.85px;
 }

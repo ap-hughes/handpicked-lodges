@@ -29,14 +29,18 @@
 }
 .text-line.grey {
   h3 {
-    color: $black;
+    color: $mid-gray;
+  }
+  h3:before {
+    border-top: 1px solid $mid-gray;
   }
   h3:after {
-    border-top: 1px solid $black;
+    border-top: 1px solid $mid-gray;
   }
 }
 .gray-hr {
   border-color: $mid-gray;
+  border-width: 0.5px;
 }
 @media (min-width: 1024px) {
   .row.vertical-align {

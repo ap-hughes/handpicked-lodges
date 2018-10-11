@@ -148,7 +148,7 @@
                   <% end %>
                 <% else %>
                   <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
-                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path %>.</p>
+                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
                 <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
@@ -159,7 +159,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-        <div class="green-header vertical-align">
+        <div class="green-header sidebar-header-height vertical-align">
           <h4>Book your stay</h4>
         </div>
         <div class="sidebar-container-right">
