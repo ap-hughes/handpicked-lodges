@@ -42,25 +42,9 @@
 </div>
 <%= render 'shared/page-search' %>
 <script>
-
-  $( "#map-tab" ).click(function() {
-    setTimeout(resizeMap, 200);
-  });
-  function resizeMap() {
-      console.log("hello")
-      map.resize();
-      // Animation complete
-  }
-  // $('.nav-tabs a:last').click(function(){
-  //   $(this).tab('show')(function() {
-  //     map.resize();
-  //   });
-  // });
   var token = "<%= ENV["MAPBOX"] %>";
   var longitude = -3.8259;
   var latitude = 57.19553;
-  // var markerImage = "<%= image_url("marker-15.svg") %>";
-  // console.log(markerImage);
   var geojson = {
       "type": "FeatureCollection",
       "features": [
@@ -103,8 +87,4 @@
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
-  map.on('load', function() {
-      // Animation complete
-    map.resize();
-  });
 </script>
