@@ -14,8 +14,6 @@ module Filterable
       start_date = search_params[:search][:start_date]
       nights = search_params[:search][:nights]
       get_availability(start_date, nights)
-      # @days = nights
-      # results = self.where(enabled: true).order("random()")
     end
 
     private
@@ -39,18 +37,6 @@ module Filterable
         end
       end
       available_properties
-    end
-
-    def get_nights(start_date)
-      day = Date.parse(start_date).cwday
-      if day == 1
-        nights = [4, 7, 11, 14, 18, 21]
-      elsif day == 5
-        nights = [3, 7, 10, 14, 17, 21]
-      else
-        nights = "unknown value"
-      end
-      nights
     end
   end
 end
