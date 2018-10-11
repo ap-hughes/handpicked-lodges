@@ -2,7 +2,98 @@
 <% content_for :meta_description, "How to get to Aviemore and the Cairngorms National Park" %>
 <div class="banner">
   <div class="header-text">
-    <h1>Getting here</h1>
+    <h1>Getting to Aviemore and the Cairngorms</h1>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="text-center">All of the lodges are located within easy reach of local transport networks and the A9.</h4>
+      <h4 class="text-center">You will be sent detailed directions on how to get to your Handpicked lodge shortly before your arrival date.</h4>
+    </div>
+  </div>
+  <br>
+  <div class="row vertical-align">
+    <div class="col-xs-12 col-md-6">
+      <div id='getting-here-map'></div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h6><strong>Nearest train stations</strong></h6>
+      <ul>
+        <li>Aviemore</li>
+        <li>Carrbridge</li>
+      </ul>
+      <h6><strong>Nearest bus stations</strong></h6>
+      <ul>
+        <li>Aviemore</li>
+        <li>Carrbridge</li>
+        <li>Grantown</li>
+      </ul>
+      <h6><strong>Nearest aiport</strong></h6>
+      <ul>
+        <li>Inverness</li>
+      </ul>
+      <h6><strong>Nearest taxi rank</strong></h6>
+      <ul>
+        <li>Aviemore</li>
+      </ul>
+      <h6><strong>Nearest hire car</strong></h6>
+      <ul>
+        <li>Aviemore</li>
+      </ul>
+      <h6><strong>Nearest major road</strong></h6>
+      <ul>
+        <li>A9</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+</div>
 <%= render 'shared/page-search' %>
+<script>
+  var token = "<%= ENV["MAPBOX"] %>";
+  var longitude = -3.8259;
+  var latitude = 57.19553;
+  var geojson = {
+      "type": "FeatureCollection",
+      "features": [
+          {
+              "type": "Feature",
+              "properties": {
+                  "iconSize": [45, 45]
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                      longitude,
+                      latitude
+                  ]
+              }
+          }
+      ]
+  };
+  mapboxgl.accessToken = token;
+  var map = new mapboxgl.Map({
+    container: 'getting-here-map',
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [longitude, latitude], // starting position
+    zoom: 12 // starting zoom
+  });
+
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+      // create a DOM element for the marker
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.style.width = marker.properties.iconSize[0] + 'px';
+      el.style.height = marker.properties.iconSize[1] + 'px';
+      // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
+      // add marker to map
+      new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+  });
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+</script>
