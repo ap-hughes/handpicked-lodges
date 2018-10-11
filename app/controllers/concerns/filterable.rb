@@ -13,7 +13,7 @@ module Filterable
     def search(search_params)
       start_date = search_params[:search][:start_date]
       nights = search_params[:search][:nights]
-      @available_properties = get_availability(start_date, nights)
+      get_availability(start_date, nights)
       # @days = nights
       # results = self.where(enabled: true).order("random()")
     end

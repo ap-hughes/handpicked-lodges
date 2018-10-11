@@ -1,9 +1,28 @@
 <div class="availability-checker">
   <%= simple_form_for :search, url: properties_path, method: :get do |t| %>
-    <%= t.input :start_date, placeholder: "Check-in", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
-    <%= t.input :nights, placeholder: "Number of nights", label: false, as: :string %>
+    <%= t.input :start_date, placeholder: "Arrival date", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
+    <%= t.input :nights, placeholder: "Number of nights", label: false, collection: [7, 14, 21], input_html: { id: "search-nights" } %>
     <div class="text-center">
       <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
     </div>
   <% end %>
 </div>
+<script>
+  function dateSelected() {
+    selection = $( ".start-date-picker" ).val()
+    var day = new Date(selection);
+    var d = day.getDay();
+    if (d == 1) {
+      $('#search-nights').html("<option value='4'>4 nights</option><option value='7'>7 nights</option><option value='11'>11 nights</option><option value='14'>14 nights</option><option value='18'>18 nights</option><option value='21'>21 nights</option>");
+    }
+    if (d == 5) {
+      $('#search-nights').html("<option value='3'>3 nights</option><option value='7'>7 nights</option><option value='10'>10 nights</option><option value='14'>14 nights</option><option value='17'>17 nights</option><option value='21'>21 nights</option>");
+    }
+  }
+  $(document).ready(function() {
+    $('#search-nights').empty();
+    $('.start-date-picker').change(function() {
+      dateSelected();
+    });
+  });
+</script>
