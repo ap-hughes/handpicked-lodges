@@ -7,15 +7,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-4 col-md-offset-4">
-        <div class="availability-checker">
-          <%= simple_form_for :search, url: properties_path, method: :get do |t| %>
-            <%= t.input :start_date, placeholder: "Check-in", label: false, as: :string, input_html: { class: "start-date-picker", require: true } %>
-            <%= t.input :end_date, placeholder: "Check-out", label: false, as: :string, input_html: { class: "end-date-picker" } %>
-            <div class="text-center">
-              <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'shared/availability-checker' %>
       </div>
     </div>
   </div>
