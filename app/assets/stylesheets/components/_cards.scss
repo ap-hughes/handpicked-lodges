@@ -243,10 +243,13 @@
   h5 {
     margin-top: 0px;
   }
-  p {
+  p:last-child {
     margin: 0px;
   }
 }
 .white-card:last-child {
   margin-bottom: 0px;
+}
+.no-margin {
+  margin: 0px;
 }
