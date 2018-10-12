@@ -67,6 +67,7 @@
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
+  transition: 0.3s;
 }
 
 /* Position the "next button" to the right */
@@ -115,7 +116,7 @@
 }
 
 .gallery-row img {
-  max-height: 15vh;
+  height: 15vh;
   overflow: none;
   object-fit: cover;
 }
@@ -123,6 +124,7 @@
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
+  transition: 0.3s;
 }
 
 .active,

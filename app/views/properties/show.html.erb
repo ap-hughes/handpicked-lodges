@@ -10,7 +10,7 @@
     <h1><%= @property.name %></h1>
     <p><%= @property.headline %></p>
     <% if mobile_device? %>
-      <a href="#properties-sidebar"><div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div></a>
+      <a href="#scroll-content"><div class="btn btn-default" style="margin: 0 0 15px 0px">BOOK NOW</div><span></span></a>
     <% end %>
   </div>
   <div class="color-background">
@@ -21,21 +21,14 @@
 
           <!-- Full-width images with number text -->
           <div class="mySlides">
-            <% if @property.hero_image? %>
-              <%= cl_image_tag(@property.hero_image, style:"width: 100%")%>
-
-            <% else %>
-              <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-            <% end %>
+            <%= cl_image_tag(@property.hero_image, style:"width: 100%", height: 700, width: 1000, crop: :fill)%>
           </div>
 
-          <% unless @property.photos.blank? %>
-            <% @property.photos.each do |photo| %>
-              <% unless photo.image.blank? %>
-                <div class="mySlides">
-                  <%= cl_image_tag(photo.image, style:"width: 100%") %>
-                </div>
-              <% end %>
+          <% @property.photos.each do |photo| %>
+            <% unless photo.image.blank? %>
+              <div class="mySlides">
+                <%= cl_image_tag(photo.image, style:"width: 100%", height: 700, width: 1000, crop: :fill) %>
+              </div>
             <% end %>
           <% end %>
 
@@ -46,22 +39,14 @@
           <!-- Thumbnail images -->
           <div class="gallery-row">
             <div class="gallery-column">
-              <% if @property.hero_image? %>
-                <%= cl_image_tag(@property.hero_image, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
-              <% else %>
-                <%= image_tag(("cedar-lodge.jpg"), crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
-              <% end %>
+              <%= cl_image_tag(@property.hero_image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
             </div>
-            <% unless @property.photos.blank? %>
-              <% i = 2 %>
-              <% @property.photos.each do |photo| %>
-                <% unless photo.image.blank? %>
-                  <div class="gallery-column">
-                    <%= cl_image_tag(photo.image, style:"width: 100%", crop: :fill, class: "demo cursor", onclick:"currentSlide(#{i})") %>
-                  </div>
-                <% i += 1 %>
-                <% end %>
-              <% end %>
+            <% i = 2 %>
+            <% @property.photos.each do |photo| %>
+              <div class="gallery-column">
+                <%= cl_image_tag(photo.image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(#{i})") %>
+              </div>
+              <% i += 1 %>
             <% end %>
           </div>
         </div>
@@ -142,13 +127,13 @@
                 <p><%= simple_format(@property.description) %></p>
               </div>
               <div role="tabpanel" class="tab-pane tab-padding fade" id="reviews">
-                <% unless @property.reviews.empty? %>
+                <% if @property.reviews.empty? %>
+                  <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
+                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
+                <% else %>
                   <% @property.reviews.each do |review| %>
                     <p>"<%= review.content %>"</p>
                   <% end %>
-                <% else %>
-                  <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
-                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
                 <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
@@ -158,39 +143,41 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-        <div class="green-header sidebar-header-height vertical-align">
-          <h4>Book your stay</h4>
-        </div>
-        <div class="sidebar-container-right">
-          <% if @price.present? %>
-            <div class="sidebar-content">
-              <h5>Arrival date</h5>
-              <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
-            </div>
-            <div class="sidebar-content">
-              <h5>Departure date</h5>
-              <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
-            </div>
-            <h5>Price</h5>
-            <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
-            <%= link_to @book_link, target: :_blank do %>
-              <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
+      <section id="scroll-content">
+        <div class="col-xs-12 col-sm-4" id="properties-sidebar">
+          <div class="green-header sidebar-header-height vertical-align">
+            <h4>Book your stay</h4>
+          </div>
+          <div class="sidebar-container-right">
+            <% if @price.present? %>
+              <div class="sidebar-content">
+                <h5>Arrival date</h5>
+                <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
+              </div>
+              <div class="sidebar-content">
+                <h5>Departure date</h5>
+                <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
+              </div>
+              <h5>Price</h5>
+              <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
+              <%= link_to @book_link, target: :_blank do %>
+                <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
+              <% end %>
+            <% elsif @message.present? %>
+              <p><%= @message %></p>
+              <% code = @property.code %>
+              <div id="supercontrol-availability">
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+              </div>
+            <% else %>
+              <% code = @property.code %>
+              <div id="supercontrol-availability">
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+              </div>
             <% end %>
-          <% elsif @message.present? %>
-            <p><%= @message %></p>
-            <% code = @property.code %>
-            <div id="supercontrol-availability">
-              <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
-            </div>
-          <% else %>
-            <% code = @property.code %>
-            <div id="supercontrol-availability">
-              <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
-            </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   <!-- </div> -->
 </div>
@@ -230,20 +217,12 @@
     setTimeout(resizeMap, 200);
   });
   function resizeMap() {
-      console.log("hello")
       map.resize();
       // Animation complete
   }
-  // $('.nav-tabs a:last').click(function(){
-  //   $(this).tab('show')(function() {
-  //     map.resize();
-  //   });
-  // });
   var token = "<%= ENV["MAPBOX"] %>";
   var longitude = "<%= @property.longitude %>";
   var latitude = "<%= @property.latitude %>";
-  // var markerImage = "<%= image_url("marker-15.svg") %>";
-  // console.log(markerImage);
   var geojson = {
       "type": "FeatureCollection",
       "features": [
@@ -286,8 +265,4 @@
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
-  map.on('load', function() {
-      // Animation complete
-    map.resize();
-  });
 </script>
