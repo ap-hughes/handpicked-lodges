@@ -32,14 +32,14 @@
                     <div class="carousel-inner">
                       <div class="item active">
                         <% unless property.hero_image.blank? %>
-                          <%= image_tag(cl_image_path property.hero_image, height: 275, width: 300) %>
+                          <%= image_tag(cl_image_path property.hero_image, height: 450, width: 500, crop: :fill) %>
                         <% end %>
                       </div>
                       <% unless property.photos.blank? %>
                         <% property.photos.order(created_at: :desc).take(2).each do |photo| %>
                           <% unless photo.image.blank? %>
                             <div class="item">
-                              <%= image_tag(cl_image_path photo.image, height: 275, width: 300) %>
+                              <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
                             </div>
                           <% end %>
                         <% end %>
@@ -133,14 +133,14 @@
                     <div class="carousel-inner">
                       <div class="item active">
                         <% unless property.hero_image.blank? %>
-                          <%= image_tag(cl_image_path property.hero_image, height: 275, width: 300) %>
+                          <%= image_tag(cl_image_path property.hero_image, height: 450, width: 500, crop: :fill) %>
                         <% end %>
                       </div>
                       <% unless property.photos.blank? %>
                         <% property.photos.order(created_at: :desc).take(2).each do |photo| %>
                           <% unless photo.image.blank? %>
                             <div class="item">
-                              <%= image_tag(cl_image_path photo.image, height: 275, width: 300) %>
+                              <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
                             </div>
                           <% end %>
                         <% end %>
@@ -224,14 +224,14 @@
                     <div class="carousel-inner">
                       <div class="item active">
                         <% unless property.hero_image.blank? %>
-                          <%= cl_image_tag(property.hero_image, height: 275, width: 300) %>
+                          <%= cl_image_tag(property.hero_image, height: 450, width: 500, crop: :fill) %>
                         <% end %>
                       </div>
                       <% unless property.photos.blank? %>
                         <% property.photos.order(created_at: :desc).take(2).each do |photo| %>
                           <% unless photo.image.blank? %>
                             <div class="item">
-                              <%= cl_image_tag(photo.image, height: 275, width: 300) %>
+                              <%= cl_image_tag(photo.image, height: 450, width: 500, crop: :fill) %>
                             </div>
                           <% end %>
                         <% end %>

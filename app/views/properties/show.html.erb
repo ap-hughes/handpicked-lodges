@@ -21,21 +21,14 @@
 
           <!-- Full-width images with number text -->
           <div class="mySlides">
-            <% if @property.hero_image? %>
-              <%= cl_image_tag(@property.hero_image, style:"width: 100%")%>
-
-            <% else %>
-              <%= image_tag(("cedar-lodge.jpg"), style:"width: 100%") %>
-            <% end %>
+            <%= cl_image_tag(@property.hero_image, style:"width: 100%", height: 700, width: 1000, crop: :fill)%>
           </div>
 
-          <% unless @property.photos.blank? %>
-            <% @property.photos.each do |photo| %>
-              <% unless photo.image.blank? %>
-                <div class="mySlides">
-                  <%= cl_image_tag(photo.image, style:"width: 100%") %>
-                </div>
-              <% end %>
+          <% @property.photos.each do |photo| %>
+            <% unless photo.image.blank? %>
+              <div class="mySlides">
+                <%= cl_image_tag(photo.image, style:"width: 100%", height: 700, width: 1000, crop: :fill) %>
+              </div>
             <% end %>
           <% end %>
 
@@ -46,22 +39,14 @@
           <!-- Thumbnail images -->
           <div class="gallery-row">
             <div class="gallery-column">
-              <% if @property.hero_image? %>
-                <%= cl_image_tag(@property.hero_image, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
-              <% else %>
-                <%= image_tag(("cedar-lodge.jpg"), crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
-              <% end %>
+              <%= cl_image_tag(@property.hero_image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
             </div>
-            <% unless @property.photos.blank? %>
-              <% i = 2 %>
-              <% @property.photos.each do |photo| %>
-                <% unless photo.image.blank? %>
-                  <div class="gallery-column">
-                    <%= cl_image_tag(photo.image, style:"width: 100%", crop: :fill, class: "demo cursor", onclick:"currentSlide(#{i})") %>
-                  </div>
-                <% i += 1 %>
-                <% end %>
-              <% end %>
+            <% i = 2 %>
+            <% @property.photos.each do |photo| %>
+              <div class="gallery-column">
+                <%= cl_image_tag(photo.image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(#{i})") %>
+              </div>
+              <% i += 1 %>
             <% end %>
           </div>
         </div>
@@ -142,13 +127,13 @@
                 <p><%= simple_format(@property.description) %></p>
               </div>
               <div role="tabpanel" class="tab-pane tab-padding fade" id="reviews">
-                <% unless @property.reviews.empty? %>
+                <% if @property.reviews.empty? %>
+                  <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
+                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
+                <% else %>
                   <% @property.reviews.each do |review| %>
                     <p>"<%= review.content %>"</p>
                   <% end %>
-                <% else %>
-                  <p><%= @property.name %> is so new to the site it's not been reviewed by any guests yet.</p>
-                  <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
                 <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="map">
@@ -230,20 +215,12 @@
     setTimeout(resizeMap, 200);
   });
   function resizeMap() {
-      console.log("hello")
       map.resize();
       // Animation complete
   }
-  // $('.nav-tabs a:last').click(function(){
-  //   $(this).tab('show')(function() {
-  //     map.resize();
-  //   });
-  // });
   var token = "<%= ENV["MAPBOX"] %>";
   var longitude = "<%= @property.longitude %>";
   var latitude = "<%= @property.latitude %>";
-  // var markerImage = "<%= image_url("marker-15.svg") %>";
-  // console.log(markerImage);
   var geojson = {
       "type": "FeatureCollection",
       "features": [
@@ -286,8 +263,4 @@
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
-  map.on('load', function() {
-      // Animation complete
-    map.resize();
-  });
 </script>
