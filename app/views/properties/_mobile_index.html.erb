@@ -3,7 +3,8 @@
     <div class="row">
       <% if @available_properties.present? %>
         <div class="col-xs-12">
-        <h4>The following lodges are available on your dates</h4>
+          <h4>The following lodges are available on your dates</h4>
+          <hr class="gray-hr">
         </div>
       <% end %>
       <% if params[:search].present? %>
@@ -113,7 +114,8 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <h4>Unfortunately these lodges are no longer available on your dates</h4>
+          <h4>The following lodges are available on different dates</h4>
+          <hr class="gray-hr">
         </div>
         <% @properties.where.not(code: @available_properties.keys).each do |property| %>
           <div class="col-xs-12 col-md-6">
