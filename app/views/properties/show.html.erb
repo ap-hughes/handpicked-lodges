@@ -10,7 +10,7 @@
     <h1><%= @property.name %></h1>
     <p><%= @property.headline %></p>
     <% if mobile_device? %>
-      <a href="#properties-sidebar"><div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div></a>
+      <a href="#scroll-content"><div class="btn btn-default" style="margin: 0 0 15px 0px">BOOK NOW</div><span></span></a>
     <% end %>
   </div>
   <div class="color-background">
@@ -143,39 +143,41 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-        <div class="green-header sidebar-header-height vertical-align">
-          <h4>Book your stay</h4>
-        </div>
-        <div class="sidebar-container-right">
-          <% if @price.present? %>
-            <div class="sidebar-content">
-              <h5>Arrival date</h5>
-              <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
-            </div>
-            <div class="sidebar-content">
-              <h5>Departure date</h5>
-              <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
-            </div>
-            <h5>Price</h5>
-            <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
-            <%= link_to @book_link, target: :_blank do %>
-              <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
+      <section id="scroll-content">
+        <div class="col-xs-12 col-sm-4" id="properties-sidebar">
+          <div class="green-header sidebar-header-height vertical-align">
+            <h4>Book your stay</h4>
+          </div>
+          <div class="sidebar-container-right">
+            <% if @price.present? %>
+              <div class="sidebar-content">
+                <h5>Arrival date</h5>
+                <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
+              </div>
+              <div class="sidebar-content">
+                <h5>Departure date</h5>
+                <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
+              </div>
+              <h5>Price</h5>
+              <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
+              <%= link_to @book_link, target: :_blank do %>
+                <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
+              <% end %>
+            <% elsif @message.present? %>
+              <p><%= @message %></p>
+              <% code = @property.code %>
+              <div id="supercontrol-availability">
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+              </div>
+            <% else %>
+              <% code = @property.code %>
+              <div id="supercontrol-availability">
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+              </div>
             <% end %>
-          <% elsif @message.present? %>
-            <p><%= @message %></p>
-            <% code = @property.code %>
-            <div id="supercontrol-availability">
-              <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
-            </div>
-          <% else %>
-            <% code = @property.code %>
-            <div id="supercontrol-availability">
-              <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
-            </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   <!-- </div> -->
 </div>
