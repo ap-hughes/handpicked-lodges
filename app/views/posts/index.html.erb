@@ -23,13 +23,11 @@
         </div>
       <% end %>
     </div>
-    <% unless mobile_device? %>
-      <div class="col-xs-12 col-sm-4" id="posts-sidebar">
-        <h4>Recent posts</h4>
-        <% @posts.each do |post| %>
-          <p><%= link_to "#{post.title} (#{post.created_at.strftime('%d %b, %Y')})", post_path(post) %></p>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="col-xs-12 col-sm-4" id="posts-sidebar">
+      <h4>Recent posts</h4>
+      <% @posts.each do |post| %>
+        <p><%= link_to "#{post.title} (#{post.created_at.strftime('%d %b, %Y')})", post_path(post) %></p>
+      <% end %>
+    </div>
   </div>
 </div>
