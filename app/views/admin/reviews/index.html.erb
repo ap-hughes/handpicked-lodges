@@ -23,7 +23,7 @@
         <td><%= review.content %></td>
         <td><%= review.date %></td>
         <td>
-
+          <%= link_to 'Edit', edit_admin_review_path(review), class: 'btn btn-default' %>
           <%= link_to 'Delete', [:admin, review], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>

@@ -9,6 +9,7 @@
     <tr>
       <th>ID</th>
       <th>Property</th>
+      <th>Active on site</th>
       <th>Tagline</th>
       <th></th>
     </tr>
@@ -19,7 +20,14 @@
       <tr>
         <td><%= property.id %></td>
         <td><%= link_to property.name, [property] %></td>
-        <td><%= property.headline %></td>
+        <td>
+          <% if property.enabled? %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <% end %>
+        </td>
+        <td><%= property.headline.truncate(60) %></td>
         <td>
           <%= link_to 'Edit', edit_admin_property_path(property), class: 'btn btn-default' %>
           <%= link_to 'Delete', [:admin, property], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

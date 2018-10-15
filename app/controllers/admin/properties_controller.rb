@@ -8,7 +8,7 @@ class Admin::PropertiesController < Admin::AdminController
   def new
     @property = Property.new
     @property.photos.build
-    @property.reviews.build
+    @property.features.build
   end
 
   def create
@@ -23,9 +23,9 @@ class Admin::PropertiesController < Admin::AdminController
 
   def edit
     @property.photos.build
-    @property.reviews.build
+    @property.features.build
     @photos = @property.photos
-    @reviews = @property.reviews
+    @features = @property.features
   end
 
   def update
@@ -53,6 +53,6 @@ class Admin::PropertiesController < Admin::AdminController
 
   def property_params
     params.require(:property).permit(:code, :in_aviemore, :in_country, :enabled, :name, :sleeps, :headline, :description, :min_daily_price, :bedrooms, :bathrooms,
-      :wood_stove, :hot_tub, :pet_friendly, :sauna, :features, :we_love, :guests_love, :meta_title, :meta_description, :latitude, :longitude, :hero_image, photos_attributes: [:id, :image], reviews_attributes: [:id, :content])
+      :wood_stove, :hot_tub, :pet_friendly, :sauna, :games_room, :features, :we_love, :guests_love, :meta_title, :meta_description, :latitude, :longitude, :hero_image, photos_attributes: [:id, :image], features_attributes: [:id, :name, :key])
   end
 end
