@@ -47,10 +47,6 @@ doc.root.xpath('property').each do |property|
     pet_friendly: true,
     sauna: true,
     games_room: false,
-    features: ["Sleeps 6 with space for cots", "​Pet friendly", "1 x king room with ensuite", "​1 x double room", "1 x twin room", "Free sat with Netflix",
-      "Built in wardrobes", "Wood-burning stove", "Panoramic views", "Fantastic location", "Games room with table tennis",
-      "Family bathroom with bath", "​Drying room with shower room", "​Dishwasher", "​Washing machine", "​Free WIFI​", "​BBQ & outdoor dining area",
-      "Storage for sports equipment", "Parking for 4 cars", "​Large garden"]
     )
 end
 
@@ -60,7 +56,7 @@ puts "Updating properties"
 puts "Updating alltnacriche"
 
 #Alltnacriche
-alltnacriche = Property.where(code: 489553).update(
+Property.where(code: 489553).update(
   enabled: true,
   name: "Alltnacriche",
   headline: "Spacious and luxurious self-catered pet friendly country lodge with large outdoor hot tub",
@@ -89,11 +85,6 @@ Alltnacriche is in a family orientated location with the owners living next door
   hot_tub: true,
   pet_friendly: true,
   sauna: false,
-  features: ["1x super king bedroom with ensuite", "​1x super king bedroom (or twin)*", "​1x king bedroom", "1x double bedroom", "1 x bunk room",
-    "1 x disabled access room*", "​Space for infant cots", "Fully DDA compliant*​", "​Pet friendly​", "​Under-floor heating", "Indoor dog house",
-    "​Home office", "​​Wood-burning stove", "Second living room", "Extensive DVD collection", "​Play station", "2 x large TV's", "Range cooker",
-    "Coffee machine", "BBQ", "​Hot tub", "​Patio and garden", "Dishwasher", "Free WIFI", "​Utility room", "Washing machine", "Off-street parking", "​River view​",
-    "​Storage for sports equipment"],
   in_aviemore: false,
   in_country: true,
   we_love: "The cosy country house vibe, with that huge social kitchen diner.....and of course the piano!",
@@ -104,6 +95,19 @@ Alltnacriche is in a family orientated location with the owners living next door
   meta_description: "Luxury self catering pet friendly country house with hot tub sleeping 10 in the Cairngorms National Park"
   )
 
+alltnacriche = Property.where(code: 489553)
+
+features = ["1x super king bedroom with ensuite", "​1x super king bedroom (or twin)*", "​1x king bedroom", "1x double bedroom", "1 x bunk room",
+  "1 x disabled access room*", "​Space for infant cots", "Fully DDA compliant*​", "​Pet friendly​", "​Under-floor heating", "Indoor dog house",
+  "​Home office", "​​Wood-burning stove", "Second living room", "Extensive DVD collection", "​Play station", "2 x large TV's", "Range cooker",
+  "Coffee machine", "BBQ", "​Hot tub", "​Patio and garden", "Dishwasher", "Free WIFI", "​Utility room", "Washing machine", "Off-street parking", "​River view​",
+  "​Storage for sports equipment"]
+
+puts "Creating features for Alltnacriche"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: alltnacriche[0][:id])
+end
 # puts "doing alltnacriche's photos"
 
 # [File.expand_path("~/Desktop/PBC/images/All Cabins 2018/Braeriach compressed/Braeriach/1Q7A4095-1-2.jpg"),
@@ -124,7 +128,7 @@ Alltnacriche is in a family orientated location with the owners living next door
 puts "Updating Burnbrae lodge"
 
 #Alltnacriche
-Property.where(code: 492277).update(
+burnbrae = Property.where(code: 492277).update(
   enabled: true,
   name: "Burnbrae Lodge",
   headline: "A spacious self-catered lodge with panoramic views of the Cairngorms and River Dulnain",
@@ -142,11 +146,6 @@ If you need to keep in touch with anyone while you’re away, you can make use o
   pet_friendly: true,
   sauna: true,
   games_room: true,
-  features: ["Sleeps 8 with space for cots", "1x king room with ensuite", "1x double room with ensuite", "1x twin room", "1x bunk room",
-    "Built in wardrobes", "Large family bathroom", "BBQ", "Sauna", "Second TV room", "​Wood-burning stove", "​Pet friendly", "​Under-floor heating",
-    "​Ground source heat pump", "Dining room", "Games room - darts, pool etc", "Extensive DVD collection", "​Dishwasher", "​Wine fridge",
-    "​Washing machine", "Free WIFI", "Induction hob", "​Coffee Machine", "Utility room", "Deck and garden", "​River and mountain views",
-    "​Storage for sports equipment", "Off-street parking"],
   in_aviemore: false,
   in_country: true,
   we_love: "This lodge just goes on and on! A huge games room, a snug upstairs with its own sauna, and a simply enormous entrance hall perfect for Cairngorms outdoor life.",
@@ -157,10 +156,22 @@ If you need to keep in touch with anyone while you’re away, you can make use o
   meta_description: "Self-catering pet friendly luxury accommodation sleeping 8 with wood burning stove and sauna"
   )
 
+features = ["Sleeps 8 with space for cots", "1x king room with ensuite", "1x double room with ensuite", "1x twin room", "1x bunk room",
+  "Built in wardrobes", "Large family bathroom", "BBQ", "Sauna", "Second TV room", "​Wood-burning stove", "​Pet friendly", "​Under-floor heating",
+  "​Ground source heat pump", "Dining room", "Games room - darts, pool etc", "Extensive DVD collection", "​Dishwasher", "​Wine fridge",
+  "​Washing machine", "Free WIFI", "Induction hob", "​Coffee Machine", "Utility room", "Deck and garden", "​River and mountain views",
+  "​Storage for sports equipment", "Off-street parking"]
+
+puts "Creating features for Burnbrae Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: burnbrae[0][:id])
+end
+
 puts "Updating Cairn Eilrig"
 
 #Cairn Eilrig
-Property.where(code: 529819).update(
+cairn = Property.where(code: 529819).update(
   enabled: true,
   name: "Cairn Eilrig",
   headline: "A pet friendly lodge perfect for outdoor enthusiasts, with the most breathtaking mountain views.",
@@ -181,10 +192,6 @@ Cairn Eilrig really is the perfect Cairngorms holiday lodge for those who love t
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room with ensuite", "1x king room", "1x twin room",
-    "Sky TV", "Built in wardrobes", "Wood-burning stove", "Panoramic views", "Fantastic location", "Sun room", "Family bathroom with bath",
-    "​Drying room", "​Dishwasher", "​Washing machine", "​Free WIFI​", "BBQ & outdoor dining area", "Storage for sports equipment",
-    "Parking for 4 cars", "​Large garden"],
   in_aviemore: false,
   in_country: true,
   we_love: "A truly amazing location - you're only minutes away from CairnGorm and Loch Morlich - and the mountains look close enough to touch!",
@@ -195,11 +202,21 @@ Cairn Eilrig really is the perfect Cairngorms holiday lodge for those who love t
   meta_description: "Book now to stay in the only holiday home at the foot of Cairngorm Mountain"
   )
 
+features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room with ensuite", "1x king room", "1x twin room",
+  "Sky TV", "Built in wardrobes", "Wood-burning stove", "Panoramic views", "Fantastic location", "Sun room", "Family bathroom with bath",
+  "​Drying room", "​Dishwasher", "​Washing machine", "​Free WIFI​", "BBQ & outdoor dining area", "Storage for sports equipment",
+  "Parking for 4 cars", "​Large garden"]
+
+puts "Creating features for Cairn Eilrig"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: cairn[0][:id])
+end
 
 puts "Updating Foresters Lodge"
 
 #Foresters Lodge
-Property.where(code: 488258).update(
+foresters = Property.where(code: 488258).update(
   enabled: true,
   name: "Foresters Lodge",
   headline: "Stylish and atmospheric pet friendly highland lodge, with hot tub and sauna cabin in the Cairngorms National Park.",
@@ -227,10 +244,6 @@ If you are booking for a large group of friends, please contact us prior to book
   pet_friendly: true,
   sauna: true,
   games_room: true,
-  features: ["1x king bedroom with ensuite", "2x king bedrooms", "1x triple/quad room*", "Roll top bath", "Off-street parking", "​Wood-burning stove",
-    "Open Fire", "​Pet friendly", "2x large TV's", "Bluetooth stereo", "Games room - Pool/bar/darts", "DVDs and games", "​Hot tub",
-    "​Spa with sauna and rain shower", "Under-floor heating in spa", "Games room - bar, darts, pool", "​​Range cooker", "Butlers sink",
-    "​Dishwasher", "Coffee Machine", "Free WIFI​", "​Washing machine", "​Weber BBQ", "River views", "Deck", "​Patio", "Enclosed garden", "Storage for sports equipment"],
   in_aviemore: false,
   in_country: true,
   we_love: "The spa area – such a decadent treat after a day in the hills!",
@@ -241,11 +254,21 @@ If you are booking for a large group of friends, please contact us prior to book
   meta_description: "Luxury dog friendly holiday lodge with hottub and sauna in the Cairngorms National Park"
   )
 
+features = ["1x king bedroom with ensuite", "2x king bedrooms", "1x triple/quad room*", "Roll top bath", "Off-street parking", "​Wood-burning stove",
+    "Open Fire", "​Pet friendly", "2x large TV's", "Bluetooth stereo", "Games room - Pool/bar/darts", "DVDs and games", "​Hot tub",
+    "​Spa with sauna and rain shower", "Under-floor heating in spa", "Games room - bar, darts, pool", "​​Range cooker", "Butlers sink",
+    "​Dishwasher", "Coffee Machine", "Free WIFI​", "​Washing machine", "​Weber BBQ", "River views", "Deck", "​Patio", "Enclosed garden", "Storage for sports equipment"]
+
+puts "Creating features for Foresters Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: foresters[0][:id])
+end
+
 puts "Updating Riverside Lodge"
 
-
 #Riverside Lodge
-Property.where(code: 490651).update(
+riverside = Property.where(code: 490651).update(
   enabled: true,
   name: "Riverside Lodge",
   headline: "Light, bright and modern, architecturally designed, pet and family friendly with breathtaking views.",
@@ -269,10 +292,6 @@ Nethy Bridge has some lovely local amenities and is close to some award-winning 
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Pet friendly", "1x king bedroom with ensuite", "1x double bedroom", "​1x twin bedroom", "Space for infant cot",
-    "​Large family shower room", "​Wood-burning stove", "TV in master bedroom", "Netflix* and playstation", "Bluetooth speakers",
-    "Under-floor heating", "Air source heat pump", "​​Dishwasher", "​Range cooker", "Coffee Machine", "Utility room", "​Washing machine​",
-    "​Free WIFI", "Off-street parking", "​BBQ", "​Fire Pit", "​Patio and garden", "​River views throughout", "Storage for sports equipment​​"],
   in_aviemore: false,
   in_country: true,
   we_love: "An evening spent by the fire pit next to the river – plus the antler chandeliers!",
@@ -282,6 +301,17 @@ Nethy Bridge has some lovely local amenities and is close to some award-winning 
   meta_title: "Riverside Lodge - Modern luxuries with river views and wood burner",
   meta_description: "Stunning luxury holiday home in the Cairngorms National Park, pet friendly with amazing views"
   )
+
+features = ["Pet friendly", "1x king bedroom with ensuite", "1x double bedroom", "​1x twin bedroom", "Space for infant cot",
+  "​Large family shower room", "​Wood-burning stove", "TV in master bedroom", "Netflix* and playstation", "Bluetooth speakers",
+  "Under-floor heating", "Air source heat pump", "​​Dishwasher", "​Range cooker", "Coffee Machine", "Utility room", "​Washing machine​",
+  "​Free WIFI", "Off-street parking", "​BBQ", "​Fire Pit", "​Patio and garden", "​River views throughout", "Storage for sports equipment​​"]
+
+puts "Creating features for Riverside Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: riverside[0][:id])
+end
 
 puts "Updating Smithy & Riverside Lodge"
 
@@ -301,7 +331,6 @@ Find out more about each of the lodges on the Smithy and Riverside Lodge pages."
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: [],
   in_aviemore: false,
   in_country: true,
   we_love: "The huge open plan area makes for the perfect place for a special get together",
@@ -315,7 +344,7 @@ Find out more about each of the lodges on the Smithy and Riverside Lodge pages."
 puts "Updating The Bothy"
 
 #The Bothy
-Property.where(code: 493259).update(
+bothy = Property.where(code: 493259).update(
   enabled: true,
   name: "The Bothy",
   headline: "Cool Scandi-style interiors filled with cosy home comforts perfect for families and dogs in the centre of Aviemore",
@@ -338,10 +367,6 @@ For those who prefer their sports at a lower altitude, the Spey Valley Champions
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Sleeps 4 with space for a cot", "​Pet friendly", "1x double room", "1x twin room", "Located in a quiet cul-de-sac",
-    "Bedroom TV's with Netflix", "Netflix & Now TV", "Built in wardrobes", "​​​Sonos speakers", "Wood-burning stove", "DVD's & board games​",
-    "​Roll top bath", "​Walk in shower", "​Dishwasher", "​Washing machine", "​Free WIFI​", "​BBQ & outdoor dining area", "Storage for sports equipment",
-    "Parking for 2 cars", "​Enclosed garden"],
   in_aviemore: true,
   in_country: false,
   we_love: "We can’t choose between its cosy Morso wood burning stove and the huge roll top bath!",
@@ -352,10 +377,21 @@ For those who prefer their sports at a lower altitude, the Spey Valley Champions
   meta_description: "Cosy self catering retreat in the centre of Aviemore, dog friendly with wood burning stove"
   )
 
+features = ["Sleeps 4 with space for a cot", "​Pet friendly", "1x double room", "1x twin room", "Located in a quiet cul-de-sac",
+  "Bedroom TV's with Netflix", "Netflix & Now TV", "Built in wardrobes", "​​​Sonos speakers", "Wood-burning stove", "DVD's & board games​",
+  "​Roll top bath", "​Walk in shower", "​Dishwasher", "​Washing machine", "​Free WIFI​", "​BBQ & outdoor dining area", "Storage for sports equipment",
+  "Parking for 2 cars", "​Enclosed garden"]
+
+puts "Creating features for The Bothy"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: bothy[0][:id])
+end
+
 puts "Updating The Old Smithy"
 
 #The Old Smithy
-Property.where(code: 490650).update(
+old_smithy = Property.where(code: 490650).update(
   enabled: true,
   name: "The Old Smithy",
   headline: "Cosy self-catered cottage full of character and history.",
@@ -374,10 +410,6 @@ With its tranquil riverside setting, The Old Smithy is in the perfect location t
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Off-street parking", "​Pet friendly", "1x king bedroom with ensuite", "1x double bedroom", "1x twin in upstairs 'cabin'",
-    "Space for a cot", "TV in both bedrooms", "​​Large family bathroom", "Playstation", "Bluetooth speaker", "Bathroom underfloor heating",
-    "Original features", "​Wood-burning stove", "Dishwasher & washing machine", "​Free WIFI", "BBQ", "Patio and large enclosed garden", "​River view",
-    "Storage for sports equipment", "River seat​"],
   in_aviemore: false,
   in_country: true,
   we_love: "Sitting on the private riverside bench listening to the calming sound of the river whilst dragonflies buzz by.",
@@ -388,10 +420,21 @@ With its tranquil riverside setting, The Old Smithy is in the perfect location t
   meta_description: "Beautiful pet friendly self catering country cottage in the Highlands with wood burning stove and period features"
   )
 
+features = ["Off-street parking", "​Pet friendly", "1x king bedroom with ensuite", "1x double bedroom", "1x twin in upstairs 'cabin'",
+  "Space for a cot", "TV in both bedrooms", "​​Large family bathroom", "Playstation", "Bluetooth speaker", "Bathroom underfloor heating",
+  "Original features", "​Wood-burning stove", "Dishwasher & washing machine", "​Free WIFI", "BBQ", "Patio and large enclosed garden", "​River view",
+  "Storage for sports equipment", "River seat​"]
+
+puts "Creating features for the Old Smithy"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: old_smithy[0][:id])
+end
+
 puts "Updating Trails End Lodge"
 
 #Trails End Lodge
-Property.where(code: 523669).update(
+trails_end = Property.where(code: 523669).update(
   enabled: true,
   name: "Trails End Lodge",
   headline: "Spacious, modern and luxurious self-catered lodge right on the fringes of the forest above Aviemore.",
@@ -412,10 +455,6 @@ Trails End Lodge is all about luxurious but relaxed comfort – the ideal place 
   hot_tub: false,
   pet_friendly: true,
   sauna: false,
-  features: ["Sleeps 8 with space for cots", "1x super king room with ensuite", "1x double room", "1x triple kids room", "1x king room",
-    "Built in wardrobes", "Large family bathroom", "​Wood-burning stove", "​Pet friendly", "Large kitchen diner", "​Coffee Machine", "Utility room",
-    "​Dishwasher", "​Washing machine", "​Free WIFI", "Huge garden", "Access to Craigellachie Reserve", "​Mountain views", "​Storage for sports equipment",
-    "​Off-street parking"],
   in_aviemore: true,
   in_country: false,
   we_love: "So much space! - a huge kitchen, big garden and loads of space for all your outdoor kit and clothing - if you're an outdoors family it ticks all the boxes.",
@@ -426,10 +465,21 @@ Trails End Lodge is all about luxurious but relaxed comfort – the ideal place 
   meta_description: "Large modern family and pet friendly lodge on the edge of Aviemore in the heart of the Cairngorms"
   )
 
+features = ["Sleeps 8 with space for cots", "1x super king room with ensuite", "1x double room", "1x triple kids room", "1x king room",
+  "Built in wardrobes", "Large family bathroom", "​Wood-burning stove", "​Pet friendly", "Large kitchen diner", "​Coffee Machine", "Utility room",
+  "​Dishwasher", "​Washing machine", "​Free WIFI", "Huge garden", "Access to Craigellachie Reserve", "​Mountain views", "​Storage for sports equipment",
+  "​Off-street parking"]
+
+puts "Creating features for Trails End Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: trails_end[0][:id])
+end
+
 puts "Updating Westcott"
 
 #Westcott
-Property.where(code: 536256).update(
+westcott = Property.where(code: 536256).update(
   enabled: true,
   name: "Westcott",
   headline: "A Room (or a few) With A View – relaxed Edwardian grandeur at Westcott",
@@ -451,10 +501,6 @@ Whether you’re looking for a base for your own grand tour of the Highlands, a 
   pet_friendly: true,
   sauna: false,
   games_room: true,
-  features: ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room with ensuite", "​1x double room", "1x twin room",
-    "Free sat with Netflix", "Built in wardrobes", "Wood-burning stove", "Panoramic views", "Fantastic location",
-    "Games room with table tennis", "Family bathroom with bath", "​Drying room with shower room", "​Dishwasher", "​Washing machine",
-    "​Free WIFI​", "​BBQ & outdoor dining area", "Storage for sports equipment", "Parking for 4 cars", "​Large garden"],
   in_aviemore: false,
   in_country: true,
   we_love: "Those cheeky red squirrels who love to put on a show right outside the windows. They have their own little playground created amongst the pines and you could sit watching them all day!",
@@ -465,11 +511,22 @@ Whether you’re looking for a base for your own grand tour of the Highlands, a 
   meta_description: "Impressive and spacious self-catering detached country house with games room period features and breathtaking views"
   )
 
+features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room with ensuite", "​1x double room", "1x twin room",
+  "Free sat with Netflix", "Built in wardrobes", "Wood-burning stove", "Panoramic views", "Fantastic location",
+  "Games room with table tennis", "Family bathroom with bath", "​Drying room with shower room", "​Dishwasher", "​Washing machine",
+  "​Free WIFI​", "​BBQ & outdoor dining area", "Storage for sports equipment", "Parking for 4 cars", "​Large garden"]
+
+puts "Creating features for Westcott"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: westcott[0][:id])
+end
+
 puts "Updating Douglas Cottage"
 
 #Douglas Cottage
 
-Property.where(code: 541233).update(
+douglas = Property.where(code: 541233).update(
   enabled: true,
   name: "Douglas Cottage",
   latitude: 57.248584,
@@ -493,10 +550,6 @@ Whatever you're looking for in your Cairngorms break - from an action and advent
   pet_friendly: true,
   sauna: false,
   games_room: false,
-  features: ["Sleeps 6 with space for cots", "​Pet friendly", "1x king suite with bath", "​1x king room", "1x twin room",
-    "Smart TV", "Snug room", "Wood-burning stove", "Period features", "Fantastic location", "Ground floor shower room",
-    "​Utility room", "​Dishwasher", "​Washing machine", "​Bike Store", "​Free WIFI​", "​BBQ", "Enclosed garden", "Parking for 3 cars",
-    "Village centre location"],
   in_aviemore: false,
   in_country: true,
   we_love: "That impressive stair case leading to the most luxurious master suite.",
@@ -504,11 +557,22 @@ Whatever you're looking for in your Cairngorms break - from an action and advent
   meta_description: "Cosy, pet friendly, period cottage oozing style and comfort in a central village location."
   )
 
+features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king suite with bath", "​1x king room", "1x twin room",
+  "Smart TV", "Snug room", "Wood-burning stove", "Period features", "Fantastic location", "Ground floor shower room",
+  "​Utility room", "​Dishwasher", "​Washing machine", "​Bike Store", "​Free WIFI​", "​BBQ", "Enclosed garden", "Parking for 3 cars",
+  "Village centre location"]
+
+puts "Creating features for Douglas Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: douglas[0][:id])
+end
+
 puts "Updating Tomdhu Lodge"
 
 #Tomdhu Lodge
 
-Property.where(code: 542599).update(
+tomdhu = Property.where(code: 542599).update(
   enabled: true,
   name: "Tomdhu Lodge",
   latitude: 57.261007,
@@ -532,10 +596,6 @@ You could not ask for a more beautifully designed and comprehensively equipped h
   pet_friendly: true,
   sauna: false,
   games_room: false,
-  features: ["Sleeps 8 with space for cots", "2x king rooms", "2x twin rooms", "1x family bathroom", "Freestanding bath",
-    "Shower room", "Double sided ​woodburner", "​Pet friendly", "Large kitchen-diner", "​Butlers pantry", "​Coffee machine",
-    "Utility/drying room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Hot tub", "Outdoor dining", "​Panoramic views",
-    "​Storage for sports equipment", "​Off-street parking"],
   in_aviemore: false,
   in_country: true,
   we_love: "The freestanding fireplace in the lounge and dining area is such a centrepiece – warming and welcoming but with a touch of glamorous luxury too!",
@@ -543,11 +603,22 @@ You could not ask for a more beautifully designed and comprehensively equipped h
   meta_description: "With a hot tub and double-sided wood burner in the Cairngorms National Park - it's perfect for lovers of great interiors, as well as lovers of the great outdoors"
   )
 
+features = ["Sleeps 8 with space for cots", "2x king rooms", "2x twin rooms", "1x family bathroom", "Freestanding bath",
+  "Shower room", "Double sided ​woodburner", "​Pet friendly", "Large kitchen-diner", "​Butlers pantry", "​Coffee machine",
+  "Utility/drying room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Hot tub", "Outdoor dining", "​Panoramic views",
+  "​Storage for sports equipment", "​Off-street parking"]
+
+puts "Creating features for Tomdhu"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: tomdhu[0][:id])
+end
+
 puts "Updating Rymore Wood Lodge"
 
 #Rymore Wood Lodge
 
-Property.where(code: 542702).update(
+rymore = Property.where(code: 542702).update(
   enabled: true,
   name: "Rymore Wood Lodge",
   latitude: 57.225450,
@@ -573,13 +644,20 @@ This is a lodge which truly reflects its surroundings, and in which you will ins
   pet_friendly: true,
   sauna: false,
   games_room: false,
-  features: ["Sleeps 8 with space for cots", "1x king bed ground floor", "1x king bed with ensuite", "2x twin rooms",
-    "1x shower room", "​1x family bathroom", "Wood burner", "​Open fire", "​Pet friendly", "Large kitchen-diner", "Wildlife viewing area",
-    "​Coffee machine", "Utility room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Outdoor dining", "​Uniquely private location",
-    "​Large garden", "​Storage for sports equipment", "​Off-street parking"],
   in_aviemore: false,
   in_country: true,
   we_love: "You’re right in the heart of the magnificent Abernethy Forest here – no neighbours other than the birds, squirrel and deer!"
   )
+
+features = ["Sleeps 8 with space for cots", "1x king bed ground floor", "1x king bed with ensuite", "2x twin rooms",
+  "1x shower room", "​1x family bathroom", "Wood burner", "​Open fire", "​Pet friendly", "Large kitchen-diner", "Wildlife viewing area",
+  "​Coffee machine", "Utility room", "​Dishwasher", "​Washing machine", "​Free WIFI", "Outdoor dining", "​Uniquely private location",
+  "​Large garden", "​Storage for sports equipment", "​Off-street parking"]
+
+puts "Creating features for Rymore Lodge"
+
+features.each do |feature|
+  Feature.create!(name: feature, property_id: rymore[0][:id])
+end
 
 puts "Finished creating properties"
