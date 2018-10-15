@@ -90,43 +90,20 @@
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane tab-padding fade in active" id="features">
                 <div class="row">
-                  <div class="col-xs-12 col-md-6">
-                    <% if @property.sauna %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Sauna</strong></p>
-                    <% end %>
-                    <% if @property.hot_tub %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub</strong></p>
-                    <% end %>
-                    <% if @property.wood_stove %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Wood Burner</strong></p>
-                    <% end %>
-                  </div>
-                  <div class="col-xs-12 col-md-6">
-                    <% if @property.games_room %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>
-                    <% end %>
-                    <% if @property.pet_friendly %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Pet Friendly</strong></p>
-                    <% end %>
-                  </div>
+                  <% @property.features.where(key: true).each do |feature| %>
+                    <div class="col-xs-12 col-sm-6">
+                      <p><%= fa_icon "caret-right" %> <strong><%= feature.name %></strong></p>
+                    </div>
+                  <% end %>
                 </div>
-                <br>
-                <% unless @property.features.empty? %>
-                  <div class="row">
-                    <div class="col-xs-12 col-md-6">
-
-                      <% a = @property.features.each_slice( (@property.features.size/2.0).round ).to_a %>
-                      <% a.first.each do |feature| %>
-                        <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <%= feature %></p>
-                      <% end %>
+                <hr class="gray-hr" style="margin: 0px 0px 10px 0px;">
+                <div class="row">
+                  <% @property.features.where(key: false).each do |feature| %>
+                    <div class="col-xs-12 col-sm-6">
+                      <p><%= fa_icon "caret-right" %> <%= feature.name %></p>
                     </div>
-                    <div class="col-xs-12 col-md-6">
-                      <% a.last.each do |feature| %>
-                        <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <%= feature %></p>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
+                  <% end %>
+                </div>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="description">
                 <p><%= simple_format(@property.description) %></p>
