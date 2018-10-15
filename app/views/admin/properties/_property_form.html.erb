@@ -28,12 +28,34 @@
   <%= f.input :description, label: "Lodge's main description" %>
   <%= f.input :we_love, label: "What we love" %>
   <%= f.input :guests_love, label: "What guests love" %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>Lodge Features</h3>
+      </div>
+      <br>
+    </div>
+  </div>
   <%= f.input :wood_stove %>
   <%= f.input :hot_tub %>
   <%= f.input :games_room %>
   <%= f.input :pet_friendly %>
   <%= f.input :sauna %>
-  <%= f.input_field :features, multiple: true %>
+  <%= f.simple_fields_for :features, @features do |c| %>
+    <%= c.input :name, label: "Feature name" %>
+    <%= c.input :key %>
+  <% end %>
+  <% if @property.features.present? %>
+    <div class="row">
+      <% @property.features.each do |feature| %>
+        <% unless feature.name.blank? %>
+          <div class="col-xs-12 col-sm-4">
+            <p><strong>Feature:</strong> <%= feature.name %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-xs-12">
       <div class="text-line before grey text-center">

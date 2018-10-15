@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015103833) do
+ActiveRecord::Schema.define(version: 20181015112332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20181015103833) do
     t.boolean "hot_tub"
     t.boolean "pet_friendly"
     t.boolean "sauna"
-    t.text "features"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hero_image"

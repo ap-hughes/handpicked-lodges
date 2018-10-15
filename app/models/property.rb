@@ -12,13 +12,13 @@ class Property < ApplicationRecord
   validates :code, uniqueness: true, numericality: { only_integer: true }
   validates :meta_title, length: { maximum: 80 }
   validates :meta_description, length: { maximum: 300 }
-  serialize :features, Array
   has_many :photos, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :features, dependent: :destroy
+  accepts_nested_attributes_for :features,
+    allow_destroy: true,
+    :reject_if => proc { |att| att[:name].blank? }
   accepts_nested_attributes_for :photos,
     allow_destroy: true,
     :reject_if => proc { |att| att[:image].blank? }
-  accepts_nested_attributes_for :reviews,
-    allow_destroy: true,
-    :reject_if => proc { |att| att[:content].blank? }
 end
