@@ -41,21 +41,25 @@
   <%= f.input :games_room %>
   <%= f.input :pet_friendly %>
   <%= f.input :sauna %>
-  <%= f.simple_fields_for :features, @features do |c| %>
-    <%= c.input :name, label: "Feature name" %>
-    <%= c.input :key %>
-  <% end %>
   <% if @property.features.present? %>
     <div class="row">
       <% @property.features.each do |feature| %>
-        <% unless feature.name.blank? %>
-          <div class="col-xs-12 col-sm-4">
-            <p><strong>Feature:</strong> <%= feature.name %></p>
-          </div>
-        <% end %>
+        <div class="col-xs-12 col-sm-4">
+          <p><strong><%= feature.name %></strong></p>
+          <%= link_to 'Edit', admin_properties_path, class: 'btn btn-default' %>
+          <%= link_to 'Delete', admin_properties_path, class: 'btn btn-danger' %>
+        </div>
       <% end %>
     </div>
   <% end %>
+  <!-- Features modal -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+  <%= link_to 'Add feature', new_admin_feature_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary'} %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="text-line before grey text-center">

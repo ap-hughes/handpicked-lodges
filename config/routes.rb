@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       # resources :photos, only: [ :new, :create, :destroy ]
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :reviews, only: [ :new, :index, :create, :edit, :update, :destroy ]
+    resources :features, only: [ :new, :create, :edit, :update, :destroy ]
   end
   resources :contact_emails, only: [:new, :create]
 
