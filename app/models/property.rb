@@ -16,8 +16,7 @@ class Property < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :features, dependent: :destroy
   accepts_nested_attributes_for :features,
-    allow_destroy: true,
-    :reject_if => proc { |att| att[:name].blank? }
+    allow_destroy: true
   accepts_nested_attributes_for :photos,
     allow_destroy: true,
     :reject_if => proc { |att| att[:image].blank? }

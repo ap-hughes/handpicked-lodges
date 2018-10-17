@@ -1,5 +1,4 @@
-<%= simple_form_for ([:admin, @feature]) do |f| %>
-  <%= f.association :property, label: "Feature for Lodge:" %>
+<%= simple_form_for([:admin, @property, @feature], remote: true) do |f| %>
   <%= f.input :name, label: "Feature" %>
   <%= f.input :key, label: "Key feature" %>
   <%= f.submit "Submit", class: "btn btn-success" %>

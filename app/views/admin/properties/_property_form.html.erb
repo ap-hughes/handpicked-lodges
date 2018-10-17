@@ -28,38 +28,11 @@
   <%= f.input :description, label: "Lodge's main description" %>
   <%= f.input :we_love, label: "What we love" %>
   <%= f.input :guests_love, label: "What guests love" %>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-line before grey text-center">
-        <h3>Lodge Features</h3>
-      </div>
-      <br>
-    </div>
-  </div>
   <%= f.input :wood_stove %>
   <%= f.input :hot_tub %>
   <%= f.input :games_room %>
   <%= f.input :pet_friendly %>
   <%= f.input :sauna %>
-  <% if @property.features.present? %>
-    <div class="row">
-      <% @property.features.each do |feature| %>
-        <div class="col-xs-12 col-sm-4">
-          <p><strong><%= feature.name %></strong></p>
-          <%= link_to 'Edit', admin_properties_path, class: 'btn btn-default' %>
-          <%= link_to 'Delete', admin_properties_path, class: 'btn btn-danger' %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-  <!-- Features modal -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
-  <%= link_to 'Add feature', new_admin_feature_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary'} %>
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content"></div>
-    </div>
-  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="text-line before grey text-center">
@@ -110,5 +83,42 @@
     <%= p.input :image_cache, as: :hidden %>
   <% end %>
   <%= f.button :submit, class: "btn-success" %>
+<% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-line before grey text-center">
+      <h3>Lodge Features</h3>
+    </div>
+    <br>
+  </div>
+</div>
+<%= link_to 'Add feature', new_admin_property_feature_path(@property),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+<br>
+<br>
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+<% if @property.features.present? %>
+  <div class="row">
+    <% @property.features.each do |feature| %>
+      <% unless feature.name.blank? %>
+        <div data-feature-id="<%= feature.id %>">
+          <div class="col-xs-12 col-sm-4">
+            <div class="white-card">
+              <% if feature.key? %>
+                <p><strong><%= feature.name %> | <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Key Feature</strong></p>
+              <% else %>
+                <p><strong><%= feature.name %></strong></p>
+              <% end %>
+              <%= link_to 'Edit', edit_admin_feature_path(feature),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+                <%= link_to 'Delete', [:admin, feature], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-danger' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
 <br>
