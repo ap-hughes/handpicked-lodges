@@ -46,43 +46,20 @@
   <p><strong>For the latitude and longitude of your property, please visit <a href="https://www.latlong.net/" target="blank">https://www.latlong.net/</a></strong></p>
   <%= f.input :latitude %>
   <%= f.input :longitude %>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-line before grey text-center">
-        <h3>Lodge Images</h3>
-      </div>
-      <br>
-    </div>
-  </div>
+  <%= f.input :hero_image, label: "Hero image / main photo" %>
+  <%= f.input :hero_image_cache, as: :hidden %>
   <% if @property.hero_image? %>
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <p><strong>Current hero image...</strong></p>
-        <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @property.hero_image %>');">
+        <div class="white-card">
+          <p><strong>Photo: 1 (hero image)</strong></p>
+          <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @property.hero_image, height: 300, width: 300, crop: :fill %>');">
+          </div>
         </div>
       </div>
     </div>
   <% end %>
-  <%= f.input :hero_image %>
-  <%= f.input :hero_image_cache, as: :hidden %>
-  <% if @property.photos.present? %>
-    <div class="row">
-      <% @property.photos.each do |photo| %>
-        <% unless photo.image.blank? %>
-          <div class="col-xs-12 col-sm-4">
-            <p><strong>Photo filename:</strong> <%= photo.image.filename %></p>
-            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path photo.image %>');">
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-  <%= f.simple_fields_for :photos, @photos do |p| %>
-    <%= p.input :image %>
-    <%= p.input :image_cache, as: :hidden %>
-  <% end %>
-  <%= f.button :submit, class: "btn-success" %>
+  <%= f.button :submit, class: "btn-lg btn-success" %>
 <% end %>
 <div class="row">
   <div class="col-xs-12">
@@ -110,6 +87,31 @@
   <% if @property.features.present? %>
     <div class="row" id="features">
       <%= render 'feature' %>
+    </div>
+  <% end %>
+  <br>
+<% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-line before grey text-center">
+      <h3>Lodge Images</h3>
+    </div>
+    <br>
+  </div>
+</div>
+<% if @property.id.nil? %>
+  <div class="white-card text-center">
+    <h3>Please create a property record first (above) before you can add photos</h3>
+    <h4>Once all details are added, then enable the property to make it live on your website</h4>
+  </div>
+  <br>
+<% else %>
+  <%= link_to 'Add photo', new_admin_property_photo_path(@property),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+  <br>
+  <br>
+  <% if @property.photos.present? %>
+    <div class="row" id="photos">
+      <%= render 'photo' %>
     </div>
   <% end %>
   <br>

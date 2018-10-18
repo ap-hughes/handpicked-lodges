@@ -1,0 +1,7 @@
+$(document).ready(function() {
+  $("#modal-window").find(".modal-content").html("<%= j (render 'new') %>");
+  $("#modal-window").modal();
+    $('#submit_photo').on('submit', function() {
+    $('#modal-window').modal('hide');
+  });
+});

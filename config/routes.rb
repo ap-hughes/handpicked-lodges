@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :properties, only: [ :new, :index, :create, :edit, :update, :destroy ] do
       resources :features, only: [ :new, :create ]
+      resources :photos, only: [ :new, :create ]
     end
     resources :features, only: [ :edit, :update, :destroy ]
-      # resources :photos, only: [ :new, :create, :destroy ]
+    resources :photos, only: [ :edit, :update, :destroy ]
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :reviews, only: [ :new, :index, :create, :edit, :update, :destroy ]
   end

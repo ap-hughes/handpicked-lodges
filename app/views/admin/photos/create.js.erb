@@ -1,0 +1,5 @@
+<% if @photo.errors.any? %>
+  alert("Photo did not upload. Error message: <%= @photo.errors.full_messages.to_sentence %>");
+<% else %>
+  $("<%= escape_javascript(render @photo) %>").appendTo("#photos");
+<% end %>

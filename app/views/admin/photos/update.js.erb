@@ -1,0 +1,7 @@
+<% if @photo.errors.any? %>
+  alert("Photo did not update. Error message: <%= @photo.errors.full_messages.to_sentence %>");
+<% else %>
+  document.querySelector("[data-photo-id='<%= @photo.id %>']")
+    .remove();
+  $("<%= escape_javascript(render @photo) %>").prependTo("#photos");
+<% end %>
