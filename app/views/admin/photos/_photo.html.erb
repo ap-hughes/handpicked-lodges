@@ -1,0 +1,14 @@
+<% unless photo.image.blank? %>
+  <div data-photo-id="<%= photo.id %>">
+    <div class="col-xs-12 col-sm-3">
+      <div class="white-card">
+        <p><strong>Photo:</strong> Reload page to check</p>
+        <p></p>
+        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= cl_image_path photo.image, height: 300, width: 300, crop: :fill %>')">
+        </div>
+        <%= link_to 'Edit', edit_admin_photo_path(photo),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+        <%= link_to 'Delete', [:admin, photo], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+<% end %>
