@@ -13,14 +13,12 @@ class Admin::FeaturesController < Admin::AdminController
   def create
     @feature = Feature.new(feature_params)
     @feature.property = Property.find(params[:property_id])
-    if @feature.save
-      respond_to do |format|
-        format.html { redirect_to edit_admin_property_path(@feature.property) }
+    respond_to do |format|
+      if @feature.save
+        format.html { redirect_to edit_admin_property_path(@feature.property), notice: 'Feature was successfully created.' }
         format.js
-      end
-    else
-      respond_to do |format|
-        format.html { render :new }
+      else
+        format.html { flash[:alert] = "There was an error creating the feature. Please try again." }
         format.js
       end
     end
@@ -34,20 +32,21 @@ class Admin::FeaturesController < Admin::AdminController
   end
 
   def update
-    if @feature.update(feature_params)
-      redirect_to edit_admin_property_path(@feature.property)
-    else
-      render :edit
+    respond_to do |format|
+      if @feature.update(feature_params)
+        format.html { redirect_to edit_admin_property_path(@feature.property) }
+        format.js
+      else
+        format.html { flash[:alert] = "There was an error updating the feature. Please try again." }
+        format.js
+      end
     end
   end
 
   def destroy
-    @feature.destroy
-    # if @feature.destroy
-    #   redirect_to edit_admin_property_path(@feature.property)
-    # else
-    #   flash[:alert] = "Error deleting feature!"
-    # end
+    unless @feature.destroy
+      flash[:alert] = "Error deleting feature!"
+    end
   end
 
   private

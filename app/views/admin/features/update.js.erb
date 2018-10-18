@@ -1,0 +1,7 @@
+<% if @feature.errors.any? %>
+  alert("Feature did not update. Error message: <%= @feature.errors.full_messages.to_sentence %>");
+<% else %>
+  document.querySelector("[data-feature-id='<%= @feature.id %>']")
+    .remove();
+  $("<%= escape_javascript(render @feature) %>").prependTo("#features");
+<% end %>

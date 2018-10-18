@@ -1,4 +1,4 @@
-<%= simple_form_for([:admin, @property, @feature], remote: true) do |f| %>
+<%= simple_form_for([:admin, @property, @feature], remote: true, html: { id: :submit_feature }) do |f| %>
   <%= f.input :name, label: "Feature" %>
   <%= f.input :key, label: "Key feature" %>
   <%= f.submit "Submit", class: "btn btn-success" %>

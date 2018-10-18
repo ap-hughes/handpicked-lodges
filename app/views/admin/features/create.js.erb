@@ -1,0 +1,5 @@
+<% if @feature.errors.any? %>
+  alert("Feature did not save. Error message: <%= @feature.errors.full_messages.to_sentence %>");
+<% else %>
+  $("<%= escape_javascript(render @feature) %>").appendTo("#features");
+<% end %>
