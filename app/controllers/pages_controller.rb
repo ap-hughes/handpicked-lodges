@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  before_action :nights
   def home
     @properties = Property.order(created_at: :asc).limit(3)
     @posts = Post.order(created_at: :desc).limit(2)
@@ -31,11 +30,5 @@ class PagesController < ApplicationController
     @reviews = Review.all
   end
   def privacy_policy
-  end
-
-  private
-
-  def nights
-    @nights = [1, 2, 3]
   end
 end

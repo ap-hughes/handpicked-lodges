@@ -4,6 +4,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery.slick
+//= require bootstrap-sprockets
 
 // $(document).ready(function() {
 //   $("#accordion").accordion({

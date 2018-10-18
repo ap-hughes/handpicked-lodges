@@ -1,0 +1,17 @@
+<% @property.features.each do |feature| %>
+  <% unless feature.name.blank? %>
+    <div data-feature-id="<%= feature.id %>">
+      <div class="col-xs-12 col-sm-4">
+        <div class="white-card">
+          <% if feature.key? %>
+            <p><strong><%= feature.name %> | <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Key Feature</strong></p>
+          <% else %>
+            <p><strong><%= feature.name %></strong></p>
+          <% end %>
+          <%= link_to 'Edit', edit_admin_feature_path(feature),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+          <%= link_to 'Delete', [:admin, feature], method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

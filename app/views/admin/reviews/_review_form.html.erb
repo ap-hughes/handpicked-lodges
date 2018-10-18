@@ -1,0 +1,6 @@
+<%= simple_form_for ([:admin, @review]) do |f| %>
+  <%= f.association :property, label: "Review for Lodge:" %>
+  <%= f.input :content, label: "Review (no need to add quotation marks)" %>
+  <%= f.input :date, label: "Date of review", placeholder: "e.g. June 2018" %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>

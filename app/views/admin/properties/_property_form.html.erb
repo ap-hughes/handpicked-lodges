@@ -1,29 +1,59 @@
 <%= simple_form_for ([:admin, @property]) do |f| %>
-  <%= f.input :code %>
-  <%= f.input :enabled %>
-  <%= f.input :meta_title %> <p>Limit of 80 characters, Google will likely truncate around 70</p>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>Lodge SEO</h3>
+      </div>
+      <br>
+    </div>
+  </div>
+  <%= f.input :meta_title %> <p>Limit of 80 characters, Google will likely truncate at around 70 characters</p>
   <%= f.input :meta_description %> <p>Limit of 300 characters</p>
-  <%= f.input :name %>
-  <%= f.input :in_aviemore %>
-  <%= f.input :in_country %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>Lodge Details</h3>
+      </div>
+      <br>
+    </div>
+  </div>
+  <%= f.input :enabled, label: "Lodge visible and active on website" %>
+  <%= f.input :code, label: "SuperControl Property Code" %>
+  <%= f.input :min_daily_price, label: "SuperControl: Minimum daily price of lodge" %>
+  <%= f.input :name, label: "Lodge Name" %>
   <%= f.input :sleeps %>
-  <%= f.input :headline %>
-  <%= f.input :description %>
-  <%= f.input :we_love %>
-  <%= f.input :guests_love %>
-  <%= f.input :min_daily_price %>
-  <%= f.input :bedrooms %>
-  <%= f.input :bathrooms %>
+  <%= f.input :bedrooms, label: "No. of bedrooms" %>
+  <%= f.input :bathrooms, label: "No. of bathrooms" %>
+  <%= f.input :headline, label: "Lodge Headline" %>
+  <%= f.input :description, label: "Lodge's main description" %>
+  <%= f.input :we_love, label: "What we love" %>
+  <%= f.input :guests_love, label: "What guests love" %>
   <%= f.input :wood_stove %>
   <%= f.input :hot_tub %>
+  <%= f.input :games_room %>
   <%= f.input :pet_friendly %>
   <%= f.input :sauna %>
-  <%= f.input_field :features, multiple: true %>
-  <br>
-  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>Lodge Location</h3>
+      </div>
+      <br>
+    </div>
+  </div>
+  <%= f.input :in_aviemore, label: "Lodge in Aviemore?" %>
+  <%= f.input :in_country, label: "Lodge in Countryside?" %>
   <p><strong>For the latitude and longitude of your property, please visit <a href="https://www.latlong.net/" target="blank">https://www.latlong.net/</a></strong></p>
   <%= f.input :latitude %>
   <%= f.input :longitude %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-line before grey text-center">
+        <h3>Lodge Images</h3>
+      </div>
+      <br>
+    </div>
+  </div>
   <% if @property.hero_image? %>
     <div class="row">
       <div class="col-xs-12 col-sm-4">
@@ -54,4 +84,33 @@
   <% end %>
   <%= f.button :submit, class: "btn-success" %>
 <% end %>
-<br>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-line before grey text-center">
+      <h3>Lodge Features</h3>
+    </div>
+    <br>
+  </div>
+</div>
+<% if @property.id.nil? %>
+  <div class="white-card text-center">
+    <h3>Please create a property record first (above) before you can add features</h3>
+    <h4>Once all details are added, then enable the property to make it live on your website</h4>
+  </div>
+  <br>
+<% else %>
+  <%= link_to 'Add feature', new_admin_property_feature_path(@property),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-default'} %>
+  <br>
+  <br>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  <% if @property.features.present? %>
+    <div class="row" id="features">
+      <%= render 'feature' %>
+    </div>
+  <% end %>
+  <br>
+<% end %>

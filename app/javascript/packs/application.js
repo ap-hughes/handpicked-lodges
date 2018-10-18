@@ -1,4 +1,4 @@
-import "bootstrap";
+// import "bootstrap";
 import "plugins/flatpickr";
 // import "plugins/slick";
 // import 'slick-carousel/slick/slick-theme.css';
