@@ -114,7 +114,7 @@
                   <p>See reviews for all our other lodges <%= link_to 'here', pages_reviews_path, target: :_blank, class: "green-link" %>.</p>
                 <% else %>
                   <% @property.reviews.each do |review| %>
-                    <p>"<%= review.content %>"</p>
+                    <p><em>"<%= review.content %>"</em> <%= review.date %></p>
                   <% end %>
                 <% end %>
               </div>
