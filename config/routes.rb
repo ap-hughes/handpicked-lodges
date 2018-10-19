@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   get 'pages/frequently_asked_questions'
   get 'pages/reviews'
   get 'pages/privacy_policy'
+  get 'pages/cookies'
 end

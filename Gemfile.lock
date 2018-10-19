@@ -64,6 +64,8 @@ GEM
       terrapin (= 0.6.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    cookies_eu (1.7.3)
+      js_cookie_rails (~> 2.2.0)
     crass (1.0.4)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -103,6 +105,8 @@ GEM
       railties (>= 3.1)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    js_cookie_rails (2.2.0)
+      railties (>= 3.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -242,6 +246,7 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   ckeditor
   cloudinary
+  cookies_eu
   devise
   dotenv-rails
   figaro
