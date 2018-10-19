@@ -3,9 +3,6 @@ ruby '2.4.3'
 
 gem "font-awesome-rails"
 
-#cookies
-gem 'cookies_eu'
-
 #admins
 gem 'devise'
 
