@@ -106,7 +106,7 @@ features = ["1x super king bedroom with ensuite", "​1x super king bedroom (or 
 puts "Creating features for Alltnacriche"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: alltnacriche[0][:id])
+  Feature.create!(name: feature, key:false, property_id: alltnacriche[0][:id])
 end
 # puts "doing alltnacriche's photos"
 
@@ -165,7 +165,7 @@ features = ["Sleeps 8 with space for cots", "1x king room with ensuite", "1x dou
 puts "Creating features for Burnbrae Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: burnbrae[0][:id])
+  Feature.create!(name: feature, key:false, property_id: burnbrae[0][:id])
 end
 
 puts "Updating Cairn Eilrig"
@@ -210,7 +210,7 @@ features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room wit
 puts "Creating features for Cairn Eilrig"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: cairn[0][:id])
+  Feature.create!(name: feature, key:false, property_id: cairn[0][:id])
 end
 
 puts "Updating Foresters Lodge"
@@ -262,7 +262,7 @@ features = ["1x king bedroom with ensuite", "2x king bedrooms", "1x triple/quad 
 puts "Creating features for Foresters Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: foresters[0][:id])
+  Feature.create!(name: feature, key:false, property_id: foresters[0][:id])
 end
 
 puts "Updating Riverside Lodge"
@@ -310,7 +310,7 @@ features = ["Pet friendly", "1x king bedroom with ensuite", "1x double bedroom",
 puts "Creating features for Riverside Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: riverside[0][:id])
+  Feature.create!(name: feature, key:false, property_id: riverside[0][:id])
 end
 
 puts "Updating Smithy & Riverside Lodge"
@@ -385,7 +385,7 @@ features = ["Sleeps 4 with space for a cot", "​Pet friendly", "1x double room"
 puts "Creating features for The Bothy"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: bothy[0][:id])
+  Feature.create!(name: feature, key:false, property_id: bothy[0][:id])
 end
 
 puts "Updating The Old Smithy"
@@ -428,7 +428,7 @@ features = ["Off-street parking", "​Pet friendly", "1x king bedroom with ensui
 puts "Creating features for the Old Smithy"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: old_smithy[0][:id])
+  Feature.create!(name: feature, key:false, property_id: old_smithy[0][:id])
 end
 
 puts "Updating Trails End Lodge"
@@ -473,7 +473,7 @@ features = ["Sleeps 8 with space for cots", "1x super king room with ensuite", "
 puts "Creating features for Trails End Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: trails_end[0][:id])
+  Feature.create!(name: feature, key:false, property_id: trails_end[0][:id])
 end
 
 puts "Updating Westcott"
@@ -519,7 +519,7 @@ features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king room wit
 puts "Creating features for Westcott"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: westcott[0][:id])
+  Feature.create!(name: feature, key:false, property_id: westcott[0][:id])
 end
 
 puts "Updating Douglas Cottage"
@@ -565,7 +565,7 @@ features = ["Sleeps 6 with space for cots", "​Pet friendly", "1x king suite wi
 puts "Creating features for Douglas Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: douglas[0][:id])
+  Feature.create!(name: feature, key:false, property_id: douglas[0][:id])
 end
 
 puts "Updating Tomdhu Lodge"
@@ -611,7 +611,7 @@ features = ["Sleeps 8 with space for cots", "2x king rooms", "2x twin rooms", "1
 puts "Creating features for Tomdhu"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: tomdhu[0][:id])
+  Feature.create!(name: feature, key:false, property_id: tomdhu[0][:id])
 end
 
 puts "Updating Rymore Wood Lodge"
@@ -657,7 +657,7 @@ features = ["Sleeps 8 with space for cots", "1x king bed ground floor", "1x king
 puts "Creating features for Rymore Lodge"
 
 features.each do |feature|
-  Feature.create!(name: feature, property_id: rymore[0][:id])
+  Feature.create!(name: feature, key:false, property_id: rymore[0][:id])
 end
 
 puts "Finished creating properties"
