@@ -16,7 +16,7 @@
         <h4>Previous Blog</h4>
         <div class="link-card-container">
           <%= link_to post_path(@previous_post) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @previous_post.photo %>');">
+            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @previous_post.photo, height: 450, width: 500, crop: :fill  %>');">
             </div>
             <div class="link-card-content">
               <h4><%= @previous_post.title %></h4>
@@ -31,7 +31,7 @@
         <h4>Next Blog</h4>
         <div class="link-card-container">
           <%= link_to post_path(@next_post) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @next_post.photo %>');">
+            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @next_post.photo, height: 450, width: 500, crop: :fill %>');">
             </div>
             <div class="link-card-content">
               <h4><%= @next_post.title %></h4>
