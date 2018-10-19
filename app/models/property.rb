@@ -12,6 +12,8 @@ class Property < ApplicationRecord
   validates :code, uniqueness: true, numericality: { only_integer: true }
   validates :meta_title, length: { maximum: 80 }
   validates :meta_description, length: { maximum: 300 }
+  validates :headline, length: { maximum: 150 }
+  validates :sleeps, :bedrooms, :bathrooms, numericality: { only_integer: true }
   has_many :photos, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :features, dependent: :destroy
