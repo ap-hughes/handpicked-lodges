@@ -5,6 +5,7 @@
 //= require jquery-ui
 //= require jquery.slick
 //= require bootstrap-sprockets
+//= require cookies_eu
 
 // $(document).ready(function() {
 //   $("#accordion").accordion({
@@ -65,4 +66,3 @@
 //   //   focusOnSelect: true
 //   // });
 // });
-

@@ -44,6 +44,7 @@
     <!-- <div id="main-content"> -->
       <%= yield %>
     <!-- </div> -->
+    <%= render 'cookies_eu/consent_banner', link: '/pages/privacy_policy', target: '_blank'  %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
