@@ -9,17 +9,21 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @reviews.each_with_index do |review, index| %>
-      <% unless index == 1 %>
+    <% @reviews.group_by(&:property).each do |property, reviews| %>
+      <div class="col-xs-12">
+        <div class="text-line before grey text-center">
+          <h3><%= property.name if property %></h3>
+        </div>
+        <br>
+      </div>
+      <% reviews.each do |review| %>
         <div class="col-xs-12">
-          <div class="text-line grey">
-            <h3><%= review.property.name %></h3>
+          <div class="white-card text-center">
+            <p><em>"<%= review.content %>"</em></p>
+            <p><%= review.date %></p>
           </div>
         </div>
       <% end %>
-      <div class="col-xs-12">
-        <p><em>"<%= review.content %>"</em> <%= review.date %></p>
-      </div>
     <% end %>
   </div>
 </div>
