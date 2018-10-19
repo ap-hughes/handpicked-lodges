@@ -17,7 +17,7 @@
             <div class="link-card-content">
               <h4><%= post.title %></h4>
               <p><%= post.created_at.strftime('%d %b, %Y') %></p>
-              <p><%= raw post.body.truncate(400) %></p>
+              <p><%= strip_tags post.body.truncate(300) %></p>
             </div>
           <% end %>
         </div>
