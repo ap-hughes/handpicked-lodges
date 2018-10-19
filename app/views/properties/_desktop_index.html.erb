@@ -64,8 +64,8 @@
                     <% unless @price == 0 %>
                       <h6>£<%= @price %> total for <%= @days %> nights</h6>
                     <% end %>
-                    <% if @price == 0 %>
-                      <h6><%= @message %></h6>
+                    <% if @book_link.empty? %>
+                      <h6>This lodge is available on <%= d = Date.parse(@startdate).strftime('%d %b %Y') %> but check-in / check-out are on different dates</h6>
                     <% end %>
                     <div class="index-card-attributes">
                       <div class="row">
@@ -112,10 +112,12 @@
         <% end %>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <h3>The following lodges are available on different dates</h3>
-          <hr class="gray-hr">
-        </div>
+        <% unless @properties.where.not(code: @available_properties.keys).empty? %>
+          <div class="col-xs-12">
+            <h3>The following lodges are available on different dates</h3>
+            <hr class="gray-hr">
+          </div>
+        <% end %>
         <% @properties.where.not(code: @available_properties.keys).each do |property| %>
           <div class="col-xs-12">
             <%= link_to property_path(property) do %>
