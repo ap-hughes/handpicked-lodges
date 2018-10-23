@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/own_a_property'
   get 'pages/go_catered'
-  get 'pages/getting_here'
   get 'pages/pet_friendly'
   get 'pages/families'
   get 'pages/about_us'

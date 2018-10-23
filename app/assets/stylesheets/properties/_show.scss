@@ -11,6 +11,7 @@
   background-color: $green;
   a {
   color: white;
+  transition: all .4s ease-in-out;
   }
   a:hover {
     color: $black !important;

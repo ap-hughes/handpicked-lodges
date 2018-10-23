@@ -599,8 +599,8 @@ You could not ask for a more beautifully designed and comprehensively equipped h
   in_aviemore: false,
   in_country: true,
   we_love: "The freestanding fireplace in the lounge and dining area is such a centrepiece – warming and welcoming but with a touch of glamorous luxury too!",
-  meta_title: "Tomdhu Lodge - With double sided wood burner and hot tub in the heart of the Cairngorms National Park.",
-  meta_description: "With a hot tub and double-sided wood burner in the Cairngorms National Park - it's perfect for lovers of great interiors, as well as lovers of the great outdoors"
+  meta_title: "Tomdhu Lodge - double sided wood burner and hot tub - Cairngorms National Park",
+  meta_description: "With a hot tub and double-sided wood burner in the Cairngorms National Park - perfect for lovers of great interiors, as well as lovers of the great outdoors"
   )
 
 features = ["Sleeps 8 with space for cots", "2x king rooms", "2x twin rooms", "1x family bathroom", "Freestanding bath",

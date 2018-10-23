@@ -6,6 +6,19 @@
 //= require jquery.slick
 //= require bootstrap-sprockets
 
+var $loading = $('#spinner, .spinner').hide();
+$(document)
+  .ajaxStart(function () {
+    console.log("I'm running");
+    $loading.show();
+    $("#properties").fadeTo('slow', 0.3);
+  })
+  .ajaxStop(function () {
+    console.log("I'm stopping");
+    $loading.hide();
+    $('#properties').fadeTo('slow', 1.0);
+  });
+
 // $(document).ready(function() {
 //   $("#accordion").accordion({
 //     collapsible: true
