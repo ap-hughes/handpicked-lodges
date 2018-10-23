@@ -1,97 +1,200 @@
-<% @properties.each do |property| %>
-  <div class="col-xs-12">
-    <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
-        :nights => property.nights) do %>
-      <div class="index-card-desk">
-        <div class="index-card-img-carousel-desk">
-          <div id="myCarousel<%= property.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel<%= property.id %>" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel<%= property.id %>" data-slide-to="1"></li>
-              <li data-target="#myCarousel<%= property.id %>" data-slide-to="2"></li>
-            </ol>
+<% if mobile_device? %>
+  <% @properties.each do |property| %>
+    <div class="col-xs-12">
+      <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
+          :nights => property.nights) do %>
+        <div class="index-card">
+          <div class="index-card-img-carousel">
+            <div id="myCarousel<%= property.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="1"></li>
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="2"></li>
+              </ol>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <% unless property.hero_image.blank? %>
-                  <%= image_tag(cl_image_path property.hero_image, height: 450, width: 500, crop: :fill) %>
-                <% end %>
-              </div>
-              <% unless property.photos.blank? %>
-                <% property.photos.order(created_at: :asc).take(2).each do |photo| %>
-                  <% unless photo.image.blank? %>
-                    <div class="item">
-                      <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
-                    </div>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <% unless property.hero_image.blank? %>
+                    <%= image_tag(cl_image_path property.hero_image, height: 450, width: 500, crop: :fill) %>
+                  <% end %>
+                </div>
+                <% unless property.photos.blank? %>
+                  <% property.photos.order(created_at: :asc).take(2).each do |photo| %>
+                    <% unless photo.image.blank? %>
+                      <div class="item">
+                        <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
+                      </div>
+                    <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
 
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel<%= property.id %>" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel<%= property.id %>" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel<%= property.id %>" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel<%= property.id %>" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
-        </div>
-        <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
-            :nights => property.nights) do %>
-          <div class="index-card-content-desk">
-            <h4><%= property.name %></h4>
-            <% if property.price_message.present? %>
-              <h6><%= property.price_message %></h6>
-            <% elsif property.price.nil? %>
-              <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
-            <% else %>
-              <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
-            <% end %>
-            <div class="index-card-attributes">
-              <div class="row">
-                <div class="col-xs-6">
-                  <p><strong>Sleeps:</strong> <%= property.sleeps %></p>
-                  <p><strong>Bedrooms:</strong> <%= property.bedrooms %></p>
-                  <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
-                </div>
-                <div class="col-xs-6">
-                  <% if property.hot_tub && property.sauna || property.hot_tub || property.sauna %>
-                    <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub / Sauna</strong></p>
-                  <% end %>
-                  <% if property.games_room %>
-                    <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>
-                  <% end %>
-                  <% if property.wood_stove %>
-                    <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Wood Burner</strong></p>
-                  <% end %>
-                  <% if property.pet_friendly %>
-                    <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Pet Friendly</strong></p>
-                  <% end %>
+          <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
+              :nights => property.nights) do %>
+            <div class="index-card-content">
+              <h4><%= property.name %></h4>
+              <% if property.price_message.present? %>
+                <h6><%= property.price_message %></h6>
+              <% elsif params[:search] && property.price.nil? %>
+                <h6 style="color: #ff715b;">Unfortunately this lodge is already booked</h6>
+              <% elsif property.price.nil? %>
+                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+              <% else %>
+                <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
+              <% end %>
+              <div class="index-card-attributes">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p><strong>Sleeps:</strong> <%= property.sleeps %></p>
+                    <p><strong>Bedrooms:</strong> <%= property.bedrooms %></p>
+                    <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
+                  </div>
+                  <div class="col-xs-6">
+                    <% if property.hot_tub && property.sauna || property.hot_tub || property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub / Sauna</strong></p>
+                    <% end %>
+                    <% if property.games_room %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>
+                    <% end %>
+                    <% if property.wood_stove %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Wood Burner</strong></p>
+                    <% end %>
+                    <% if property.pet_friendly %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Pet Friendly</strong></p>
+                    <% end %>
+                  </div>
                 </div>
               </div>
+              <div class="description-text">
+                <h5><%= property.headline %></h5>
+              </div>
             </div>
-            <h5><%= property.headline %></h5>
-            <div class="description-text">
-              <p><%= property.description.truncate(500) %></p>
-              <br>
-              <br>
-            </div>
-            <div class="index-card-btn-container desk">
+            <div class="index-card-btn-container">
               <div class="green-back">
                 <div class="index-card-btn">
-                  <p>View Lodge</p>
+                  <% if params[:search] && property.price.nil? %>
+                    <p>Check other dates</p>
+                  <% else %>
+                    <p>View Lodge</p>
+                  <% end %>
                 </div>
               </div>
             </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <% @properties.each do |property| %>
+    <div class="col-xs-12">
+      <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
+          :nights => property.nights) do %>
+        <div class="index-card-desk">
+          <div class="index-card-img-carousel-desk">
+            <div id="myCarousel<%= property.id %>" class="carousel slide" data-ride="carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="1"></li>
+                <li data-target="#myCarousel<%= property.id %>" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <% unless property.hero_image.blank? %>
+                    <%= image_tag(cl_image_path property.hero_image, height: 450, width: 500, crop: :fill) %>
+                  <% end %>
+                </div>
+                <% unless property.photos.blank? %>
+                  <% property.photos.order(created_at: :asc).take(2).each do |photo| %>
+                    <% unless photo.image.blank? %>
+                      <div class="item">
+                        <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel<%= property.id %>" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel<%= property.id %>" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
+              :nights => property.nights) do %>
+            <div class="index-card-content-desk">
+              <h4><%= property.name %></h4>
+              <% if property.price_message.present? %>
+                <h6><%= property.price_message %></h6>
+              <% elsif params[:search] && property.price.nil? %>
+                <h6 style="color: #ff715b;">Unfortunately this lodge is already booked</h6>
+              <% elsif property.price.nil? %>
+                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+              <% else %>
+                <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
+              <% end %>
+              <div class="index-card-attributes">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p><strong>Sleeps:</strong> <%= property.sleeps %></p>
+                    <p><strong>Bedrooms:</strong> <%= property.bedrooms %></p>
+                    <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
+                  </div>
+                  <div class="col-xs-6">
+                    <% if property.hot_tub && property.sauna || property.hot_tub || property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub / Sauna</strong></p>
+                    <% end %>
+                    <% if property.games_room %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>
+                    <% end %>
+                    <% if property.wood_stove %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Wood Burner</strong></p>
+                    <% end %>
+                    <% if property.pet_friendly %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Pet Friendly</strong></p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <h5><%= property.headline %></h5>
+              <div class="index-card-btn-container desk">
+                <div class="green-back">
+                  <div class="index-card-btn">
+                    <% if params[:search] && property.price.nil? %>
+                      <p>Check other dates</p>
+                    <% else %>
+                      <p>View Lodge</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 

@@ -11,7 +11,9 @@
       <div class="grey-header-text">
         <h1><%= @property.name %></h1>
         <p><%= @property.headline %></p>
+        <% if mobile_device? %>
           <a href="#scroll-content"><div class="btn btn-default" style="margin: 0 0 15px 0px">BOOK NOW</div><span></span></a>
+        <% end %>
       </div>
     </div>
   </div>
