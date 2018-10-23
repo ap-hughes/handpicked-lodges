@@ -2,11 +2,14 @@ class PropertiesController < ApplicationController
   require 'open-uri'
 
   def index
-    @nights = [1, 2, 3]
     if params[:search].present?
-      @available_properties = Property.search(params)
-      @properties = Property.where(enabled: true).order("random()")
-      @days = params[:search][:nights]
+      available_properties = Property.where(enabled: true).order("random()").search(params)
+      unavailable_properties = Property.where.not(id: available_properties).where(enabled: true).order("random()")
+      @properties = available_properties + unavailable_properties
+      respond_to do |format|
+        format.html
+        format.js
+      end
     elsif params[:query].present?
       @properties = Property.filter(params[:query].slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country, :sauna_or_hot_tub)).where(enabled: true).order("random()")
     else

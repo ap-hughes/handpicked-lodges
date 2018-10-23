@@ -14,8 +14,6 @@ class PagesController < ApplicationController
   end
   def go_catered
   end
-  def getting_here
-  end
   def pet_friendly
   end
   def families

@@ -11,9 +11,7 @@
       <div class="grey-header-text">
         <h1><%= @property.name %></h1>
         <p><%= @property.headline %></p>
-        <% if mobile_device? %>
           <a href="#scroll-content"><div class="btn btn-default" style="margin: 0 0 15px 0px">BOOK NOW</div><span></span></a>
-        <% end %>
       </div>
     </div>
   </div>
@@ -58,11 +56,11 @@
       </div>
       <div class="col-xs-12 col-md-4 text-center">
         <div class="gallery-reviews">
-          <h4>What we love about <%= @property.name %></h4>
+          <p><strong>What we love about <%= @property.name %></strong></p>
           <p><em>"<%= @property.we_love %>"</em></p>
           <% if @property.guests_love? %>
             <br>
-            <h4>What our guests love about <%= @property.name %></h4>
+            <p><strong>What our guests love about <%= @property.name %></strong></p>
             <p><em>"<%= @property.guests_love %>"</em></p>
           <% end %>
         </div>
@@ -79,10 +77,10 @@
         <div class="content-container">
         <!-- Nav tabs -->
           <ul class="nav nav-pills nav-green nav-justified" role="tablist">
-            <li role="presentation" class="active"><a href="#features" aria-controls="features" role="tab" data-toggle="tab">Features</a></li>
-            <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
-            <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
-            <li id="map-tab" role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a></li>
+            <li role="presentation" class="active"><a href="#features" aria-controls="features" role="tab" data-toggle="tab"><strong>Features</strong></a></li>
+            <li role="presentation"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><strong>Description</strong></a></li>
+            <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab"><strong>Reviews</strong></a></li>
+            <li id="map-tab" role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab"><strong>Map</strong></a></li>
           </ul>
 
           <!-- Tab panes -->
@@ -125,12 +123,12 @@
           </div>
         </div>
       </div>
-      <section id="scroll-content">
-        <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-          <div class="green-header sidebar-header-height vertical-align">
-            <h4>Book your stay</h4>
-          </div>
-          <div class="sidebar-container-right">
+      <div class="col-xs-12 col-sm-4" id="properties-sidebar scroll-content">
+        <div class="green-header sidebar-header-height vertical-align">
+          <p class="text-center"><strong>Book your stay</strong></p>
+        </div>
+        <section id="scroll-content">
+          <div class="sidebar-container-right margin-bottom">
             <% if @price.present? %>
               <div class="sidebar-content">
                 <h5>Arrival date</h5>
@@ -158,8 +156,8 @@
               </div>
             <% end %>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   <!-- </div> -->
 </div>
