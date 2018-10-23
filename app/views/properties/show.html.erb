@@ -131,6 +131,8 @@
         </div>
         <section id="scroll-content">
           <div class="sidebar-container-right margin-bottom">
+            <% code = @property.code %>
+            <% super_control = ENV["SUPER_CONTROL"] %>
             <% if @price.present? %>
               <div class="sidebar-content">
                 <h5>Arrival date</h5>
@@ -147,14 +149,12 @@
               <% end %>
             <% elsif @message.present? %>
               <p><%= @message %></p>
-              <% code = @property.code %>
               <div id="supercontrol-availability">
-                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=12580&siteID=<%= super_control %>&cottageID=<%= code %>"></script><div id="supercontrol-availability">
               </div>
             <% else %>
-              <% code = @property.code %>
               <div id="supercontrol-availability">
-                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=946&siteID=10714&cottageID=<%= code %>"></script>
+                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=12580&siteID=<%= super_control %>&cottageID=<%= code %>"></script><div id="supercontrol-availability">
               </div>
             <% end %>
           </div>
