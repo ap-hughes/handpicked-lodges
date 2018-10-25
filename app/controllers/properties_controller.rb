@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
       available_properties = Property.where(enabled: true).order("random()").search(params)
       unavailable_properties = Property.where.not(id: available_properties).where(enabled: true).order("random()")
       @properties = available_properties + unavailable_properties
+      store_search(params)
       respond_to do |format|
         format.html
         format.js
@@ -28,5 +29,11 @@ class PropertiesController < ApplicationController
     else
       @property = Property.where(enabled: true).find(params[:id])
     end
+  end
+
+  private
+
+  def store_search(params)
+    session[:search] = params[:search]
   end
 end

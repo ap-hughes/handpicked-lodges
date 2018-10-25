@@ -1,7 +1,12 @@
 <div class="availability-checker">
   <%= simple_form_for :search, url: properties_path, method: :get, html: { id: "properties-search" } do |t| %>
-    <%= t.input :start_date, placeholder: "Arrival date", label: false, as: :string, input_html: { class: "start-date-picker", required: true } %>
-    <%= t.input :nights, placeholder: "Number of nights", label: false, collection: [7, 14, 21], input_html: { id: "search-nights", required: true } %>
+    <% if session[:search] %>
+      <%= t.input :start_date, placeholder: "Arrival date", label: false, as: :string, input_html: { value: session[:search][:start_date], class: "start-date-picker", required: true } %>
+      <%= t.input :nights, placeholder: "Number of nights", label: false, collection: [7, 14, 21], input_html: { id: "search-nights", required: true, value: session[:search][:nights] } %>
+    <% else %>
+      <%= t.input :start_date, placeholder: "Arrival date", label: false, as: :string, input_html: { class: "start-date-picker", required: true } %>
+      <%= t.input :nights, placeholder: "Number of nights", label: false, collection: [7, 14, 21], input_html: { id: "search-nights", required: true } %>
+    <% end %>
     <div class="text-center">
       <%= t.submit "CHECK AVAILABILITY", name: nil, class: "btn btn-success", :input_html => { id: 'products_search' } %>
     </div>
