@@ -13,12 +13,12 @@
 .map-button {
   cursor: pointer;
   height: 150px;
-  max-width: 250px;
+  max-width: 100%;
   margin: 0 auto;
-  background-image: asset-url('aviemore-map.png');
+  background-image: asset-url('aviemore-map-lg.png');
   background-size: cover !important;
   background-position: center;
-  border: solid 10px white;
+  border: solid 5px white;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   position: relative;
   margin-bottom: 10px;

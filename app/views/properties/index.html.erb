@@ -4,15 +4,8 @@
 <div class="container">
   <div class="row">
     <h1 class="text-center">Luxury Lodges in Aviemore and the Cairngorms</h1>
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12">
       <p>Our lodges are all unique and characterful, but also wonderfully comfortable and welcoming. We want these handpicked holiday homes to truly be your home from home so we've made sure that they are fully kitted out with everything you may need during your stay. They are all perfect for families and for dogs and are in convenient but peaceful locations. They are all close to shops for everyday needs - but the Handpicked Lodges team are also at the end of the phone and only 15 minutes away should you ever need any further help or advice.</p>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <div class="map-button">
-        <div class="map-button-text">
-          <p>Lodge locations <%= fa_icon "map-marker" %></p>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -20,6 +13,11 @@
   <div class="main-container">
     <div class="row">
       <div class="col-xs-12 col-lg-4 tall" id="properties-sidebar">
+          <div class="map-button">
+            <div class="map-button-text">
+              <p>Lodge locations <%= fa_icon "map-marker" %></p>
+            </div>
+          </div>
         <div class="properties-sidebar-content">
           <h4 class="text-center">Check availability for your handpicked lodge</h4>
           <%= render 'shared/availability-checker' %>
