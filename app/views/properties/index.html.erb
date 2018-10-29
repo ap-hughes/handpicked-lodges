@@ -101,6 +101,7 @@
         "coordinates": [longitude, latitude]
       },
       "properties": {
+        "iconSize": [50, 50],
         "title": title,
         "photo": photo,
         "sleeps": sleeps,
@@ -162,7 +163,7 @@
     // Check if there is already a popup on the map and if so, remove it
     if (popUps[0]) popUps[0].remove();
 
-    var popup = new mapboxgl.Popup({ offset: 25 })
+    var popup = new mapboxgl.Popup({ offset: 10 })
       .setLngLat(currentFeature.geometry.coordinates)
       .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong> ' + currentFeature.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + currentFeature.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + currentFeature.properties.bathrooms + '</p><a href=' + currentFeature.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>')
       .addTo(map);
@@ -195,10 +196,13 @@
     // create a HTML element for each feature
     var el = document.createElement('i');
     el.className = 'marker';
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
+    el.style.marginTop = -(marker.properties.iconSize[1]/3) + 'px';
     // make a marker for each poi feature and add to the map
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
-    .setPopup(new mapboxgl.Popup({ offset: 25 })
+    .setPopup(new mapboxgl.Popup({ offset: 10 })
     .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href=' + marker.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>'))
     .addTo(map);
     // console.log(marker.geometry.coordinates[0] - )

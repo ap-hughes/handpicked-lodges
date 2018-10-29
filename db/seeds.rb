@@ -89,8 +89,8 @@ Alltnacriche is in a family orientated location with the owners living next door
   in_country: true,
   we_love: "The cosy country house vibe, with that huge social kitchen diner.....and of course the piano!",
   guests_love: "In the Scottish highlands this place is without a doubt the place to book.",
-  latitude: 57.284756,
-  longitude: -3.827582,
+  latitude: 57.284450,
+  longitude: -3.829089,
   meta_title: "Alltnacriche - Country lodge with hot tub",
   meta_description: "Luxury self catering pet friendly country house with hot tub sleeping 10 in the Cairngorms National Park"
   )
@@ -150,8 +150,8 @@ If you need to keep in touch with anyone while you’re away, you can make use o
   in_country: true,
   we_love: "This lodge just goes on and on! A huge games room, a snug upstairs with its own sauna, and a simply enormous entrance hall perfect for Cairngorms outdoor life.",
   guests_love: "Incredible scenery!",
-  latitude: 57.285706,
-  longitude: -3.809133,
+  latitude: 57.285648,
+  longitude: -3.809188,
   meta_title: "Burnbrae Lodge - Large lodge with Sauna",
   meta_description: "Self-catering pet friendly luxury accommodation sleeping 8 with wood burning stove and sauna"
   )
@@ -196,8 +196,8 @@ Cairn Eilrig really is the perfect Cairngorms holiday lodge for those who love t
   in_country: true,
   we_love: "A truly amazing location - you're only minutes away from CairnGorm and Loch Morlich - and the mountains look close enough to touch!",
   guests_love: "Fantastic cottage, with amazing views",
-  latitude: 57.167438,
-  longitude: -3.690322,
+  latitude: 57.167112,
+  longitude: -3.691445,
   meta_title: "Cairn Eilrig - Luxury dog friendly holiday lodge",
   meta_description: "Book now to stay in the only holiday home at the foot of Cairngorm Mountain"
   )
@@ -248,8 +248,8 @@ If you are booking for a large group of friends, please contact us prior to book
   in_country: true,
   we_love: "The spa area – such a decadent treat after a day in the hills!",
   guests_love: "We made great use of the sauna, hot tub and games room each evening, without ever feeling the need to leave the lodge!",
-  latitude: 57.259791,
-  longitude: -3.640563,
+  latitude: 57.259728,
+  longitude: -3.640584,
   meta_title: "Foresters Lodge - Country lodge with hot tub and sauna",
   meta_description: "Luxury dog friendly holiday lodge with hottub and sauna in the Cairngorms National Park"
   )
@@ -296,8 +296,8 @@ Nethy Bridge has some lovely local amenities and is close to some award-winning 
   in_country: true,
   we_love: "An evening spent by the fire pit next to the river – plus the antler chandeliers!",
   guests_love: "Opening the bedroom patio door to the sunshine and sound of the river every morning…Our small people guddled in the river for hours on end.",
-  latitude: 57.263195,
-  longitude: -3.640658,
+  latitude: 57.263292,
+  longitude: -3.641158,
   meta_title: "Riverside Lodge - Modern luxuries with river views and wood burner",
   meta_description: "Stunning luxury holiday home in the Cairngorms National Park, pet friendly with amazing views"
   )
@@ -335,8 +335,8 @@ Find out more about each of the lodges on the Smithy and Riverside Lodge pages."
   in_country: true,
   we_love: "The huge open plan area makes for the perfect place for a special get together",
   guests_love: "The house is ideal for families or groups of friends and it couldn't be better equipped for what we needed",
-  latitude: 57.263195,
-  longitude: -3.640658,
+  latitude: 57.263192,
+  longitude: -3.640580,
   meta_title: "Smithy & Riverside Lodge - Traditional and modern perfect for family gatherings",
   meta_description: "Large holiday home near Aviemore with stunning views perfect for family holidays"
   )
@@ -371,8 +371,8 @@ For those who prefer their sports at a lower altitude, the Spey Valley Champions
   in_country: false,
   we_love: "We can’t choose between its cosy Morso wood burning stove and the huge roll top bath!",
   guests_love: "a fabulous place to stay...can you come and design my house?",
-  latitude: 57.202522,
-  longitude: -3.825623,
+  latitude: 57.202574,
+  longitude: -3.825665,
   meta_title: "The Bothy - Luxury self-catering in the centre of Aviemore",
   meta_description: "Cosy self catering retreat in the centre of Aviemore, dog friendly with wood burning stove"
   )
@@ -414,8 +414,8 @@ With its tranquil riverside setting, The Old Smithy is in the perfect location t
   in_country: true,
   we_love: "Sitting on the private riverside bench listening to the calming sound of the river whilst dragonflies buzz by.",
   guests_love: "A lovely cottage in a beautiful location. Private steps leading down to the river and the log burning stove which will keep you warm after a day walking in the forests or hills…Five stars.",
-  latitude: 57.263148,
-  longitude: -3.640315,
+  latitude: 57.263192,
+  longitude: -3.640580,
   meta_title: "The Old Smithy - Cosy retreat with river views and wood burner",
   meta_description: "Beautiful pet friendly self catering country cottage in the Highlands with wood burning stove and period features"
   )
@@ -459,8 +459,8 @@ Trails End Lodge is all about luxurious but relaxed comfort – the ideal place 
   in_country: false,
   we_love: "So much space! - a huge kitchen, big garden and loads of space for all your outdoor kit and clothing - if you're an outdoors family it ticks all the boxes.",
   guests_love: "Five star accommodation! Five star holiday! Five star location!",
-  latitude: 57.203590,
-  longitude: -3.837150,
+  latitude: 57.203867,
+  longitude: -3.836290,
   meta_title: "Trails End Lodge - Contemporary Smart and Spacious",
   meta_description: "Large modern family and pet friendly lodge on the edge of Aviemore in the heart of the Cairngorms"
   )
@@ -505,8 +505,8 @@ Whether you’re looking for a base for your own grand tour of the Highlands, a 
   in_country: true,
   we_love: "Those cheeky red squirrels who love to put on a show right outside the windows. They have their own little playground created amongst the pines and you could sit watching them all day!",
   guests_love: "Wescott is absolutely beautiful. We loved seeing all of the wildlife in the garden.",
-  latitude: 57.078880,
-  longitude: -4.063800,
+  latitude: 57.078970,
+  longitude: -4.065672,
   meta_title: "Westcott - Impressive and newly renovated self-catering lodge",
   meta_description: "Impressive and spacious self-catering detached country house with games room period features and breathtaking views"
   )
@@ -529,8 +529,8 @@ puts "Updating Douglas Cottage"
 douglas = Property.where(code: 541233).update(
   enabled: true,
   name: "Douglas Cottage",
-  latitude: 57.248584,
-  longitude: -3.754041,
+  latitude: 57.248541,
+  longitude: -3.754164,
   headline: "Cosy, pet friendly, period cottage oozing style and comfort in a central village location",
   description: "Douglas Cottage is our first lodge in lovely Boat of Garten, one of the most charming and friendly villages in Strathspey. Locally known just as “Boat”, this little place is the final stop on the delightful Strathspey Steam Railway, running regularly from Aviemore. You’ll often hear the whistle and hiss of steam as the beautiful vintage engine pulls in.
 
@@ -575,8 +575,8 @@ puts "Updating Tomdhu Lodge"
 tomdhu = Property.where(code: 542599).update(
   enabled: true,
   name: "Tomdhu Lodge",
-  latitude: 57.261007,
-  longitude: -3.702375,
+  latitude: 57.260914,
+  longitude: -3.703026,
   headline: "With a hot tub and double-sided wood burner - it's perfect for lovers of great interiors, as well as lovers of the great outdoors",
   description: "Love contemporary interiors? Then expect serious house envy at Tomdhu Lodge! It’s been exquisitely designed to be a sleek but endlessly practical take on luxury contemporary Highland holiday living. Look past the gorgeous furnishings and elegant, minimalist fittings and you’ll see that this beautiful house has been very cleverly built, finished and equipped to provide all the features you’ll ever need on a self-catered holiday. But you’ll also discover some wonderfully thoughtful extras, which take your Cairngorms escape to the next level of stress-free relaxation and luxury.
 
@@ -621,8 +621,8 @@ puts "Updating Rymore Wood Lodge"
 rymore = Property.where(code: 542702).update(
   enabled: true,
   name: "Rymore Wood Lodge",
-  latitude: 57.225450,
-  longitude: -3.625530,
+  latitude: 57.225712,
+  longitude: -3.675316,
   headline: "Spacious and homely with a wood burner, this holiday lodge is a charming retreat in the forest and a wildlife lover’s paradise",
   description: "Take a drive along the most enchanting forest road, winding between towering pines and the beautiful Loch Garten, and you will arrive at Rymore Wood Lodge, set in its own private 20 acres of woodland, surrounded by the RSPB nature reserve, in the heart of the Abernethy Forest. This lodge is a nature lover’s dream, with trees all around that bring birds, red squirrels, badgers, pine marten and deer to the garden, where you can sit and watch them from the warmth of the kitchen.
 
