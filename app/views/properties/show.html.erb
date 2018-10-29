@@ -238,6 +238,7 @@
       el.className = 'marker';
       el.style.width = marker.properties.iconSize[0] + 'px';
       el.style.height = marker.properties.iconSize[1] + 'px';
+      el.style.marginTop = -(marker.properties.iconSize[1]/3) + 'px';
       // el.style.backgroundImage = markerImage + marker.properties.iconSize.join('/') + '/)';
       // add marker to map
       new mapboxgl.Marker(el)
