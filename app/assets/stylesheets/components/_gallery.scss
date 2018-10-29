@@ -67,6 +67,9 @@
   -webkit-user-select: none;
   transition: 0.3s;
 }
+.sm {
+  top: 50%;
+}
 
 /* Position the "next button" to the right */
 .next {
@@ -112,9 +115,20 @@
   max-height: 15vh;
   overflow: none;
 }
+.gallery-column-sm {
+  float: left;
+  width: 16.66%;
+  max-height: 8vh;
+  overflow: none;
+}
 
 .gallery-row img {
   height: 15vh;
+  overflow: none;
+  object-fit: cover;
+}
+.gallery-row-sm img {
+  height: 8vh;
   overflow: none;
   object-fit: cover;
 }

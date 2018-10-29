@@ -7,12 +7,77 @@
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h4 class="text-center">With eight young children between us, we have tried and tested just about everything that is on offer for families in Aviemore and the Cairngorms, and there is rather a lot.</h4>
-      <p>Many of the lodges offer fantastic gardens and on-site play parks and all have DVD players and DVD's so your kids need never be bored even at your holiday home.</p>
-      <p>The area is one big children's playground with fantastic walks around nature reserves, beaches and lochs providing plenty to see and discover. Most walking trails are accessible direct from you accommodation and most bike trails involve very little if any road work.</p>
-      <p>The beach at Loch Morlich is perfect in summer or winter so don't forget your bucket and spade!</p>
+  <div class="row vertical-align">
+    <div class="col-xs-12 col-md-6">
+      <div class="white-card">
+        <h4 class="text-center">With eight young children between us, we have tried and tested just about everything that is on offer for families in Aviemore and the Cairngorms, and there is rather a lot.</h4>
+        <p>Many of the lodges offer fantastic gardens and on-site play parks and all have DVD players and DVD's so your kids need never be bored even at your holiday home.</p>
+        <p>The area is one big children's playground with fantastic walks around nature reserves, beaches and lochs providing plenty to see and discover. Most walking trails are accessible direct from you accommodation and most bike trails involve very little if any road work.</p>
+        <p>The beach at Loch Morlich is perfect in summer or winter so don't forget your bucket and spade!</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <!-- Container for the image gallery -->
+      <div class="gallery-container">
+
+        <!-- Full-width images with number text -->
+        <div class="mySlides">
+          <%= image_tag('families-1.jpg', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-2.jpg', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-3.jpg', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-4.png', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-5.jpg', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-6.png', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-7.png', style:"width: 100%") %>
+        </div>
+        <div class="mySlides">
+          <%= image_tag('families-8.jpg', style:"width: 100%") %>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev sm" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next sm" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- Thumbnail images -->
+        <div class="gallery-row-sm">
+          <div class="gallery-column-sm">
+            <%= image_tag('families-1.jpg', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-2.jpg', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(2)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-3.jpg', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(3)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-4.png', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(4)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-5.jpg', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(5)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-6.png', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(6)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-7.png', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(7)") %>
+          </div>
+          <div class="gallery-column-sm">
+            <%= image_tag('families-8.jpg', style:"width: 100%", class: "demo cursor", onclick:"currentSlide(8)") %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -172,3 +237,33 @@
   <br>
 </div>
 <%= render 'shared/page-search' %>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+</script>
