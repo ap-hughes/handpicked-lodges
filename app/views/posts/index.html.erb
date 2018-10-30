@@ -8,22 +8,47 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <% @posts.each do |post| %>
-        <div class="link-card-container">
-          <%= link_to post_path(post) do %>
-            <div class="link-card-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path post.photo %>');">
-            </div>
-            <div class="link-card-content">
-              <h4><%= post.title %></h4>
-              <p><%= post.created_at.strftime('%d %b, %Y') %></p>
-              <p><%= strip_tags post.body.truncate(300) %></p>
-            </div>
-          <% end %>
-        </div>
+    <div class="col-xs-12 col-md-8">
+      <% if mobile_device? %>
+        <% @posts.each do |post| %>
+          <div class="link-card-container">
+            <%= link_to post_path(post) do %>
+              <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path post.photo %>');">
+              </div>
+              <div class="link-card-content">
+                <h4><%= post.title %></h4>
+                <h6><%= post.created_at.strftime('%d %b, %Y') %></h6>
+                <p><%= strip_tags post.body.truncate(300) %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <% @posts.each do |post| %>
+          <div class="index-card-desk">
+            <%= link_to post_path(post) do %>
+              <div class="index-card-img-carousel-desk" style="background-image: url('<%= cl_image_path post.photo %>');">
+              </div>
+            <% end %>
+            <%= link_to post_path(post) do %>
+              <div class="index-card-content-desk">
+                <h4><%= post.title %></h4>
+                <h6><%= post.created_at.strftime('%d %b, %Y') %></h6>
+                <p><%= strip_tags post.body.truncate(350) %></p>
+                <div class="index-card-btn-container desk">
+                  <div class="green-back">
+                    <div class="index-card-btn">
+                      <p>View Blog</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col-xs-12 col-sm-4" id="posts-sidebar">
+    <div class="col-xs-12 col-md-4" id="posts-sidebar">
       <h4>Recent posts</h4>
       <% @posts.each do |post| %>
         <p><%= link_to "#{post.title} (#{post.created_at.strftime('%d %b, %Y')})", post_path(post) %></p>
