@@ -2,7 +2,7 @@ class Admin::PropertiesController < Admin::AdminController
   before_action :find_property, except: [:new, :create, :index]
 
   def index
-    @properties = Property.all
+    @properties = Property.order(:id)
   end
 
   def new
@@ -53,6 +53,6 @@ class Admin::PropertiesController < Admin::AdminController
 
   def property_params
     params.require(:property).permit(:code, :in_aviemore, :in_country, :enabled, :name, :sleeps, :headline, :description, :min_daily_price, :bedrooms, :bathrooms,
-      :wood_stove, :hot_tub, :pet_friendly, :sauna, :games_room, :features, :we_love, :guests_love, :meta_title, :meta_description, :latitude, :longitude, :hero_image, photos_attributes: [:id, :image], features_attributes: [:id, :name, :key])
+      :wood_stove, :hot_tub, :pet_friendly, :sauna, :games_room, :features, :we_love, :guests_love, :meta_title, :meta_description, :latitude, :longitude, :hero_image, photos_attributes: [:id, :image, :key], features_attributes: [:id, :name, :key])
   end
 end

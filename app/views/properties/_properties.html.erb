@@ -21,7 +21,7 @@
                   <% end %>
                 </div>
                 <% unless property.photos.blank? %>
-                  <% property.photos.order(created_at: :asc).take(2).each do |photo| %>
+                  <% property.photos.where(key: true).take(2).each do |photo| %>
                     <% unless photo.image.blank? %>
                       <div class="item">
                         <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>
@@ -121,7 +121,7 @@
                   <% end %>
                 </div>
                 <% unless property.photos.blank? %>
-                  <% property.photos.order(created_at: :asc).take(2).each do |photo| %>
+                  <% property.photos.where(key: true).take(2).each do |photo| %>
                     <% unless photo.image.blank? %>
                       <div class="item">
                         <%= image_tag(cl_image_path photo.image, height: 450, width: 500, crop: :fill) %>

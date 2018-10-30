@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   #title maximum 120 characters
   validates :title, presence: true, length: {maximum: 120}
   validates :body, presence: true
-  validates :photo, presence: true
+  validates :photo, presence: true, on: :create
 
   def next
     self.class.where("id > ?", id).first
