@@ -1,4 +1,4 @@
-<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('privacy-policy-small.jpg') %>');">
+<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('privacy-policy-small.jpg') %>'); background-position: top;">
   <div class="header-text">
     <h1>HPL Privacy Policy</h1>
   </div>
@@ -28,7 +28,7 @@
       <h4><strong>3. Website analysis</strong></h4>
       <p>We may collect statistical data such as your IP address, operating system and browser type to gather information about how people use our site. We do not collect or store any personal information in our website analytics.</p>
       <p>This information can identify customer behaviour such as how long each page is visited and where a customer came from and went to as well as for showing you relevent marketing material.</p>
-      <p>For this reason we may use cookies to obtain statistical data. You can refuse to allow cookies by activating the setting on your browser.</p>
+      <p>For this reason we may use <%= link_to 'cookies', pages_cookies_path, target: :_blank, class: "green-link" %> to obtain statistical data. You can refuse to allow cookies by activating the setting on your browser.</p>
       <p>Third parties such as Google may use cookies to serve ads based on a user's prior visit to Handpickedlodges.com</p>
       <h4><strong>4. How do we use your data:</strong></h4>
       <ul>
