@@ -6,11 +6,11 @@
 .gallery-reviews {
   padding: 10px 20px;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 990px) {
   .gallery-reviews {
     padding-left: 0px;
     padding-right: 30px;
-    height: 60vh;
+    padding-top: 80px;
   }
 }
 .gallery-container {
