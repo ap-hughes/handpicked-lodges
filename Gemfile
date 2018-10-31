@@ -6,6 +6,9 @@ gem "font-awesome-rails"
 #admins
 gem 'devise'
 
+#app monitoring
+gem 'raygun4ruby'
+
 # For posts
 gem 'ckeditor'
 gem 'mini_magick'
