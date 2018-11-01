@@ -10,6 +10,7 @@ class Property < ApplicationRecord
   scope :sauna_or_hot_tub, -> (sauna_or_hot_tub) { hot_tub(true).or(sauna(true)) }
 
   mount_uploader :hero_image, PhotoUploader
+  mount_uploader :floorplan, PhotoUploader
   validates :code, uniqueness: true, numericality: { only_integer: true }
   validates :meta_title, length: { maximum: 80 }
   validates :meta_description, length: { maximum: 300 }
