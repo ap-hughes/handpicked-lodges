@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181030161013) do
+ActiveRecord::Schema.define(version: 20181101111626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20181030161013) do
     t.string "meta_title"
     t.text "meta_description"
     t.boolean "games_room"
+    t.string "floorplan"
   end
 
   create_table "reviews", force: :cascade do |t|

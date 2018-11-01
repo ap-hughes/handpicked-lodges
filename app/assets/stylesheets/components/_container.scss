@@ -1,5 +1,6 @@
 
 
+
 .content-container {
   flex: 1;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
@@ -36,7 +37,7 @@
 #properties-sidebar {
   margin-bottom: 20px;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 800px) {
   #properties-sidebar {
     position: sticky;
     top: 120px;

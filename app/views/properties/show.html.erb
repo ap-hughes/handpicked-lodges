@@ -103,6 +103,13 @@
                     </div>
                   <% end %>
                 </div>
+                <% if @property.floorplan? %>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="btn btn-success floorplan-button">LODGE FLOORPLAN</div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="description">
                 <p><%= simple_format(@property.description) %></p>
@@ -124,12 +131,12 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4" id="properties-sidebar scroll-content">
+      <div class="col-xs-12 col-sm-4" id="properties-sidebar">
         <div class="green-header sidebar-header-height vertical-align">
           <p class="text-center"><strong>Book your stay</strong></p>
         </div>
         <section id="scroll-content">
-          <div class="sidebar-container-right margin-bottom">
+          <div class="sidebar-container-right">
             <% code = @property.code %>
             <% super_control = ENV["SUPER_CONTROL"] %>
             <% if @price.present? %>
@@ -162,6 +169,23 @@
     </div>
   <!-- </div> -->
 </div>
+<div id="map-overlay">
+  <div class="floorplan-container">
+    <div class="floorplan">
+      <%= cl_image_tag(@property.floorplan) %>
+    </div>
+    <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
+  </div>
+</div>
+<script>
+  $( ".floorplan-button" ).click(function() {
+    $( "#map-overlay" ).fadeIn( "slow", function() {
+    });
+  });
+  function off() {
+      document.getElementById("map-overlay").style.display = "none";
+  }
+</script>
 <script>
   var slideIndex = 1;
   showSlides(slideIndex);
