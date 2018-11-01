@@ -1,0 +1,15 @@
+.flatpickr-calendar {
+  border-radius: 0px !important;
+  z-index: 21 !important;
+}
+.flatpickr-day.selected {
+  background: $green !important;
+  border-color: $green !important;
+}
+.flatpickr-day.today {
+  border-bottom: 1px solid $red !important;
+}
+.flatpickr-day.today:hover {
+  background: $red !important;
+  border: $red !important;
+}
