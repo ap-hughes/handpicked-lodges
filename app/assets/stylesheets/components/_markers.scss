@@ -28,6 +28,11 @@
   background-image: asset-url('home-marker-48.png');
   background-color: rgba(0, 0, 0, 0);
 }
+.static-marker {
+  border: none;
+  background-image: asset-url('home-marker-48.png');
+  background-color: rgba(0, 0, 0, 0);
+}
 .mapboxgl-popup-close-button {
   display: none;
 }

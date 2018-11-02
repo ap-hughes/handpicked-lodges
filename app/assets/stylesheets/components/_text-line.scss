@@ -3,8 +3,10 @@
     color: white;
     position: relative;
     overflow: hidden;
+    line-height: 1.2em;
   }
   h3:after {
+    white-space: nowrap;
     content:"";
     display: inline-block;
     height: 0.5em;
