@@ -93,7 +93,7 @@
   };
 
   // helper function to create geoJson "feature"
-  const createGeoJsonFeature = (longitude, latitude, title, photo, sleeps, bedrooms, bathrooms, url) => {
+  const createGeoJsonFeature = (longitude, latitude, title, photo, price, sleeps, bedrooms, bathrooms, url) => {
     return {
       "type": 'Feature',
       "geometry": {
@@ -104,6 +104,7 @@
         "iconSize": [50, 50],
         "title": title,
         "photo": photo,
+        "price": price,
         "sleeps": sleeps,
         "bedrooms": bedrooms,
         "bathrooms": bathrooms,
@@ -122,25 +123,46 @@
   let latitude = 1.0;
   let title = "";
   let photo = "";
+  let price = "";
   let sleeps = 1.0;
   let bedrooms = 1.0;
   let bathrooms = 1.0;
   let url = "";
-
-  <% @properties.each do |property| %>
-    longitude = <%= property.longitude %>
-    latitude = <%= property.latitude %>
-    title = "<%= property.name %>"
-    <% if property.hero_image.blank? %>
-      photo = "<%= image_path("cedar-lodge.jpg") %>"
-    <% else %>
-      photo = "<%= cl_image_path(property.hero_image) %>"
+  <% if @available_properties.present? %>
+    <% @available_properties.each do |property| %>
+      longitude = <%= property.longitude %>
+      latitude = <%= property.latitude %>
+      title = "<%= property.name %>"
+      <% if property.hero_image.blank? %>
+        photo = "<%= image_path("cedar-lodge.jpg") %>"
+      <% else %>
+        photo = "<%= cl_image_path(property.hero_image) %>"
+      <% end %>
+      price = "£<%= property.price %> for <%= property.nights %> nights"
+      sleeps = <%= property.sleeps %>
+      bedrooms = <%= property.bedrooms %>
+      bathrooms = <%= property.bathrooms %>
+      url = "properties/" + <%= "#{property.id}" %> + "?book_link=" + "<%= property.book_link %>" + "&nights=" + "<%= property.nights %>" + "&price=" + "<%= property.price %>" + "&start_date=" + "<%= property.start_date %>"
+      console.log(url)
+      addToGeoJson(createGeoJsonFeature(longitude, latitude, title, photo, price, sleeps, bedrooms, bathrooms, url));
     <% end %>
-    sleeps = <%= property.sleeps %>
-    bedrooms = <%= property.bedrooms %>
-    bathrooms = <%= property.bathrooms %>
-    url = "properties/" + <%= "#{property.id}" %>
-    addToGeoJson(createGeoJsonFeature(longitude, latitude, title, photo, sleeps, bedrooms, bathrooms, url));
+  <% else %>
+    <% @properties.each do |property| %>
+      longitude = <%= property.longitude %>
+      latitude = <%= property.latitude %>
+      title = "<%= property.name %>"
+      <% if property.hero_image.blank? %>
+        photo = "<%= image_path("cedar-lodge.jpg") %>"
+      <% else %>
+        photo = "<%= cl_image_path(property.hero_image) %>"
+      <% end %>
+      price = "from £<%= property.min_daily_price.round.to_i %> per night"
+      sleeps = <%= property.sleeps %>
+      bedrooms = <%= property.bedrooms %>
+      bathrooms = <%= property.bathrooms %>
+      url = "properties/" + <%= "#{property.id}" %>
+      addToGeoJson(createGeoJsonFeature(longitude, latitude, title, photo, price, sleeps, bedrooms, bathrooms, url));
+    <% end %>
   <% end %>
 
   map.on('load', function(e) {
@@ -165,7 +187,7 @@
 
     var popup = new mapboxgl.Popup({ offset: 10 })
       .setLngLat(currentFeature.geometry.coordinates)
-      .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong> ' + currentFeature.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + currentFeature.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + currentFeature.properties.bathrooms + '</p><a href=' + currentFeature.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>')
+      .setHTML('<h5>' + currentFeature.properties.title + '</h5>' + '<img src=' + currentFeature.properties.photo + ' height="150" width="200">' + '<p><strong>Price:</strong> ' + currentFeature.properties.price + '<p><strong>Sleeps:</strong> ' + currentFeature.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + currentFeature.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + currentFeature.properties.bathrooms + '</p><a href=' + currentFeature.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>')
       .addTo(map);
   }
 
@@ -203,7 +225,7 @@
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
     .setPopup(new mapboxgl.Popup({ offset: 10 })
-    .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href=' + marker.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>'))
+    .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p><strong>Price:</strong> ' + marker.properties.price + '<p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href=' + marker.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>'))
     .addTo(map);
     // console.log(marker.geometry.coordinates[0] - )
 
