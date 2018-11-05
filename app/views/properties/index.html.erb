@@ -93,7 +93,7 @@
   };
 
   // helper function to create geoJson "feature"
-  var createGeoJsonFeature = (longitude, latitude, title, photo, price, sleeps, bedrooms, bathrooms, url) => {
+  const createGeoJsonFeature = (longitude, latitude, title, photo, price, sleeps, bedrooms, bathrooms, url) => {
     return {
       "type": 'Feature',
       "geometry": {
@@ -114,7 +114,7 @@
   };
 
   // helper function to add feature to indexGeoJson
-  var addToGeoJson = (geoJsonFeature) => {
+  const addToGeoJson = (geoJsonFeature) => {
     indexGeojson.features.push(geoJsonFeature)
   };
 
