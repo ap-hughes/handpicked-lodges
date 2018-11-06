@@ -188,7 +188,7 @@
   function createPopUp(currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     // Check if there is already a popup on the map and if so, remove it
-    if (popUps[1]) popUps[1].remove();
+    if (popUps[0]) popUps[0].remove();
 
     var popup = new mapboxgl.Popup({ offset: 10 })
       .setLngLat(currentFeature.geometry.coordinates)
@@ -234,15 +234,7 @@
     .addTo(map);
     // console.log(marker.geometry.coordinates[0] - )
     el.addEventListener('mouseenter', (e) => {
-      var popUps = document.getElementsByClassName('mapboxgl-popup');
-      // Check if there is already a popup on the map and if so, remove it
-      if (popUps[0]) popUps[0].remove();
       createPopUp(marker);
-    })
-    el.addEventListener('mouseleave', (e) => {
-      var popUps = document.getElementsByClassName('mapboxgl-popup');
-      // Check if there is already a popup on the map and if so, remove it
-      if (popUps[0]) popUps[0].remove();
     })
     el.addEventListener('click', (e) => {
       flyToProperty(marker);
