@@ -3,9 +3,9 @@ class PropertiesController < ApplicationController
 
   def index
     if params[:search].present?
-      available_properties = Property.where(enabled: true).order("random()").search(params)
-      unavailable_properties = Property.where.not(id: available_properties).where(enabled: true).order("random()")
-      @properties = available_properties + unavailable_properties
+      @available_properties = Property.where(enabled: true).order("random()").search(params)
+      @unavailable_properties = Property.where.not(id: @available_properties).where(enabled: true).order("random()")
+      @properties = @available_properties + @unavailable_properties
       store_search(params)
       respond_to do |format|
         format.html
