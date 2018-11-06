@@ -171,7 +171,7 @@
   <% end %>
 
   map.on('load', function(e) {
-    map.addSource('properties', {
+    map.addSource('properties-markers', {
       type: 'geojson',
       data: indexGeojson
     });
@@ -188,7 +188,7 @@
   function createPopUp(currentFeature) {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     // Check if there is already a popup on the map and if so, remove it
-    if (popUps[0]) popUps[0].remove();
+    if (popUps[1]) popUps[1].remove();
 
     var popup = new mapboxgl.Popup({ offset: 10 })
       .setLngLat(currentFeature.geometry.coordinates)
@@ -233,7 +233,17 @@
     .setHTML('<h5>' + marker.properties.title + '</h5>' + '<img src=' + marker.properties.photo + ' height="150" width="200">' + '<p><strong>Price:</strong> ' + marker.properties.price + '<p><strong>Sleeps:</strong> ' + marker.properties.sleeps + '</p><p><strong>Bedrooms:</strong> ' + marker.properties.bedrooms + '</p><p><strong>Bathrooms:</strong> ' + marker.properties.bathrooms + '</p><a href=' + marker.properties.url + '>' + '<h6 class="map-btn">View Lodge</h6></a>'))
     .addTo(map);
     // console.log(marker.geometry.coordinates[0] - )
-
+    el.addEventListener('mouseenter', (e) => {
+      var popUps = document.getElementsByClassName('mapboxgl-popup');
+      // Check if there is already a popup on the map and if so, remove it
+      if (popUps[0]) popUps[0].remove();
+      createPopUp(marker);
+    })
+    el.addEventListener('mouseleave', (e) => {
+      var popUps = document.getElementsByClassName('mapboxgl-popup');
+      // Check if there is already a popup on the map and if so, remove it
+      if (popUps[0]) popUps[0].remove();
+    })
     el.addEventListener('click', (e) => {
       flyToProperty(marker);
       createPopUp(marker);

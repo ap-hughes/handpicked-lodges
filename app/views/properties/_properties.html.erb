@@ -199,6 +199,7 @@
 <% end %>
 <script>
   $(document).ajaxStop(function () {
+    map.removeSource('properties-markers');
     indexGeojson = {
       "type": 'FeatureCollection',
       "features": []
@@ -245,9 +246,10 @@
       <% end %>
     <% end %>
 
-    map.getSource('properties').setData(
+    map.getSource('properties-markers').setData(
       indexGeojson
     );
+
     console.log(indexGeojson);
   });
 </script>
