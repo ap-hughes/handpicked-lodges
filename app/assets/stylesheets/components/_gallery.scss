@@ -21,15 +21,14 @@
 /* Hide the images by default */
 .mySlides {
   display: none;
-  height: 60vh;
   img {
-    height: 60vh;
-    object-fit: cover;
+    height: auto;
+    width: 100%;
   }
 }
 
 .gallery-img-cloudinary {
-  height: 60vh;
+  max-height: 60vh;
   background-position: center center;
   background-size: cover;
   display: flex;
@@ -56,7 +55,7 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 45%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
@@ -113,7 +112,7 @@
 .gallery-column {
   float: left;
   width: 16.66%;
-  max-height: 15vh;
+  height: auto;
   overflow: none;
 }
 .gallery-column-sm {
@@ -122,14 +121,18 @@
   max-height: 8vh;
   overflow: none;
 }
-
 .gallery-row img {
-  height: 12vh;
+  height: auto;
   overflow: none;
   object-fit: cover;
 }
+@media screen and (min-width: 800px) {
+  .gallery-row img {
+    max-height: 12vh;
+  }
+}
 .gallery-row-sm img {
-  height: 8vh;
+  height: auto;
   overflow: none;
   object-fit: cover;
 }
