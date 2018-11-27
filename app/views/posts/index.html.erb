@@ -13,7 +13,7 @@
         <% @posts.each do |post| %>
           <div class="link-card-container">
             <%= link_to post_path(post) do %>
-              <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path post.photo %>');">
+              <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path(post.photo, height: 550, width: 600, crop: :fill, :quality=>"auto") %>');">
               </div>
               <div class="link-card-content">
                 <h4><%= post.title %></h4>
@@ -27,7 +27,7 @@
         <% @posts.each do |post| %>
           <div class="index-card-desk">
             <%= link_to post_path(post) do %>
-              <div class="index-card-img-carousel-desk" style="background-image: url('<%= cl_image_path post.photo %>');">
+              <div class="index-card-img-carousel-desk" style="background-image: url('<%= cl_image_path(post.photo, height: 550, width: 600, crop: :fill, :quality=>"auto") %>');">
               </div>
             <% end %>
             <%= link_to post_path(post) do %>

@@ -77,7 +77,7 @@
       <% if property.hero_image.blank? %>
         photo = "<%= image_path("cedar-lodge.jpg") %>"
       <% else %>
-        photo = "<%= cl_image_path(property.hero_image) %>"
+        photo = "<%= cl_image_path(property.hero_image, height: 300, width: 400, crop: :fill, :quality=>"auto") %>"
       <% end %>
       <% if property.price_message.present? %>
         price = "<%= property.price_message %>"
@@ -99,7 +99,7 @@
       <% if property.hero_image.blank? %>
         photo = "<%= image_path("cedar-lodge.jpg") %>"
       <% else %>
-        photo = "<%= cl_image_path(property.hero_image) %>"
+        photo = "<%= cl_image_path(property.hero_image, height: 300, width: 400, crop: :fill, :quality=>"auto") %>"
       <% end %>
       price = "from £<%= property.min_daily_price.round.to_i %> per night"
       sleeps = <%= property.sleeps %>
