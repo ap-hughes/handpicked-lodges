@@ -1,7 +1,7 @@
 <% content_for :meta_title, "Handpicked Lodges - #{@post.title}" %>
 <% content_for :meta_description, "#{strip_tags @post.body.truncate(300)}" %>
 <% content_for :meta_image, cl_image_path(@post.photo, height: 630, width: 1200, crop: :fill) %>
-<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @post.photo %>');">
+<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(@post.photo, height: 800, width: 1800, crop: :fill, :quality=>"auto") %>');">
   <div class="header-text">
     <h1><%= @post.title %></h1>
     <h4><%= @post.created_at.strftime('%d %b, %Y') %></h4>
