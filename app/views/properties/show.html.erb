@@ -172,7 +172,7 @@
 <div id="map-overlay">
   <div class="floorplan-container">
     <div class="floorplan">
-      <%= cl_image_tag(@property.floorplan) %>
+      <%= cl_image_tag(@property.floorplan, :quality=>"auto", :fetch_format=>:auto) %>
     </div>
     <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
   </div>
