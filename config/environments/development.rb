@@ -34,6 +34,13 @@ config.webpacker.check_yarn_integrity = true
 
   config.action_mailer.perform_caching = false
 
+  # Mailgun setup for testing.
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV["MAILGUN_API"],
+    domain: ENV["MAILGUN_DOMAIN"]
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
