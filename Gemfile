@@ -10,7 +10,7 @@ gem 'devise'
 gem 'raygun4ruby'
 
 # For posts
-gem 'ckeditor'
+gem 'ckeditor', '4.2.4'
 gem 'mini_magick'
 
 # For contact email form

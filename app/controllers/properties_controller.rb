@@ -3,8 +3,8 @@ class PropertiesController < ApplicationController
 
   def index
     if params[:search].present?
-      @available_properties = Property.where(enabled: true).order("random()").search(params)
-      @unavailable_properties = Property.where.not(id: @available_properties).where(enabled: true).order("random()")
+      @available_properties = Property.where(enabled: true).order(Arel.sql("random()")).search(params)
+      @unavailable_properties = Property.where.not(id: @available_properties).where(enabled: true).order(Arel.sql("random()"))
       @properties = @available_properties + @unavailable_properties
       store_search(params)
       respond_to do |format|
@@ -12,9 +12,9 @@ class PropertiesController < ApplicationController
         format.js
       end
     elsif params[:query].present?
-      @properties = Property.filter(params[:query].slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country, :sauna_or_hot_tub)).where(enabled: true).order("random()")
+      @properties = Property.filter(params[:query].slice(:wood_stove, :pet_friendly, :hot_tub, :sauna, :in_aviemore, :in_country, :sauna_or_hot_tub)).where(enabled: true).order(Arel.sql("random()"))
     else
-      @properties = Property.where(enabled: true).order("random()")
+      @properties = Property.where(enabled: true).order(Arel.sql("random()"))
     end
   end
 
