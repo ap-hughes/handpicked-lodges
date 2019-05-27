@@ -10,7 +10,7 @@ gem 'devise'
 gem 'raygun4ruby'
 
 # For posts
-gem 'ckeditor'
+gem 'ckeditor', '4.2.4'
 gem 'mini_magick'
 
 # For contact email form
@@ -25,7 +25,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.1.6'
+gem 'rails', '5.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
