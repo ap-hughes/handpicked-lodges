@@ -10,6 +10,7 @@ class Property < ApplicationRecord
   scope :sauna_or_hot_tub, -> (sauna_or_hot_tub) { hot_tub(true).or(sauna(true)) }
 
   mount_uploader :hero_image, PhotoUploader
+  has_one_attached :main_image
   mount_uploader :floorplan, PhotoUploader
   validates :code, uniqueness: true, numericality: { only_integer: true }
   validates :meta_title, length: { maximum: 80 }
@@ -25,4 +26,12 @@ class Property < ApplicationRecord
   accepts_nested_attributes_for :photos,
     allow_destroy: true,
     :reject_if => proc { |att| att[:image].blank? }
+  before_destroy :purge_active_storage
+  validates :main_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+
+  private
+
+  def purge_active_storage
+    main_image.purge
+  end
 end

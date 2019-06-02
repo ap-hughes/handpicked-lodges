@@ -16,6 +16,11 @@ gem 'mini_magick'
 # For contact email form
 gem 'mailgun-ruby', '~>1.1.6'
 
+# Images on AWS S3 bucket with active storage
+gem "aws-sdk-s3", require: false
+gem "image_processing"
+gem 'active_storage_validations'
+
 gem 'jquery-ui-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "jquery-slick-rails"
@@ -47,4 +52,5 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
