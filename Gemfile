@@ -18,6 +18,8 @@ gem 'mailgun-ruby', '~>1.1.6'
 
 # Images on AWS S3 bucket with active storage
 gem "aws-sdk-s3", require: false
+gem "image_processing"
+gem 'active_storage_validations'
 
 gem 'jquery-ui-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'

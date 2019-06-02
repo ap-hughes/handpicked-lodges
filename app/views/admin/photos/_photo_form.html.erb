@@ -1,6 +1,5 @@
 <%= simple_form_for([:admin, @property, @photo], remote: true, html: { id: :submit_photo }) do |f| %>
   <%= f.input :key %>
-  <%= f.input :image %>
-  <%= f.input :image_cache, as: :hidden %>
+  <%= f.input :picture %>
   <%= f.submit "Submit", class: "btn btn-success" %>
 <% end %>
