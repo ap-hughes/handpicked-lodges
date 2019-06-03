@@ -117,7 +117,7 @@
               <div class="carousel-inner">
                 <div class="item active">
                   <% if property.main_image.attached? %>
-                    <%= image_tag property.main_image.variant(resize_to_limit: [550, 600]) %>
+                    <%= image_tag property.main_image.variant(resize: "550x600") %>
                   <% end %>
                   <% unless property.main_image.attached? || property.hero_image.blank? %>
                     <%= image_tag(cl_image_path property.hero_image, height: 550, width: 600, crop: :fill, :quality=>"auto") %>
