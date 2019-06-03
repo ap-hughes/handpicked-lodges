@@ -3,7 +3,7 @@ namespace :image_transfer do
   task transfer_post_image_to_aws: :environment do
     Post.all.each do |post|
       url = Cloudinary::Utils.cloudinary_api_url(post.photo)
-      # url = "http#{url.split('http').last}"
+      url = "http#{url.split('http').last}"
       image = open(url)
       post.image.attach(
         io: image,
@@ -17,7 +17,7 @@ namespace :image_transfer do
   task transfer_prop_main_image_to_aws: :environment do
     Property.where.not(hero_image: nil).each do |property|
       url = Cloudinary::Utils.cloudinary_api_url(property.hero_image)
-      # url = "http#{url.split('http').last}"
+      url = "http#{url.split('http').last}"
       image = open(url)
       property.main_image.attach(
         io: image,
@@ -32,7 +32,7 @@ namespace :image_transfer do
     Property.where.not(hero_image: nil).each do |property|
       property.photos.each do |photo|
         url = Cloudinary::Utils.cloudinary_api_url(photo.image)
-        # url = "http#{url.split('http').last}"
+        url = "http#{url.split('http').last}"
         image = open(url)
         photo.picture.attach(
           io: image,
