@@ -27,6 +27,20 @@ namespace :image_transfer do
     end
   end
 
+  desc "transfer a property's hero image to Active Storage and AWS"
+  task transfer_prop_floorplan_to_aws: :environment do
+    Property.where.not(floorplan: nil).each do |property|
+      url = Cloudinary::Utils.cloudinary_api_url(property.floorplan)
+      url = "http#{url.split('http').last}"
+      image = open(url)
+      property.floorplan_image.attach(
+        io: image,
+        filename: property.floorplan.file.public_id,
+        content_type: "#{property.floorplan.file.resource_type}/#{property.floorplan.file.format}"
+      )
+    end
+  end
+
   desc "transfer a property's remaining images to Active Storage and AWS"
   task transfer_prop_images_to_aws: :environment do
     Property.where.not(hero_image: nil).each do |property|

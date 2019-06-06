@@ -46,8 +46,7 @@
   <p><strong>For the latitude and longitude of your property, please visit <a href="https://www.latlong.net/" target="blank">https://www.latlong.net/</a></strong></p>
   <%= f.input :latitude %>
   <%= f.input :longitude %>
-  <%= f.input :floorplan, label: "Lodge floorplan" %>
-  <%= f.input :floorplan_cache, as: :hidden %>
+  <%= f.input :floorplan_image, label: "Lodge floorplan" %>
   <%= f.input :main_image, label: "Main photo" %>
   <% if @property.hero_image? %>
     <div class="row">
