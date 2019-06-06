@@ -1,3 +1,5 @@
+require 'uploads'
+
 class Property < ApplicationRecord
   include Filterable
   attr_accessor :price, :book_link, :price_message, :start_date, :nights
@@ -20,6 +22,7 @@ class Property < ApplicationRecord
   validates :we_love, presence: true
   validates :sleeps, :bedrooms, :bathrooms, numericality: { only_integer: true }
   has_many :photos, dependent: :destroy
+  scope :with_attached_photos, -> { includes(:photos).merge(Photo.with_attached_picture) }
   has_many :reviews, dependent: :destroy
   has_many :features, dependent: :destroy
   accepts_nested_attributes_for :features,
@@ -30,6 +33,11 @@ class Property < ApplicationRecord
   before_destroy :purge_active_storage
   validates :main_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
   validates :floorplan_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+
+  def main_image_card_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 600, height: 550, quality: 80, blob: main_image.blob))
+    ActiveStorage::Variant.new(main_image.blob, variation)
+  end
 
   private
 

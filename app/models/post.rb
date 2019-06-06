@@ -1,3 +1,5 @@
+require 'uploads'
+
 class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_one_attached :image
@@ -14,6 +16,11 @@ class Post < ApplicationRecord
 
   def previous
     self.class.where("id < ?", id).last
+  end
+
+  def image_card_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 600, height: 550, quality: 80, blob: image.blob))
+    ActiveStorage::Variant.new(image.blob, variation)
   end
 
   private
