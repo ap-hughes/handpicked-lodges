@@ -12,6 +12,7 @@ class Property < ApplicationRecord
   mount_uploader :hero_image, PhotoUploader
   has_one_attached :main_image
   mount_uploader :floorplan, PhotoUploader
+  has_one_attached :floorplan_image
   validates :code, uniqueness: true, numericality: { only_integer: true }
   validates :meta_title, length: { maximum: 80 }
   validates :meta_description, length: { maximum: 300 }
@@ -28,6 +29,7 @@ class Property < ApplicationRecord
     :reject_if => proc { |att| att[:image].blank? }
   before_destroy :purge_active_storage
   validates :main_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :floorplan_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   private
 
