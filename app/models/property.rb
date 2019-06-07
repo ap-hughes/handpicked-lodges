@@ -31,8 +31,8 @@ class Property < ApplicationRecord
     allow_destroy: true,
     :reject_if => proc { |att| att[:image].blank? }
   before_destroy :purge_active_storage
-  validates :main_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
-  validates :floorplan_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :main_image, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :floorplan_image, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   def main_image_card_variant
     variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 600, height: 550, quality: 80, blob: main_image.blob))
@@ -43,5 +43,6 @@ class Property < ApplicationRecord
 
   def purge_active_storage
     main_image.purge
+    floorplan_image.purge
   end
 end
