@@ -48,17 +48,6 @@
   <%= f.input :longitude %>
   <%= f.input :floorplan_image, label: "Lodge floorplan" %>
   <%= f.input :main_image, label: "Main photo" %>
-  <% if @property.hero_image? %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="white-card">
-          <p><strong>Photo: 1 (deprecated hero image model)</strong></p>
-          <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @property.hero_image, height: 300, width: 300, crop: :fill %>');">
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
   <% if @property.main_image.attached? && @property.main_image.attachment.blob.present? && @property.main_image.attachment.blob.persisted? %>
     <div class="row">
       <div class="col-xs-12 col-sm-4">

@@ -1,7 +1,7 @@
 <% content_for :meta_title, @property.meta_title %>
 <% content_for :meta_description, @property.meta_description %>
-<% if @property.hero_image? %>
-  <% content_for :meta_image, cl_image_path(@property.hero_image, height: 630, width: 1200, crop: :fill) %>
+<% if property.main_image.attached? %>
+  <% content_for :meta_image, rails_representation_url @property.main_image_meta_variant %>
 <% end %>
 
 <div class="container">
@@ -25,13 +25,13 @@
 
           <!-- Full-width images with number text -->
           <div class="mySlides">
-            <%= cl_image_tag(@property.hero_image, style:"width: 100%", height: 800, width: 1200, crop: :fill, quality: :auto)%>
+            <%= image_tag property.main_image_show_variant %>
           </div>
 
-          <% @property.photos.order(created_at: :asc).each do |photo| %>
-            <% unless photo.image.blank? %>
+          <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
+            <% if photo.picture.attached? %>
               <div class="mySlides">
-                <%= cl_image_tag(photo.image, style:"width: 100%", height: 800, width: 1200, crop: :fill, quality: :auto) %>
+                <%= image_tag photo.picture_show_variant %>
               </div>
             <% end %>
           <% end %>
@@ -44,12 +44,12 @@
         <!-- Thumbnail images -->
         <div class="gallery-row">
           <div class="gallery-column">
-            <%= cl_image_tag(@property.hero_image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)")%>
+            <%= image_tag(property.main_image_thumbnail_variant, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
           </div>
           <% i = 2 %>
-          <% @property.photos.order(created_at: :asc).each do |photo| %>
+          <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
             <div class="gallery-column">
-              <%= cl_image_tag(photo.image, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(#{i})") %>
+              <%= image_tag(photo.picture_thumbnail_variant, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(#{i})") %>
             </div>
             <% i += 1 %>
           <% end %>
@@ -172,7 +172,7 @@
 <div id="map-overlay">
   <div class="floorplan-container">
     <div class="floorplan">
-      <%= cl_image_tag(@property.floorplan, :quality=>"auto", :fetch_format=>:auto) %>
+      <%= image_tag @property.floorplan_image %>
     </div>
     <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
   </div>

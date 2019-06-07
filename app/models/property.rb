@@ -39,6 +39,26 @@ class Property < ApplicationRecord
     ActiveStorage::Variant.new(main_image.blob, variation)
   end
 
+  def main_image_map_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 400, height: 300, quality: 80, blob: main_image.blob))
+    ActiveStorage::Variant.new(main_image.blob, variation)
+  end
+
+  def main_image_meta_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 1200, height: 630, quality: 80, blob: main_image.blob))
+    ActiveStorage::Variant.new(main_image.blob, variation)
+  end
+
+  def main_image_show_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 1200, height: 800, quality: 80, blob: main_image.blob))
+    ActiveStorage::Variant.new(main_image.blob, variation)
+  end
+
+  def main_image_thumbnail_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 300, height: 300, quality: 70, blob: main_image.blob))
+    ActiveStorage::Variant.new(main_image.blob, variation)
+  end
+
   private
 
   def purge_active_storage
