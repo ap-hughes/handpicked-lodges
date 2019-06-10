@@ -1,7 +1,7 @@
 <% content_for :meta_title, @property.meta_title %>
 <% content_for :meta_description, @property.meta_description %>
-<% if property.main_image.attached? %>
-  <% content_for :meta_image, rails_representation_url @property.main_image_meta_variant %>
+<% if @property.main_image.attached? %>
+  <% content_for :meta_image, rails_representation_url(@property.main_image_meta_variant) %>
 <% end %>
 
 <div class="container">
@@ -25,13 +25,13 @@
 
           <!-- Full-width images with number text -->
           <div class="mySlides">
-            <%= image_tag property.main_image_show_variant %>
+            <%= image_tag(@property.main_image_show_variant, class: 'img-responsive') %>
           </div>
 
           <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
             <% if photo.picture.attached? %>
               <div class="mySlides">
-                <%= image_tag photo.picture_show_variant %>
+                <%= image_tag(photo.picture_show_variant, class: 'img-responsive') %>
               </div>
             <% end %>
           <% end %>
@@ -40,16 +40,14 @@
           <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
           <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-
-        <!-- Thumbnail images -->
         <div class="gallery-row">
           <div class="gallery-column">
-            <%= image_tag(property.main_image_thumbnail_variant, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(1)") %>
+            <%= image_tag(@property.main_image_thumbnail_variant, class: "demo cursor", onclick:"currentSlide(1)") %>
           </div>
           <% i = 2 %>
           <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
             <div class="gallery-column">
-              <%= image_tag(photo.picture_thumbnail_variant, height: 300, width: 300, crop: :fill, style:"width: 100%", class: "demo cursor", onclick:"currentSlide(#{i})") %>
+              <%= image_tag(photo.picture_thumbnail_variant, class: "demo cursor", onclick:"currentSlide(#{i})") %>
             </div>
             <% i += 1 %>
           <% end %>
@@ -103,7 +101,7 @@
                     </div>
                   <% end %>
                 </div>
-                <% if @property.floorplan? %>
+                <% if @property.floorplan_image.attached? %>
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="btn btn-success floorplan-button">LODGE FLOORPLAN</div>
@@ -172,7 +170,9 @@
 <div id="map-overlay">
   <div class="floorplan-container">
     <div class="floorplan">
-      <%= image_tag @property.floorplan_image %>
+      <% if @property.floorplan_image.attached? %>
+        <%= image_tag @property.floorplan_image %>
+      <% end %>
     </div>
     <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
   </div>

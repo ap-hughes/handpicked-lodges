@@ -2,6 +2,12 @@
   // box-sizing: border-box;
 }
 
+.img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Position the image container (needed to position the left and right arrows) */
 .gallery-reviews {
   padding: 10px 20px;
@@ -16,14 +22,24 @@
 .gallery-container {
   position: relative;
   width: auto;
+
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;
+  // height: 60vh;
+
   img {
-    height: auto;
+    height: 65vh;
     width: 100%;
+    object-fit: cover;
+    @media screen and (max-width: 600px) {
+      height: 50vh;
+    }
+    @media screen and (max-width: 400px) {
+    height: 40vh;
+    }
   }
 }
 
@@ -102,40 +118,61 @@
   color: white;
 }
 
-.gallery-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+.gallery-row {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-/* Six columns side by side */
-.gallery-column {
-  float: left;
+  img {
+    object-fit: cover;
+    height: 10vh;
+    width: 100%;
+
+   @media screen and (min-width: 800px) {
+      height: 12vh;
+    }
+  }
+
+  .gallery-column {
   width: 16.66%;
-  height: auto;
-  overflow: none;
-}
-.gallery-column-sm {
-  float: left;
-  width: 16.66%;
-  max-height: 8vh;
-  overflow: none;
-}
-.gallery-row img {
-  height: auto;
-  overflow: none;
-  object-fit: cover;
-}
-@media screen and (min-width: 800px) {
-  .gallery-row img {
-    max-height: 12vh;
   }
 }
-.gallery-row-sm img {
-  height: auto;
-  overflow: none;
-  object-fit: cover;
-}
+
+// .gallery-row:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+/* Six columns side by side */
+// .gallery-column {
+//   float: left;
+//   width: 16.66%;}
+// .gallery-column-sm {
+//   float: left;
+//   width: 16.66%;
+//   max-height: 8vh;
+//   overflow: none;
+// }
+// .gallery-row img {
+//   object-fit: cover;
+// }
+// .gallery-row img {
+//     max-height: 9vh;
+//   }
+
+// @media screen and (min-width: 800px) {
+//   .gallery-row img {
+//     max-height: 12vh;
+//   }
+// }
+// .gallery-row-sm img {
+//   height: auto;
+//   overflow: none;
+//   object-fit: cover;
+// }
 
 /* Add a transparency effect for thumnbail images */
 .demo {

@@ -59,6 +59,9 @@ class Property < ApplicationRecord
     ActiveStorage::Variant.new(main_image.blob, variation)
   end
 
+  # def floorplan_image_variant
+  # end
+
   private
 
   def purge_active_storage
