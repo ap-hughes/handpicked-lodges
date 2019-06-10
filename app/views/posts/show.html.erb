@@ -1,7 +1,7 @@
 <% content_for :meta_title, "Handpicked Lodges - #{@post.title}" %>
 <% content_for :meta_description, "#{strip_tags @post.body.truncate(300)}" %>
-<% content_for :meta_image, cl_image_path(@post.photo, height: 630, width: 1200, crop: :fill) %>
-<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(@post.photo, height: 800, width: 1800, crop: :fill, :quality=>"auto") %>');">
+<% content_for :meta_image, rails_representation_url(@post.image_meta_variant) %>
+<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= rails_representation_url @post.image_hero_variant %>');">
   <div class="header-text">
     <h1><%= @post.title %></h1>
     <h4><%= @post.created_at.strftime('%d %b, %Y') %></h4>
@@ -19,7 +19,7 @@
         <h4>Previous Blog</h4>
         <div class="link-card-container">
           <%= link_to post_path(@previous_post) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @previous_post.photo, height: 450, width: 500, crop: :fill  %>');">
+            <div class="link-card-cloudinary" style="background-image: url('<%= rails_representation_url @previous_post.image_card_variant %>');">
             </div>
             <div class="link-card-content">
               <h4><%= @previous_post.title %></h4>
@@ -35,7 +35,7 @@
         <h4 class="text-right">Next Blog</h4>
         <div class="link-card-container">
           <%= link_to post_path(@next_post) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @next_post.photo, height: 450, width: 500, crop: :fill %>');">
+            <div class="link-card-cloudinary" style="background-image: url('<%= rails_representation_url @next_post.image_card_variant %>');">
             </div>
             <div class="link-card-content">
               <h4><%= @next_post.title %></h4>

@@ -23,6 +23,16 @@ class Post < ApplicationRecord
     ActiveStorage::Variant.new(image.blob, variation)
   end
 
+  def image_meta_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 1200, height: 630, quality: 80, blob: image.blob))
+    ActiveStorage::Variant.new(image.blob, variation)
+  end
+
+  def image_hero_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 1800, height: 800, quality: 80, blob: image.blob))
+    ActiveStorage::Variant.new(image.blob, variation)
+  end
+
   private
 
   def purge_active_storage

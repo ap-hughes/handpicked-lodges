@@ -74,10 +74,10 @@
       longitude = <%= property.longitude %>
       latitude = <%= property.latitude %>
       title = "<%= property.name %>"
-      <% if property.hero_image.blank? %>
+      <% unless property.main_image.attached? %>
         photo = "<%= image_path("cedar-lodge.jpg") %>"
       <% else %>
-        photo = "<%= cl_image_path(property.hero_image, height: 300, width: 400, crop: :fill, :quality=>"auto") %>"
+        photo = "<%= rails_representation_url property.main_image_map_variant %>"
       <% end %>
       <% if property.price_message.present? %>
         price = "<%= property.price_message %>"
@@ -96,10 +96,10 @@
       longitude = <%= property.longitude %>
       latitude = <%= property.latitude %>
       title = "<%= property.name %>"
-      <% if property.hero_image.blank? %>
+      <% unless property.main_image.attached?  %>
         photo = "<%= image_path("cedar-lodge.jpg") %>"
       <% else %>
-        photo = "<%= cl_image_path(property.hero_image, height: 300, width: 400, crop: :fill, :quality=>"auto") %>"
+        photo = "<%= rails_representation_url property.main_image_map_variant %>"
       <% end %>
       price = "from £<%= property.min_daily_price.round.to_i %> per night"
       sleeps = <%= property.sleeps %>

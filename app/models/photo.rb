@@ -13,6 +13,16 @@ class Photo < ApplicationRecord
     ActiveStorage::Variant.new(picture.blob, variation)
   end
 
+  def picture_show_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 1200, height: 800, quality: 80, blob: picture.blob))
+    ActiveStorage::Variant.new(picture.blob, variation)
+  end
+
+  def picture_thumbnail_variant
+    variation = ActiveStorage::Variation.new(Uploads.resize_to_fit(width: 300, height: 300, quality: 70, blob: picture.blob))
+    ActiveStorage::Variant.new(picture.blob, variation)
+  end
+
   private
 
   def purge_active_storage

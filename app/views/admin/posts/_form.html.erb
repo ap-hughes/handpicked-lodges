@@ -19,17 +19,6 @@
             </div>
           </div>
         <% end %>
-        <% if @post.photo? %>
-          <div class="row">
-            <div class="col-xs-12 col-sm-6">
-              <div class="white-card">
-                <p><strong>Deprecated Cloudinary photo</strong></p>
-                <div class="link-card-cloudinary" style="background-image: url('<%= cl_image_path @post.photo, height: 300, width: 300, crop: :fill %>');">
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
         <div class="form-group">
           <%= f.input :body, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
         </div>
