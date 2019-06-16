@@ -130,35 +130,36 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-4" id="properties-sidebar">
-        <div class="green-header sidebar-header-height vertical-align">
-          <p class="text-center"><strong>Book your stay</strong></p>
-        </div>
         <section id="scroll-content">
-          <div class="sidebar-container-right">
-            <% code = @property.code %>
-            <% super_control = ENV["SUPER_CONTROL"] %>
             <% if @price.present? %>
-              <div class="sidebar-content">
-                <h5>Arrival date</h5>
-                <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
+              <div class="green-header sidebar-header-height vertical-align">
+                <h4>Book your stay</h4>
               </div>
-              <div class="sidebar-content">
-                <h5>Departure date</h5>
-                <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
+              <div class="sidebar-container-right">
+                <div class="sidebar-content">
+                  <h5>Arrival date</h5>
+                  <p><%= @start_date.strftime("%A %e %b, %Y") %></p>
+                </div>
+                <div class="sidebar-content">
+                  <h5>Departure date</h5>
+                  <p><%= @end_date.strftime("%A %e %b, %Y") %></p>
+                </div>
+                <h5>Price</h5>
+                <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
+                <%= link_to @book_link, target: :_blank do %>
+                  <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
+                <% end %>
               </div>
-              <h5>Price</h5>
-              <p><strong>£<%= @price %></strong> for <%= @days %> nights</p>
-              <%= link_to @book_link, target: :_blank do %>
-                <div class="btn btn-success" style="margin-bottom: 10px">BOOK NOW</div>
-              <% end %>
             <% elsif @message.present? %>
-              <p><%= @message %></p>
-              <div id="supercontrol-availability">
-                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=12580&siteID=<%= super_control %>&cottageID=<%= code %>"></script><div id="supercontrol-availability">
+              <div class="green-header sidebar-header-height vertical-align">
+                <p><%= @message %></p>
+              </div>
+              <div id="supercontrol-availability" class="sidebar-container-right-super">
+                <div data-calendar-key="91A0A61660F11E80F00E24956B9C879E8C22B9B2D6C54A8906E956C8AEC873AA42DB54FF56301ABB76891A82B0241B9671A0F70692B5FC30" data-calendar-widescreen-months="1" data-calendar-property-id="<%= @property.code %>"> Your widget will appear here. </div> <script src="https://secure.supercontrol.co.uk/components/embed.js"></script>
               </div>
             <% else %>
-              <div id="supercontrol-availability">
-                <script type="text/javascript" src="//secure.supercontrol.co.uk/avail_ajax/js/load.js?ownerID=12580&siteID=<%= super_control %>&cottageID=<%= code %>"></script><div id="supercontrol-availability">
+              <div id="supercontrol-availability" class="sidebar-container-right-super">
+                <div data-calendar-key="91A0A61660F11E80F00E24956B9C879E8C22B9B2D6C54A8906E956C8AEC873AA42DB54FF56301ABB76891A82B0241B9671A0F70692B5FC30" data-calendar-widescreen-months="1" data-calendar-property-id="<%= @property.code %>"> Your widget will appear here. </div> <script src="https://secure.supercontrol.co.uk/components/embed.js"></script>
               </div>
             <% end %>
           </div>
