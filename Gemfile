@@ -14,7 +14,7 @@ gem 'ckeditor', '4.2.4'
 gem 'mini_magick'
 
 # For contact email form
-gem 'mailgun-ruby', '~>1.1.6'
+gem 'mailgun-ruby', '1.2'
 
 # Images on AWS S3 bucket with active storage
 gem "aws-sdk-s3", require: false
