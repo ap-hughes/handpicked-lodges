@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   def frequently_asked_questions
   end
   def reviews
-    @reviews = Review.all
+    @properties = Property.order(name: :asc).includes(:reviews).where.not(reviews: { id: nil })
   end
   def privacy_policy
   end
