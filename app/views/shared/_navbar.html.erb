@@ -7,7 +7,7 @@
     <!-- Right navigation - desktop -->
     <div class="handpicked-navbar-center hidden-xs hidden-sm">
       <%= link_to root_path, id: "handpicked-navbar-brand" do %>
-        <%= image_tag "handpicked-logo.png" %>
+        <%= image_tag "seasgair-logo.jpg" %>
       <% end %>
       <div class="handpicked-navbar-right hidden-xs hidden-sm">
         <div class="handpicked-navbar-item"><%= link_to 'Our Lodges', properties_path, { :class=>"handpicked-navbar-link" } %></div>
@@ -26,7 +26,7 @@
               <li><%= link_to 'Own a Property?', pages_own_a_property_path %></li>
               <li><%= link_to 'Terms and Conditions', pages_terms_and_conditions_path %></li>
               <li><%= link_to 'Privacy Policy', pages_privacy_policy_path %></li>
-              <li><%= link_to 'Sustainability Policy TO DO', pages_privacy_policy_path %></li>
+              <li><%= link_to 'Sustainability Policy', pages_sustainability_path %></li>
               <li><%= link_to 'Frequently Asked Questions', pages_frequently_asked_questions_path %></li>
             </ul>
           </div>
@@ -38,7 +38,7 @@
   <!-- Dropdown for mobile only -->
   <div class="hidden-md hidden-lg">
     <%= link_to root_path, id: "handpicked-navbar-brand-small" do %>
-      <%= image_tag "handpicked-logo.png" %>
+      <%= image_tag "seasgair-logo.jpg" %>
     <% end %>
   </div>
   <div class="handpicked-navbar-item-mobile hidden-md hidden-lg">

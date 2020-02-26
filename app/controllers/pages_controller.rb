@@ -31,4 +31,6 @@ class PagesController < ApplicationController
   end
   def cookies
   end
+  def sustainability
+  end
 end
