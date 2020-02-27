@@ -5,13 +5,13 @@
   <div id="home-header" class="header-text">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-7">
           <p><strong>Seasgair [Seas-gah]</strong></p>
           <p><strong>A Gaelic word which means comfort, warmth, sheltered and protected, our collection of luxury dog friendly self-catering holiday lodges around Aviemore and the Cairngorms are the complete embodiment of this.</strong></p>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
           <%= render 'shared/availability-checker' %>
         </div>
       </div>
@@ -122,7 +122,7 @@
       <h2>Seasgair Lodges</h2>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <p>Each handpicked hodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your Highland holiday.</p>
+      <p>Each handpicked lodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your Highland holiday.</p>
       <p>We provide you with a uniquely personal service from checking every lodge prior to each guest's arrival, to negotiating great deals for you with other local businesses.</p>
       <p>The Cairngorms National Park is not just where we live, it is our passion, and as such we are more than happy to share our knowledge and recommendations with you before or during your stay.</p>
       <p>We hope you have a truly wonderful holiday in our very special part of the world. We look forward to welcoming you to your handpicked lodge!</p>
@@ -139,14 +139,18 @@
     </div>
   </div>
 </div>
-<div class="green-wrapper">
+<div class="white-wrapper">
   <div class="container">
     <div class="row">
-      <div class="flex-between">
-        <%= image_tag("media/hood-magazine.png", width: "100") %>
-        <%= image_tag("media/insider.png", width: "100") %>
-        <%= image_tag("media/scotsman.png", width: "100") %>
-        <%= image_tag("media/the-herald.png", width: "100") %>
+      <div class="col-xs-12">
+        <h3 class="text-center">As seen in</h3>
+        <div class="flex-between">
+          <%= image_tag("media/hood-magazine.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/insider.png", width: "150", class: 'flex-padding') %>
+          <%= image_tag("media/The-Scotsman-logo.jpg", width: "200", class: 'flex-padding') %>
+          <%= image_tag("media/The-Herald.jpg", width: "150", class: 'flex-padding') %>
+          <%= image_tag("media/scottish-field.jpg", width: "120", class: 'flex-padding') %>
+        </div>
       </div>
     </div>
   </div>

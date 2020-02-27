@@ -6,11 +6,6 @@
   background-color: $mid-gray;
   color: white;
 }
-.green-wrapper {
-  background-color: $green;
-  color: white;
-  padding: 20px 0px;
-}
 .white-wrapper {
   background-color: white;
 }
@@ -22,6 +17,14 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 380px) {
+  #wrap {
+    align-items: initial;
+  }
+  #home-header.header-text {
+    padding-top: 40px;
+  }
 }
 @media only screen and (max-width: 480px) {
   #wrap {

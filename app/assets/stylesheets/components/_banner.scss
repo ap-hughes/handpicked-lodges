@@ -13,7 +13,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px 10px 30px 0;
+}
+.flex-padding {
+  margin: 0 10px 0 10px;
 }
 .show-banner {
   height: 50vh;
