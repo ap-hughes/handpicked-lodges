@@ -63,8 +63,12 @@
                     <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
                   </div>
                   <div class="col-xs-6">
-                    <% if property.hot_tub && property.sauna || property.hot_tub || property.sauna %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub / Sauna</strong></p>
+                    <% if property.hot_tub && property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub & Sauna</strong></p>
+                    <% elsif property.hot_tub %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub</strong></p>
+                    <% elsif property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Sauna</strong></p>
                     <% end %>
                     <% if property.games_room %>
                       <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>
@@ -163,8 +167,12 @@
                     <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
                   </div>
                   <div class="col-xs-6">
-                    <% if property.hot_tub && property.sauna || property.hot_tub || property.sauna %>
-                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub / Sauna</strong></p>
+                    <% if property.hot_tub && property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub & Sauna</strong></p>
+                    <% elsif property.hot_tub %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Hot Tub</strong></p>
+                    <% elsif property.sauna %>
+                      <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Sauna</strong></p>
                     <% end %>
                     <% if property.games_room %>
                       <p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Games Room</strong></p>

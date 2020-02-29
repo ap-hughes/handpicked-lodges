@@ -1,5 +1,5 @@
-<% content_for :meta_title, "Reviews of the lodges" %>
-<% content_for :meta_description, "Reviews of the Handpicked Lodges" %>
+<% content_for :meta_title, @page&.meta_title %>
+<% content_for :meta_description, @page&.meta_description %>
 <div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path('reviews-small.jpg') %>');">
   <div class="header-text">
     <h1>Reviews of our lodges</h1>

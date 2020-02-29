@@ -1,5 +1,5 @@
-<% content_for :meta_title, "Do you own a holiday home?" %>
-<% content_for :meta_description, "Do you own a holiday home in Aviemore and the Cairngorms? Contact Seasgair for holiday home management and agency help." %>
+<% content_for :meta_title, @page&.meta_title %>
+<% content_for :meta_description, @page&.meta_description %>
 <div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('tanja-jude-property_70.jpg') %>'); background-position: 0% 28%;">
   <div class="header-text">
     <h1>Own a property?</h1>
