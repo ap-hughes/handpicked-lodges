@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
     @message = contact_email.message
     @email = contact_email.email
     @name = contact_email.name
-    mail(to: "info@handpickedlodges.com", reply_to: @email, subject: "Message received from Handpicked Lodges website contact form")
+    mail(to: "hello@seasgairlodges.com", reply_to: @email, subject: "Message received from Seasgair website contact form")
   end
 end

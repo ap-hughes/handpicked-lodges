@@ -1,16 +1,19 @@
+<% content_for :meta_title, @page&.meta_title %>
+<% content_for :meta_description, @page&.meta_description %>
 <div id="wrap">
   <%= image_tag('banner-1.jpg') %>
   <%= image_tag('banner-3.jpg') %>
-  <%= image_tag('banner-4.jpg') %>
+  <%= image_tag('banner-5.jpg') %>
   <div id="home-header" class="header-text">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-          <p><strong>A collection of luxury and unique self catering dog friendly holiday lodges, some with hot tubs, in and around Aviemore and the Cairngorms</strong></p>
+        <div class="col-xs-12 col-sm-7">
+          <p><strong>Seasgair [Seas-gah]</strong></p>
+          <p><strong>A Gaelic word which means comfort, warmth, sheltered and protected, our collection of luxury dog friendly self-catering holiday lodges around Aviemore and the Cairngorms are the complete embodiment of this.</strong></p>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
           <%= render 'shared/availability-checker' %>
         </div>
       </div>
@@ -28,7 +31,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
           <%= link_to properties_path do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('child-friendly.jpg') %>');">
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('teddies.jpg') %>');">
             </div>
             <div class="link-card-content">
               <h4>Child friendly homes</h4>
@@ -86,7 +89,7 @@
             <div class="link-card-cloudinary" style="background-image: url('<%= image_path('hot-tub.jpg') %>');">
             </div>
             <div class="link-card-content">
-              <h4>Lodges with hot tub / sauna</h4>
+              <h4>Lodges with Hot tub or Sauna</h4>
             </div>
           <% end %>
         </div>
@@ -98,16 +101,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>The Lodges</h2>
+        <h2>Our Lodges</h2>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('lodges.jpg') %>');">
+        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('the-lodges.jpg') %>');">
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
         <p>From adventurous family summer holidays in the Cairngorms to luxurious ski accommodation in the winter season, these lodges offer something very special ​all year round.</p>
         <p>Most of our lodges are dog friendly, child friendly and have wood-burning stoves. Some offer period features, others are airy and modern. Some are equipped with hot tub, sauna – or both – for a little luxury.</p>
-        <p>All our self-catering holiday homes are very different – which will become your favourite? Whether it is a cosy little retreat near the centre of Aviemore, or a large country lodge with views down to the river, we have a holiday home that you are sure to fall in love with. However, don't take our word for this please visit our Reviews Page!</p>
+        <p>All our self-catering holiday homes are very different – which will become your favourite? Whether it is a cosy little retreat near the centre of Aviemore, or a large country lodge with views down to the river, we have a holiday home that you are sure to fall in love with. However, don't take our word for this <%= link_to 'please visit our Reviews Page!', pages_reviews_path, { class: 'white-link' } %></p>
         <%= link_to properties_path do %>
           <div class="btn btn-success" style="margin: 0 0 15px 0px">BOOK NOW</div>
         <% end %>
@@ -118,10 +121,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Handpicked Lodges</h2>
+      <h2>Seasgair Lodges</h2>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <p>Each Handpicked Lodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your Highland holiday.</p>
+      <p>Each handpicked lodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your Highland holiday.</p>
       <p>We provide you with a uniquely personal service from checking every lodge prior to each guest's arrival, to negotiating great deals for you with other local businesses.</p>
       <p>The Cairngorms National Park is not just where we live, it is our passion, and as such we are more than happy to share our knowledge and recommendations with you before or during your stay.</p>
       <p>We hope you have a truly wonderful holiday in our very special part of the world. We look forward to welcoming you to your handpicked lodge!</p>
@@ -134,6 +137,23 @@
       </div>
       <div class="col-xs-6">
         <%= image_tag("Judith-sig.png", width: "100") %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center">As seen in</h3>
+        <div class="flex-between">
+          <%= image_tag("media/hood-magazine.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/insider.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/The-Scotsman-logo.jpg", width: "200", class: 'flex-padding') %>
+          <%= image_tag("media/The-Herald.jpg", width: "150", class: 'flex-padding') %>
+          <%= image_tag("media/scottish-field.jpg", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/StrathspeyHerald.png", width: "120", class: 'flex-padding') %>
+        </div>
       </div>
     </div>
   </div>

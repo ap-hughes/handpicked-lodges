@@ -18,6 +18,14 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+@media only screen and (max-width: 380px) {
+  #wrap {
+    align-items: initial;
+  }
+  #home-header.header-text {
+    padding-top: 40px;
+  }
+}
 @media only screen and (max-width: 480px) {
   #wrap {
     align-items: initial;

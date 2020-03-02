@@ -1,0 +1,29 @@
+<h1>Pages Metadata</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Page</th>
+      <th>Date Updated</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.id %></td>
+        <% if page.name == 'home' %>
+          <td><%= link_to page.name, send("root_path") %></td>
+        <% elsif %>
+          <td><%= link_to page.name, send("pages_#{page.name}_path") %></td>
+        <% end %>
+        <td><%= page.updated_at.strftime('%d %b, %Y') %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_page_path(page), class: 'btn btn-default' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

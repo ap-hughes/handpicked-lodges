@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :instantiate_page_data
+
   def home
     @properties = Property.order(created_at: :asc).limit(3)
     @posts = Post.order(created_at: :desc).limit(2)
@@ -25,10 +27,18 @@ class PagesController < ApplicationController
   def frequently_asked_questions
   end
   def reviews
-    @reviews = Review.all
+    @properties = Property.order(name: :asc).includes(:reviews).where.not(reviews: { id: nil })
   end
   def privacy_policy
   end
   def cookies
+  end
+  def sustainability
+  end
+
+  private
+
+  def instantiate_page_data
+    @page = Page.find_by(name: params[:action])
   end
 end
