@@ -36,16 +36,23 @@
 }
 #wrap img {
   position: absolute;
-  top: 100px;
+  top: 153px; // was 100 before banner
   left: 0;
   display: none;
   width: 100%;
   height: 88vh;
   z-index: -1;
 }
+
 @media (max-width: 1000px) {
   #wrap img {
-    top: 70px;
+    top: 127px; // was 70 before banner
+    left: 0;
+  }
+}
+@media (max-width: 634px) { // delete this whole thing media tag when remove banner
+  #wrap img {
+    top: 147px; // was 70 before banner
     left: 0;
   }
 }
