@@ -25,7 +25,9 @@
 
           <!-- Full-width images with number text -->
           <div class="mySlides">
-            <%= image_tag(@property.main_image_show_variant, class: 'img-responsive') %>
+            <% if @property.main_image.attached? %>
+              <%= image_tag(@property.main_image_show_variant, class: 'img-responsive') %>
+            <% end %>
           </div>
 
           <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
@@ -42,7 +44,9 @@
         </div>
         <div class="gallery-row">
           <div class="gallery-column">
-            <%= image_tag(@property.main_image_thumbnail_variant, class: "demo cursor", onclick:"currentSlide(1)") %>
+            <% if @property.main_image.attached? %>
+              <%= image_tag(@property.main_image_thumbnail_variant, class: "demo cursor", onclick:"currentSlide(1)") %>
+            <% end %>
           </div>
           <% i = 2 %>
           <% @property.photos.with_attached_picture.order(created_at: :asc).each do |photo| %>
@@ -108,6 +112,13 @@
                     </div>
                   </div>
                 <% end %>
+                <% if @property.video_iframe.present? %>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="btn btn-success video-button">DRONE VIDEO TOUR</div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
               <div role="tabpanel" class="tab-pane fade" id="description">
                 <p><%= simple_format(@property.description) %></p>
@@ -128,6 +139,11 @@
             </div>
           </div>
         </div>
+        <% if @property.tour_iframe.present? %>
+          <div class="content-container">
+            <%= sanitize @property.tour_iframe, tags: %w(iframe), attributes: %w(height width frameborder src allowfullscreen allow) %>
+          </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-4" id="properties-sidebar">
         <section id="scroll-content">
@@ -178,6 +194,14 @@
     <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
   </div>
 </div>
+<% if @property.video_iframe.present? %>
+  <div id="video-overlay">
+    <div class="video-container">
+      <%= sanitize @property.video_iframe, tags: %w(iframe), attributes: %w(height width frameborder src allowfullscreen) %>
+      <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
+    </div>
+  </div>
+<% end %>
 <script>
   $( ".floorplan-button" ).click(function() {
     $( "#map-overlay" ).fadeIn( "slow", function() {
@@ -185,6 +209,13 @@
   });
   function off() {
       document.getElementById("map-overlay").style.display = "none";
+  }
+  $( ".video-button" ).click(function() {
+    $( "#video-overlay" ).fadeIn( "slow", function() {
+    });
+  });
+  function off() {
+      document.getElementById("video-overlay").style.display = "none";
   }
 </script>
 <script>
