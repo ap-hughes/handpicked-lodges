@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_095009) do
+ActiveRecord::Schema.define(version: 2020_06_30_123447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(version: 2020_02_29_095009) do
     t.text "meta_description"
     t.boolean "games_room"
     t.string "floorplan"
+    t.string "video_iframe"
+    t.string "tour_iframe"
   end
 
   create_table "reviews", force: :cascade do |t|
