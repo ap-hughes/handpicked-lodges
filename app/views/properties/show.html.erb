@@ -198,7 +198,7 @@
   <div id="video-overlay">
     <div class="video-container">
       <%= sanitize @property.video_iframe, tags: %w(iframe), attributes: %w(height width frameborder src allowfullscreen) %>
-      <button class="floorplan-close text-right" onclick="off()"><%= fa_icon "times" %></button>
+      <button class="floorplan-close text-right" onclick="videoOff()"><%= fa_icon "times" %></button>
     </div>
   </div>
 <% end %>
@@ -214,7 +214,7 @@
     $( "#video-overlay" ).fadeIn( "slow", function() {
     });
   });
-  function off() {
+  function videoOff() {
       document.getElementById("video-overlay").style.display = "none";
   }
 </script>
