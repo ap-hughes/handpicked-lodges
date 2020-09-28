@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 text-center">
-      <h4>Please contact Tanja or Judith for more information or advice about the lodges or the area</h4>
+      <h4>Please contact us for more information or advice about the lodges or the area</h4>
     </div>
   </div>
   <br>
@@ -18,7 +18,7 @@
       <div class="white-card">
         <p><strong>Seasgair</strong></p>
         <p><a href="mailto:hello@seasgairlodges.com" class="green-link">hello@seasgairlodges.com</a></p>
-        <p>Tanja 07545 990 633 or Judith 07984 791 623</p>
+        <p>Bookings & Enquiries: 01479 420 670</p>
         <a href="https://www.facebook.com/SeasgairHandpickedLodges" target="blank" class="green-link" style="font-size: 1.5em;"><%= fa_icon "facebook" %></a>
         <a href="https://www.instagram.com/seasgairhandpickedlodges" target="blank" class="green-link" style="font-size: 1.5em;"><%= fa_icon "instagram" %></a>
       </div>
@@ -35,6 +35,9 @@
           <div class="form-group">
             <%= f.input :message, as: :text, class: "form-control" %>
           </div>
+
+          <%= f.hidden_field :email_to, value: "hello@seasgairlodges.com" %>
+
           <div class="form-group text-center">
             <%= f.button :submit, "SEND MESSAGE", class: "btn btn-success" %>
           </div>
