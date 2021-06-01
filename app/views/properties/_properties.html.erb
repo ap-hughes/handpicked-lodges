@@ -51,7 +51,7 @@
               <% elsif params[:search] && property.price.nil? %>
                 <h6 style="color: #ff715b;">This lodge is available on different dates</h6>
               <% elsif property.price.nil? %>
-                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+                <h6>From £<%= property.min_daily_price&.round.to_i %> per night, check availability</h6>
               <% else %>
                 <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
               <% end %>
@@ -155,7 +155,7 @@
               <% elsif params[:search] && property.price.nil? %>
                 <h6 style="color: #ff715b;">This lodge is available on different dates</h6>
               <% elsif property.price.nil? %>
-                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+                <h6>From £<%= property.min_daily_price&.round.to_i %> per night, check availability</h6>
               <% else %>
                 <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
               <% end %>

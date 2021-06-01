@@ -27,7 +27,7 @@
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           <% end %>
         </td>
-        <td><%= property.headline.truncate(60) %></td>
+        <td><%= property.headline&.truncate(60) %></td>
         <td>
           <%= link_to 'Edit', edit_admin_property_path(property), class: 'btn btn-default' %>
           <%= link_to 'Delete', [:admin, property], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
