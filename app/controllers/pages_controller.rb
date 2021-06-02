@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :instantiate_page_data
 
   def home
-    @properties = Property.order(created_at: :asc).limit(3)
+    @max_sleeps ||= Property.where(enabled: true).order("sleeps DESC").first.sleeps
     @posts = Post.order(created_at: :desc).limit(2)
     @reviews = Review.order(created_at: :desc).limit(3)
   end

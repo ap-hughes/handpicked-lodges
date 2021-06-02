@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-7">
           <p><strong>Seasgair [Seas-gah]</strong></p>
-          <p><strong>A Gaelic word which means comfort, warmth, sheltered and protected, our collection of luxury dog friendly self-catering holiday lodges around Aviemore and the Cairngorms are the complete embodiment of this.</strong></p>
+          <p><strong>A Gaelic word which means comfort, warmth, sheltered and protected, our collection of luxury dog friendly self-catering holiday lodges around Perthshire and the Cairngorms are the complete embodiment of this.</strong></p>
         </div>
       </div>
       <div class="row">
@@ -41,22 +41,22 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {in_country: "true"}) do %>
+          <%= link_to properties_path(query: {in_aviemore: "true"}) do %>
             <div class="link-card-cloudinary" style="background-image: url('<%= image_path('country.jpg') %>');">
             </div>
             <div class="link-card-content">
-              <h4>Cottages in the country</h4>
+              <h4>Lodges in the Cairngorms</h4>
             </div>
           <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {in_aviemore: "true"}) do %>
+          <%= link_to properties_path(query: {in_country: "true"}) do %>
             <div class="link-card-cloudinary" style="background-image: url('<%= image_path('aviemore.jpg') %>');">
             </div>
             <div class="link-card-content">
-              <h4>Accommodation in Aviemore</h4>
+              <h4>Accommodation in Perthshire</h4>
             </div>
           <% end %>
         </div>
@@ -108,7 +108,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
-        <p>From adventurous family summer holidays in the Cairngorms to luxurious ski accommodation in the winter season, these lodges offer something very special ​all year round.</p>
+        <p>From adventurous family summer holidays in Perthshire to luxurious ski accommodation in the Cairngorms, these lodges offer something very special ​all year round.</p>
         <p>Most of our lodges are dog friendly, child friendly and have wood-burning stoves. Some offer period features, others are airy and modern. Some are equipped with hot tub, sauna – or both – for a little luxury.</p>
         <p>All our self-catering holiday homes are very different – which will become your favourite? Whether it is a cosy little retreat near the centre of Aviemore, or a large country lodge with views down to the river, we have a holiday home that you are sure to fall in love with. However, don't take our word for this <%= link_to 'please visit our Reviews Page!', pages_reviews_path, { class: 'white-link' } %></p>
         <%= link_to properties_path do %>
@@ -124,9 +124,9 @@
       <h2>Seasgair Lodges</h2>
     </div>
     <div class="col-xs-12 col-sm-8">
-      <p>Each handpicked lodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your Highland holiday.</p>
+      <p>Each handpicked lodge is unique and full of character. As our guests, you can enjoy them as a warm and welcoming home from home during your luxury Scottish holiday.</p>
       <p>We provide you with a uniquely personal service from checking every lodge prior to each guest's arrival, to negotiating great deals for you with other local businesses.</p>
-      <p>The Cairngorms National Park is not just where we live, it is our passion, and as such we are more than happy to share our knowledge and recommendations with you before or during your stay.</p>
+      <p>The Cairngorms and Perthshire are not just where we live, we are passionate about what these fantastic areas have to offer, and as such we are more than happy to share our knowledge and recommendations with you before or during your stay.</p>
       <p>We hope you have a truly wonderful holiday in our very special part of the world. We look forward to welcoming you to your handpicked lodge!</p>
     </div>
     <div class="col-xs-12 col-sm-4">
@@ -149,6 +149,7 @@
         <div class="flex-between">
           <%= image_tag("media/hood-magazine.png", width: "120", class: 'flex-padding') %>
           <%= image_tag("media/insider.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/the-times-logo.png", width: "150", class: 'flex-padding') %>
           <%= image_tag("media/The-Scotsman-logo.jpg", width: "200", class: 'flex-padding') %>
           <%= image_tag("media/The-Herald.jpg", width: "150", class: 'flex-padding') %>
           <%= image_tag("media/scottish-field.jpg", width: "120", class: 'flex-padding') %>
