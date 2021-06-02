@@ -72,4 +72,5 @@ Rails.application.routes.draw do
   get 'pages/privacy_policy'
   get 'pages/cookies'
   get 'pages/sustainability'
+  get 'pages/sustainability_policy'
 end

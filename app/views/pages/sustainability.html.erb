@@ -1,42 +1,214 @@
 <% content_for :meta_title, @page&.meta_title %>
 <% content_for :meta_description, @page&.meta_description %>
-<div class="show-banner-cloudinary" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('Loch_Morlich_70.jpg') %>');">
-  <div class="header-text">
-    <h1>Seasgair Sustainability</h1>
+<div id="wrap">
+  <%= image_tag('banner-1.jpg') %>
+  <%= image_tag('banner-3.jpg') %>
+  <%= image_tag('banner-5.jpg') %>
+  <div id="home-header" class="header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <p><strong>Our Community</strong></p>
+          <p><strong>The Cairngorms and Perthshire - the heritage, the people and the glorious natural surroundings, they're incredible!  Best of all, we’re able to share each of these with you when you stay.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% unless mobile_device? %>
+    <section id="home-scroll" class="scroll-btn">
+      <a href="#scroll-content"><span></span></a>
+    </section>
+  <% end %>
+</div>
+<section id="scroll-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>We want to safeguard the environment, strengthen our community and promote responsible tourism, for you, for future guests and future generations. Seasgair recognises the scale and speed of the climate crisis on our hands. We are proud to be stepping up to the mark by actively caring for our local habitat, planting trees, rewilding and doing our best to help and support those around us. Seasgair encourages you to get involved too, whether whilst on holiday or once you return home.</p>
+        <p>We are delighted to work with Disability Snowsport UK (DSUK) and Save The Planet Academy via a donation from each guest booking. We also partner with Scotland: The Big Picture through the sponsorship of local projects. Our staff team actively raise funds throughout the year, by taking part in challenges and events.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Making a Difference</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('teddies.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>500 trees planted by Children's Forest</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path(query: {in_aviemore: "true"}) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('country.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>10 Trees planted in guest gardens or Seasgair lodges</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path(query: {in_country: "true"}) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('aviemore.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>50 Trees donated to the Eden Reforestation Project</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path(query: {pet_friendly: "true"}) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('pet-friendly.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>£1,000 Donation from guest bookings and staff fundraising</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path(query: {wood_stove: "true"}) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('wood-burner.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>1 Acre Area of land sponsored for rewilding</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-container">
+          <%= link_to properties_path(query: {sauna_or_hot_tub: "true"}) do %>
+            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('hot-tub.jpg') %>');">
+            </div>
+            <div class="link-card-content">
+              <h4>Recipients of the Green Tourism Silver Award</h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grey-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>SCOTLAND: The Big Picture</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('the-lodges.jpg') %>');">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-8">
+        <p>SCOTLAND: The Big Picture is rewriting nature’s story, seeking to return abundance and diversity of life to Scotland’s land and seas, so that wildlife can flourish and people thrive.</p>
+        <p>Be part of the conversation and make some noise. Share SCOTLAND: The Big Picture's rewilding stories, visit local rewilding initiatives, and gain a better understanding, or a new perspective.</p>
+        <p><strong>Seasgair are proud to:</strong></p>
+        <ul>
+          <li>Sponsor local rewilding projects</li>
+          <li>Make a donation each time a guest buys a Spa Pack</li>
+          <li>Help raise awareness and share the story</li>
+        </ul>
+        <p><strong>Be inspired, be involved. What you can do:</strong></p>
+        <ul>
+          <li>Download and enjoy <%= link_to 'Pinelands', 'https://www.scotlandbigpicture.com/Store/ebooks/ebook-pinelands', target: :_blank, class: 'green-link' %>, a book packed full of stunning photography and powerful images of Scottish nature</li>
+          <li>Watch the <%= link_to 'Scottish Rewilding Alliance animation', 'https://www.youtube.com/watch?v=ZR2sPQHUt_4', target: :_blank, class: 'green-link' %>
+          </li>
+          <li>Put wild into your everyday life. Begin to make small changes - <%= link_to 'MeWilding', 'https://www.scotlandbigpicture.com/Store/ebooks/mewilding-ebook', target: :_blank, class: 'green-link' %> is rewilding for everyone!</li>
+          <li>Donate via the <%= link_to 'Seasgair Community Giving Page', 'https://www.scotlandbigpicture.com/donate-SeasgairLodges', target: :_blank, class: 'green-link' %></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h4><strong>Sustainability</strong></h4>
-      <p>We love living and working in the Cairngorms, enjoying the mountains, lochs and forests. We want to preserve this precious environment and promote sustainability within both our business and everyday lives.</p>
-      <p>We seek to make minimal impact through careful management of our actions. We use recycled products where possible, conserve energy and water use, ensure efficient local travel, reduce waste and recycle. We support the local economy, using services and suppliers with a similar ethos and contribute to local charity too.</p>
-      <p>To demonstrate our commitment, each Seasgair lodge has recycling provision. We reduce plastic waste by refilling handwash bottles and are positive about the inclusion of eco friendly products during cleaning. Many of our lodges have wildlife feeders to support the natural environment, attracting native species including red squirrel and pine marten, alongside information for guests about the ecology of the area.</p>
-      <h4><strong>Electric Vehicle Charging Stations</strong></h4>
-      <p>Craigard Lodge has a 7kW ‘Type 2’ electric car charging point for guest use. Local electric vehicle charging stations can be found via the site below: <a href="http://www.chargeplacescotland.org" target="blank" class="green-link">www.chargeplacescotland.org</a></p>
-      <h4><strong>Supported Charity</strong></h4>
-      <p>Disability Snowsport UK. Seasgair donate £1.00 to Disability Snowsport UK from each guest booking. Staff also participate in fundraising events held throughout the year.</p>
-      <h4><strong>Accessibility</strong></h4>
-      <p>Each Seasgair lodge is unique and characterful, as such we hope that guests of varying ages and abilities can enjoy a stay with us. If you have any questions or would like to discuss specific requirements, please contact us. We will do our best to help and ensure that everything is in place for your arrival.</p>
-      <p>Several lodges have downstairs bedrooms with en suite walk in showers, alongside spacious living areas.</p>
-      <p>The ground floor of Alltnacriche is fully accessible for wheelchair users with no steps, wide doors and sufficient space around furniture:</p>
-      <p>There is a single bedroom on the ground floor which is fully equipped with:</p>
+      <h2>Disability Snowsports UK (DSUK)</h2>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <p>‘When I became disabled my whole world changed. I needed something that would make me feel alive again, something that would make me feel the blood pumping around my body and give me the thrill that I needed in my life. Thank you DSUK!’ Claire, Adaptive Skier</p>
+      <p>At DSUK we believe that taking part in adaptive snowsport has the power to transform a person’s relationship with not just their disability, but with all aspects of their lives. We believe that all people have the right to access the unique physical, mental, and social benefits of snowsport, regardless of disability, injury, or experience.</p>
+      <p>Our fantastic team of instructors, volunteers and members shows that DSUK really does change lives of disabled communities and their families.</p>
+      <p><strong>Seasgair are proud to:</strong></p>
       <ul>
-        <li>ceiling hoist leading from bed into the bathroom</li>
-        <li>electric bed which raises at the top and bottom with comfort mattress and optional side bars</li>
-        <li>ensuite wet-room with Closomat toilet, large jacuzzi bath with low sides and seat for seated Shower</li>
+        <li>Make a donation from each guest booking</li>
+        <li>Cheer Judith on, as she raced the Strathspey Steam train</li>
+        <li>Raise funds by climbing Ben Nevis and taking part in the Aviemore Santa Run with our families</li>
       </ul>
-      <p>Door sizes:</p>
+      <p><strong>Be inspired, be involved. What you can do:</strong></p>
       <ul>
-        <li>Front door 90 cm</li>
-        <li>Disabled access bedroom door 90 cm</li>
-        <li>Door between disabled access bedroom and ensuite 110 cm</li>
+        <li>Find out more about DSUK’s work and exciting fundraising opportunities. Contact the team at <a href="mailto:fundraising@disabilitysnowsport.org.uk" class="green-link">fundraising@disabilitysnowsport.org.uk</a></li>
       </ul>
-      <h4><strong>Guest Reviews: Taken from Euans Guide </strong></h4>
-      <p>We recently spent a wonderful long weekend at Altnacriche. Our party consisted of 2 families plus a night carer and 2 dogs. The lodge is very spacious , extremely well equipped yet warm and cosy. One of our children is a wheelchair user. The specially adapted ground floor suite and wet room was perfect for her needs and even had extra equipment such as hoist and shower chair the whole property (ground floor) was accessible so she was able to enjoy lots of space to play with her friends and siblings. We enjoyed the hot tub and the grounds are expansive with lovely river views. Overall a fantastic location for a family holiday and accessible for those with additional needs. We will definitely be back.</p>
-      <p>A holiday lodge in a beautiful setting with disabled access that has really been thought through, and it hasn't lost charm or convenience. I would absolutely plan to visit again - not everything is accessible, but it makes a fantastic group holiday where a single person has accessibility needs.</p>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="link-card-cloudinary" style="background-image: url('<%= image_path('113-t-j.jpg') %>'); height: 190px; margin-bottom: 5px; background-position: top;">
+      </div>
     </div>
   </div>
-  <br>
 </div>
-<%= render 'shared/page-search' %>
+<div class="grey-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Save The Planet Academy</h2>
+        <p><%= link_to 'Save The Planet Academy', 'https://www.savetheplanet.academy', target: :_blank, class: 'green-link' %> is an eco enterprise with a vision of creating a children’s forest. The website was created by Crieff based 10 year old Brandon Delaney in response to a school entrepreneur assignment.</p>
+        <p>The website challenges schools, organisations and individuals to either buy eco-friendly products from the site which fund tree planting, or to plant trees themselves - at home, at school or in the community. The trees planted are logged on site and you can watch the Children’s Forest grow.</p>
+        <p>The school educational programme empowers children to be ‘hands on’ and take action by sowing, planting and visiting trees. It also provides a wider focus around environmental, community and climate issues.</p>
+        <p><strong>Seasgair are proud to:</strong></p>
+        <ul>
+          <li>Make a donation from each guest booking</li>
+          <li>Encourage and help lodge owners to plant trees</li>
+        </ul>
+        <p><strong>Be inspired, be involved. What you can do:</strong></p>
+        <ul>
+          <li>Work together for a brighter future, take a look at the website and Facebook Page</li>
+          <li>Make a difference, plant a tree at home. Map it on the website and watch the Children’s Forest grow</li>
+          <li>Sponsor a local tree champion to plant a tree in your name</li>
+          <li>Become a tree champion - engage your school in the educational programme</li>
+          <li>Support the Eden Reforestation Project working in Kenya, shop the eco-friendly products on site</li>
+          <li>Start your own initiative via the Eco-Refill Station business in a box</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 class="text-center">Be inspired, be involved, join our</h3>
+      </div>
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= image_tag("media/hood-magazine.png", width: "120") %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Sustainability</h4>
+      <p>Within both our business and everyday lives we seek to make minimal impact through careful management of our actions. We use recycled products where possible, conserve energy and water use, ensure efficient local travel, reduce waste and recycle. We support the local economy - using services and suppliers with a similar ethos.</p>
+      <p>Many of our lodges have wildlife feeders, attracting native species including red squirrel and pine marten, alongside information for guests about the ecology of the area.</p>
+
+      <h4>Electric Vehicle Charging Stations</h4>
+      <p>Craigard Lodge has a 7kW ‘Type 2’ electric car charging point for guest use. Local electric vehicle charging stations can be found via the site below: <a href="http://www.chargeplacescotland.org" target="blank" class="green-link">www.chargeplacescotland.org</a></p>
+
+      <h4>Accessibility</h4>
+      <p>Each Seasgair lodge is unique and characterful, as such we hope that guests of varying ages and abilities can enjoy a stay with us. Several lodges have downstairs bedrooms with en suite walk-in showers, alongside spacious living areas. The ground floor of Alltnacriche is fully accessible for wheelchair users, has wide doors and sufficient space around furniture.</p>
+      <p>If you have any questions or would like to discuss specific requirements, please <a href="mailto:hello@seasgairlodges.com" class="green-link">contact us</a></p>
+    </div>
+  </div>
+</div>

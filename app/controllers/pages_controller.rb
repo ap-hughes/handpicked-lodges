@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
   def cookies
   end
-  def sustainability
+  def sustainability_policy
   end
 
   private
