@@ -34,68 +34,56 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('teddies.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>500 trees planted by Children's Forest</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>500 trees planted by Children's Forest</h4>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {in_aviemore: "true"}) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('country.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>10 Trees planted in guest gardens or Seasgair lodges</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>10 Trees planted in guest gardens or Seasgair lodges</h4>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {in_country: "true"}) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('aviemore.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>50 Trees donated to the Eden Reforestation Project</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>50 Trees donated to the Eden Reforestation Project</h4>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {pet_friendly: "true"}) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('pet-friendly.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>£1,000 Donation from guest bookings and staff fundraising</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/DSUK_logo.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>£1,000 Donation from guest bookings and staff fundraising</h4>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {wood_stove: "true"}) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('wood-burner.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>1 Acre Area of land sponsored for rewilding</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>1 Acre Area of land sponsored for rewilding</h4>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <%= link_to properties_path(query: {sauna_or_hot_tub: "true"}) do %>
-            <div class="link-card-cloudinary" style="background-image: url('<%= image_path('hot-tub.jpg') %>');">
-            </div>
-            <div class="link-card-content">
-              <h4>Recipients of the Green Tourism Silver Award</h4>
-            </div>
-          <% end %>
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('green-tourism.jpg') %>');">
+          </div>
+          <div class="link-card-content">
+            <h4>Recipients of the Green Tourism Silver Award</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -108,7 +96,7 @@
         <h2>SCOTLAND: The Big Picture</h2>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('the-lodges.jpg') %>');">
+        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>'); height: 270px;">
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
@@ -153,16 +141,23 @@
       </ul>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <div class="link-card-cloudinary" style="background-image: url('<%= image_path('113-t-j.jpg') %>'); height: 190px; margin-bottom: 5px; background-position: top;">
+      <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/DSUK_logo.jpg') %>'); height: 320px;">
       </div>
     </div>
   </div>
 </div>
+
 <div class="grey-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>Save The Planet Academy</h2>
+        <h2>Save the Planet Academy</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="link-card-cloudinary image-margin" style="background-image: url('<%= image_path('community/STPA_logo.png') %>'); height: 220px; box-shadow: none;">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-8">
         <p><%= link_to 'Save The Planet Academy', 'https://www.savetheplanet.academy', target: :_blank, class: 'green-link' %> is an eco enterprise with a vision of creating a children’s forest. The website was created by Crieff based 10 year old Brandon Delaney in response to a school entrepreneur assignment.</p>
         <p>The website challenges schools, organisations and individuals to either buy eco-friendly products from the site which fund tree planting, or to plant trees themselves - at home, at school or in the community. The trees planted are logged on site and you can watch the Children’s Forest grow.</p>
         <p>The school educational programme empowers children to be ‘hands on’ and take action by sowing, planting and visiting trees. It also provides a wider focus around environmental, community and climate issues.</p>
@@ -184,14 +179,15 @@
     </div>
   </div>
 </div>
+
 <div class="white-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h3 class="text-center">Be inspired, be involved, join our</h3>
-      </div>
-      <div class="col-xs-6 col-xs-offset-3">
-        <%= image_tag("media/hood-magazine.png", width: "120") %>
+        <div class="flex-between" style="justify-content: start;">
+          <h3 class="text-center" style="padding-right: 20px;">Be inspired, be involved, join our</h3>
+          <%= image_tag("community/seasgair_community.png", width: "180", style: 'padding-top: 20px;') %>
+        </div>
       </div>
     </div>
   </div>
