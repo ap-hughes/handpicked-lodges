@@ -207,4 +207,9 @@
     </div>
   <% end %>
 <% end %>
+<% if @properties.empty? %>
+  <div class="col-xs-12 text-center">
+    <h4>Unfortunately there aren't any lodges matching your criteria, please try selecting different filters and expanding your search</h4>
+  </div>
+<% end %>
 <%= render 'map' %>
