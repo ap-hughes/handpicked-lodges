@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.3'
+ruby '2.6.3'
 
 gem "font-awesome-rails"
 
@@ -30,7 +30,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.2'
+gem 'rails', '5.2.5'
 gem 'redis'
 
 gem 'autoprefixer-rails'

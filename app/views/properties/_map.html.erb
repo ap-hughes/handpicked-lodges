@@ -101,7 +101,7 @@
       <% else %>
         photo = "<%= rails_representation_url property.main_image_map_variant %>"
       <% end %>
-      price = "from £<%= property.min_daily_price.round.to_i %> per night"
+      price = "from £<%= property.min_daily_price&.round.to_i %> per night"
       sleeps = <%= property.sleeps %>
       bedrooms = <%= property.bedrooms %>
       bathrooms = <%= property.bathrooms %>

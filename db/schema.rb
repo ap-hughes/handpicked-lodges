@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_123447) do
+ActiveRecord::Schema.define(version: 2021_06_10_135127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2020_06_30_123447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "communities", force: :cascade do |t|
+    t.string "childrens_forest_trees"
+    t.string "seasgair_trees"
+    t.string "eden_reforestation_trees"
+    t.string "donation"
+    t.string "rewilding_sponsorship"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "features", force: :cascade do |t|

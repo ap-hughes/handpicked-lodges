@@ -18,3 +18,15 @@
 .margin-bottom {
   margin-bottom: 20px;
 }
+
+.social-icons {
+  a {
+    font-size: 2em;
+    color: $green;
+    transition: color 0.3s ease;
+    padding: 5px;
+  }
+}
+.social-icons:hover {
+  color: #639A9D;
+}

@@ -15,6 +15,7 @@
   @media only screen and (min-width: 830px) {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 .flex-padding {

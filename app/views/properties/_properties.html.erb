@@ -48,10 +48,10 @@
               <h4><%= property.name %></h4>
               <% if property.price_message.present? %>
                 <h6><%= property.price_message %></h6>
-              <% elsif params[:search] && property.price.nil? %>
+              <% elsif params[:search].present? && params[:search][:start_date].present? && property.price.nil? %>
                 <h6 style="color: #ff715b;">This lodge is available on different dates</h6>
               <% elsif property.price.nil? %>
-                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+                <h6>From £<%= property.min_daily_price&.round.to_i %> per night, check availability</h6>
               <% else %>
                 <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
               <% end %>
@@ -61,6 +61,7 @@
                     <p><strong>Sleeps:</strong> <%= property.sleeps %></p>
                     <p><strong>Bedrooms:</strong> <%= property.bedrooms %></p>
                     <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
+                    <p><strong>Location:</strong> <%= location(property) %></p>
                   </div>
                   <div class="col-xs-6">
                     <% if property.hot_tub && property.sauna %>
@@ -89,7 +90,7 @@
             <div class="index-card-btn-container">
               <div class="green-back">
                 <div class="index-card-btn">
-                  <% if params[:search] && property.price.nil? %>
+                  <% if params[:search].present? && params[:search][:start_date].present? && property.price.nil? %>
                     <p>Check other dates</p>
                   <% else %>
                     <p>View Lodge</p>
@@ -147,15 +148,15 @@
             </div>
           </div>
           <%= link_to property_path(property, :price => property.price, :book_link => property.book_link, :start_date => property.start_date,
-              :nights => property.nights) do %>
+              :nights => property.nights), style: 'width: 100%' do %>
             <div class="index-card-content-desk">
               <h4><%= property.name %></h4>
               <% if property.price_message.present? %>
                 <h6><%= property.price_message %></h6>
-              <% elsif params[:search] && property.price.nil? %>
+              <% elsif params[:search].present? && params[:search][:start_date].present? && property.price.nil? %>
                 <h6 style="color: #ff715b;">This lodge is available on different dates</h6>
               <% elsif property.price.nil? %>
-                <h6>From £<%= property.min_daily_price.round.to_i %> per night, check availability</h6>
+                <h6>From £<%= property.min_daily_price&.round.to_i %> per night, check availability</h6>
               <% else %>
                 <h6>£<%= property.price %> total for <%= property.nights %> nights</h6>
               <% end %>
@@ -165,6 +166,7 @@
                     <p><strong>Sleeps:</strong> <%= property.sleeps %></p>
                     <p><strong>Bedrooms:</strong> <%= property.bedrooms %></p>
                     <p><strong>Bathrooms:</strong> <%= property.bathrooms %></p>
+                    <p><strong>Location:</strong> <%= location(property) %></p>
                   </div>
                   <div class="col-xs-6">
                     <% if property.hot_tub && property.sauna %>
@@ -190,7 +192,7 @@
               <div class="index-card-btn-container desk">
                 <div class="green-back">
                   <div class="index-card-btn">
-                    <% if params[:search] && property.price.nil? %>
+                    <% if params[:search].present? && params[:search][:start_date].present? && property.price.nil? %>
                       <p>Check other dates</p>
                     <% else %>
                       <p>View Lodge</p>
@@ -204,5 +206,10 @@
       <% end %>
     </div>
   <% end %>
+<% end %>
+<% if @properties.empty? %>
+  <div class="col-xs-12 text-center">
+    <h4>Unfortunately there aren't any lodges matching your criteria, please try selecting different filters and expanding your search</h4>
+  </div>
 <% end %>
 <%= render 'map' %>
