@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :posts, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :reviews, only: [ :new, :index, :create, :edit, :update, :destroy ]
     resources :pages, only: [:index, :edit, :update]
+    resources :communities, only: [:edit, :update]
   end
   resources :contact_emails, only: [:new, :create]
 

@@ -1,14 +1,16 @@
 <% content_for :meta_title, @page&.meta_title %>
 <% content_for :meta_description, @page&.meta_description %>
 <div id="wrap">
-  <%= image_tag('community/loch_morlich.jpg') %>
-  <%= image_tag('community/cairngorms_dawn_forest.jpg') %>
-  <%= image_tag('community/cairngorms_winter.jpg') %>
+  <div id="image-cycler">
+    <%= image_tag('community/loch_morlich.jpg') %>
+    <%= image_tag('community/cairngorms_dawn_forest.jpg') %>
+    <%= image_tag('community/cairngorms_winter.jpg') %>
+  </div>
   <div id="home-header" class="header-text">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-7">
-          <p><strong>Our Community</strong></p>
+          <%= image_tag("community/seasgair_community.png", width: "180", style: 'padding-top: 20px; padding-bottom: 20px;') %>
           <p><strong>The Cairngorms and Perthshire - the heritage, the people and the glorious natural surroundings, they're incredible!  Best of all, we’re able to share each of these with you when you stay.</strong></p>
         </div>
       </div>
@@ -25,61 +27,62 @@
     <div class="row">
       <div class="col-xs-12">
         <p>We want to safeguard the environment, strengthen our community and promote responsible tourism, for you, for future guests and future generations. Seasgair recognises the scale and speed of the climate crisis on our hands. We are proud to be stepping up to the mark by actively caring for our local habitat, planting trees, rewilding and doing our best to help and support those around us. Seasgair encourages you to get involved too, whether whilst on holiday or once you return home.</p>
-        <p>We are delighted to work with Disability Snowsport UK (DSUK) and Save The Planet Academy via a donation from each guest booking. We also partner with Scotland: The Big Picture through the sponsorship of local projects. Our staff team actively raise funds throughout the year, by taking part in challenges and events.</p>
+        <p>We are delighted to work with Disability Snowsport UK (DSUK) and Save The Planet Academy via a donation from each guest booking. We also partner with Scotland: The Big Picture through the sponsorship of local projects. Our team actively raise funds throughout the year, by taking part in challenges and events.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <h2>Making a Difference</h2>
+        <h4>Together we have made the following positive impact</h4>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/childrens_forest.jpg') %>');">
           </div>
           <div class="link-card-content">
-            <h4>500 trees planted by Children's Forest</h4>
+            <h4><%= @community&.childrens_forest_trees %> Trees planted by Children's Forest</h4>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/garden.jpg') %>');">
           </div>
           <div class="link-card-content">
-            <h4>10 Trees planted in guest gardens or Seasgair lodges</h4>
+            <h4><%= @community&.seasgair_trees %> Trees planted in guest gardens or Seasgair lodges</h4>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/trees.jpg') %>');">
           </div>
           <div class="link-card-content">
-            <h4>50 Trees donated to the Eden Reforestation Project</h4>
+            <h4><%= @community&.eden_reforestation_trees %> Trees donated to the Eden Reforestation Project</h4>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/DSUK_logo.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/sit_skis.jpg') %>');">
           </div>
           <div class="link-card-content">
-            <h4>£1,000 Donation from guest bookings and staff fundraising</h4>
+            <h4>£<%= @community&.donation %> Donation from guest bookings and staff fundraising</h4>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/SBP_logo.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/red_squirrel.jpg') %>');">
           </div>
           <div class="link-card-content">
-            <h4>1 Acre Area of land sponsored for rewilding</h4>
+            <h4><%= @community&.rewilding_sponsorship %> Acre Area of land sponsored for rewilding</h4>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="link-card-container">
-          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('green-tourism.jpg') %>');">
+          <div class="link-card-cloudinary" style="background-image: url('<%= image_path('community/private_forest.jpg') %>');">
           </div>
           <div class="link-card-content">
             <h4>Recipients of the Green Tourism Silver Award</h4>
@@ -102,13 +105,13 @@
       <div class="col-xs-12 col-sm-6 col-md-8">
         <p>SCOTLAND: The Big Picture is rewriting nature’s story, seeking to return abundance and diversity of life to Scotland’s land and seas, so that wildlife can flourish and people thrive.</p>
         <p>Be part of the conversation and make some noise. Share SCOTLAND: The Big Picture's rewilding stories, visit local rewilding initiatives, and gain a better understanding, or a new perspective.</p>
-        <p><strong>Seasgair are proud to:</strong></p>
+        <h5><strong>Seasgair are proud to:</strong></h5>
         <ul>
           <li>Sponsor local rewilding projects</li>
           <li>Make a donation each time a guest buys a Spa Pack</li>
           <li>Help raise awareness and share the story</li>
         </ul>
-        <p><strong>Be inspired, be involved. What you can do:</strong></p>
+        <h5>Be inspired, be involved. What <strong>you</strong> can do:</h5>
         <ul>
           <li>Download and enjoy <%= link_to 'Pinelands', 'https://www.scotlandbigpicture.com/Store/ebooks/ebook-pinelands', target: :_blank, class: 'green-link' %>, a book packed full of stunning photography and powerful images of Scottish nature</li>
           <li>Watch the <%= link_to 'Scottish Rewilding Alliance animation', 'https://www.youtube.com/watch?v=ZR2sPQHUt_4', target: :_blank, class: 'green-link' %>
@@ -127,15 +130,15 @@
     </div>
     <div class="col-xs-12 col-sm-8">
       <p>‘When I became disabled my whole world changed. I needed something that would make me feel alive again, something that would make me feel the blood pumping around my body and give me the thrill that I needed in my life. Thank you DSUK!’ Claire, Adaptive Skier</p>
-      <p>At DSUK we believe that taking part in adaptive snowsport has the power to transform a person’s relationship with not just their disability, but with all aspects of their lives. We believe that all people have the right to access the unique physical, mental, and social benefits of snowsport, regardless of disability, injury, or experience.</p>
-      <p>Our fantastic team of instructors, volunteers and members shows that DSUK really does change lives of disabled communities and their families.</p>
-      <p><strong>Seasgair are proud to:</strong></p>
+      <p>DSUK believe that taking part in adaptive snowsport has the power to transform a person’s relationship with not just their disability, but with all aspects of their lives. DSUK believe that all people have the right to access the unique physical, mental, and social benefits of snowsport, regardless of disability, injury, or experience.</p>
+      <p>Their fantastic team of instructors, volunteers and members shows that DSUK really does change lives of disabled communities and their families.</p>
+      <h5><strong>Seasgair are proud to:</strong></h5>
       <ul>
         <li>Make a donation from each guest booking</li>
         <li>Cheer Judith on, as she raced the Strathspey Steam train</li>
         <li>Raise funds by climbing Ben Nevis and taking part in the Aviemore Santa Run with our families</li>
       </ul>
-      <p><strong>Be inspired, be involved. What you can do:</strong></p>
+      <h5>Be inspired, be involved. What <strong>you</strong> can do:</h5>
       <ul>
         <li>Find out more about DSUK’s work and exciting fundraising opportunities. Contact the team at <a href="mailto:fundraising@disabilitysnowsport.org.uk" class="green-link">fundraising@disabilitysnowsport.org.uk</a></li>
       </ul>
@@ -161,12 +164,12 @@
         <p><%= link_to 'Save The Planet Academy', 'https://www.savetheplanet.academy', target: :_blank, class: 'green-link' %> is an eco enterprise with a vision of creating a children’s forest. The website was created by Crieff based 10 year old Brandon Delaney in response to a school entrepreneur assignment.</p>
         <p>The website challenges schools, organisations and individuals to either buy eco-friendly products from the site which fund tree planting, or to plant trees themselves - at home, at school or in the community. The trees planted are logged on site and you can watch the Children’s Forest grow.</p>
         <p>The school educational programme empowers children to be ‘hands on’ and take action by sowing, planting and visiting trees. It also provides a wider focus around environmental, community and climate issues.</p>
-        <p><strong>Seasgair are proud to:</strong></p>
+        <h5><strong>Seasgair are proud to:</strong></h5>
         <ul>
-          <li>Make a donation from each guest booking</li>
-          <li>Encourage and help lodge owners to plant trees</li>
+          <li>Make a donation from each guest booking to fund two projects - Children's Forest (UK) and the Eden Reforestation Project working in Kenya</li>
+          <li>Encourage everyone to be proactive and plant trees</li>
         </ul>
-        <p><strong>Be inspired, be involved. What you can do:</strong></p>
+        <h5>Be inspired, be involved. What <strong>you</strong> can do:</h5>
         <ul>
           <li>Work together for a brighter future, take a look at the website and Facebook Page</li>
           <li>Make a difference, plant a tree at home. Map it on the website and watch the Children’s Forest grow</li>
@@ -188,6 +191,10 @@
           <h3 class="text-center" style="padding-right: 20px;">Be inspired, be involved, join our</h3>
           <div class="center-block">
             <%= image_tag("community/seasgair_community.png", width: "180", style: 'padding-top: 20px;') %>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/seasgaircommunity/" target="blank"><%= fa_icon "facebook" %></a>
+              <a href="https://www.instagram.com/seasgaircommunity/" target="blank"><%= fa_icon "instagram" %></a>
+            </div>
           </div>
         </div>
       </div>
@@ -198,7 +205,8 @@
   <div class="row">
     <div class="col-xs-12">
       <h4>Sustainability</h4>
-      <p>Within both our business and everyday lives we seek to make minimal impact through careful management of our actions. We use recycled products where possible, conserve energy and water use, ensure efficient local travel, reduce waste and recycle. We support the local economy - using services and suppliers with a similar ethos.</p>
+      <p>Our team love living and working locally, enjoying the mountains, lochs, woodland and forests. Within both our business and everyday lives we seek to make minimal impact through careful management of our actions. We use recycled products where possible, conserve energy and water use, ensure efficient local travel, reduce waste and recycle.</p>
+      <p>We support the local economy - using services and suppliers with a similar ethos. We promote wonderful local products made by artisan producers, showcasing these in our guest Welcome Packs. We encourage guests to shop locally and experience service underpinned by local pride and knowledge.</p>
       <p>Many of our lodges have wildlife feeders, attracting native species including red squirrel and pine marten, alongside information for guests about the ecology of the area.</p>
 
       <h4>Electric Vehicle Charging Stations</h4>

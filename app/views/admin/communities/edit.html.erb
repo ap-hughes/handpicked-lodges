@@ -1,0 +1,14 @@
+<div class="container text-center">
+  <h2>Edit Community Information</h2>
+</div>
+
+<%= simple_form_for ([:admin, @community]) do |f| %>
+  <%= f.input :childrens_forest_trees, label: "Trees planted by Children's Forest", placeholder: "e.g. 5,000" %>
+  <%= f.input :seasgair_trees, label: "Trees planted in guest gardens or Seasgair lodges", placeholder: "e.g. 5,000" %>
+  <%= f.input :eden_reforestation_trees, label: "Trees donated to the Eden Reforestation Project", placeholder: "e.g. 5,000" %>
+  <%= f.input :donation, label: "£ Donation from guest bookings and staff fundraising", placeholder: "e.g. 5,000" %>
+  <%= f.input :rewilding_sponsorship, label: "Acre Area of land sponsored for rewilding", placeholder: "e.g. 5,000" %>
+  <%= f.submit "Submit", class: "btn btn-success" %>
+<% end %>
+
+

@@ -1,9 +1,11 @@
 <% content_for :meta_title, @page&.meta_title %>
 <% content_for :meta_description, @page&.meta_description %>
 <div id="wrap">
-  <%= image_tag('banner-1.jpg') %>
-  <%= image_tag('banner-3.jpg') %>
-  <%= image_tag('banner-5.jpg') %>
+  <div id="image-cycler">
+    <%= image_tag('banner-1.jpg') %>
+    <%= image_tag('banner-3.jpg') %>
+    <%= image_tag('banner-5.jpg') %>
+  </div>
   <div id="home-header" class="header-text">
     <div class="container">
       <div class="row">
@@ -147,13 +149,14 @@
       <div class="col-xs-12">
         <h3 class="text-center">As seen in</h3>
         <div class="flex-between">
-          <%= image_tag("media/hood-magazine.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/hood-magazine.png", width: "110", class: 'flex-padding') %>
           <%= image_tag("media/insider.png", width: "120", class: 'flex-padding') %>
-          <%= image_tag("media/the-times-logo.png", width: "150", class: 'flex-padding') %>
-          <%= image_tag("media/The-Scotsman-logo.jpg", width: "200", class: 'flex-padding') %>
+          <%= image_tag("media/the-times-logo.png", width: "140", class: 'flex-padding') %>
+          <%= image_tag("media/The-Scotsman-logo.jpg", width: "170", class: 'flex-padding') %>
           <%= image_tag("media/The-Herald.jpg", width: "150", class: 'flex-padding') %>
           <%= image_tag("media/scottish-field.jpg", width: "120", class: 'flex-padding') %>
           <%= image_tag("media/StrathspeyHerald.png", width: "120", class: 'flex-padding') %>
+          <%= image_tag("media/scotland_on_sunday_logo.jpg", width: "180", class: 'flex-padding') %>
         </div>
       </div>
     </div>

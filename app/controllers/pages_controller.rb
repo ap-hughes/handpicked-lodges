@@ -33,6 +33,11 @@ class PagesController < ApplicationController
   end
   def cookies
   end
+
+  def sustainability
+    @community = Community.first
+  end
+
   def sustainability_policy
   end
 
